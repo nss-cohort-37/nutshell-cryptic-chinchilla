@@ -7,7 +7,7 @@ export const getMessages = () => fetch("http://localhost:3000/messages?_expand=u
     .then(paresedMessages => messages = paresedMessages)
 
 export const editMessage = message => {
-    return fetch(`http://localhost:8000/messages/${message.id}`, {
+    return fetch(`http://localhost:3000/messages/${message.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const editMessage = message => {
 }
 
 export const saveMessage = message => {    
-    fetch('http://localhost:8000/messages', {
+    fetch('http://localhost:3000/messages', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
