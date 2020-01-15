@@ -1,4 +1,4 @@
-const MessageComponent = (message) => {
+export const MessageComponent = (message) => {
     
     return `
         <section class="message">
@@ -11,5 +11,3 @@ const MessageComponent = (message) => {
         </section>
     `
 }
-
-export default CriminalComponent
