@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Steve",
+      "email": "steve@me.com"
+    },
+    {
+      "id": 2,
+      "username": "Mo",
+      "email": "mo@me.com"
+    },
+    {
+      "id": 3,
+      "username": "Leah",
+      "email": "leah@me.com"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "userId": 2,
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Wormholes Allow Information to Escape Black Holes",
+      "synopsis": "Check out this recent discovery about workholes"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Flat Earth",
+      "synopsis": "The Earth is flat."
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Concave Theories",
+      "date": "01-01-2021",
+      "location": "Area 51"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "NASA Lies",
+      "date": "02-02-2021",
+      "location": "Ice Wall"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Question everything",
+      "completionDate": "01-01-2021"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Deny moon landing",
+      "completionDate": "02-02-2021"
+    }
+  ],
+  "messages":[
+    { "id": 1,
+      "userId": 1, 
+      "message": "What's up?" 
+    },
+    { "id": 2,
+      "userId": 3, 
+      "message": "Meet me at the Ice Wall tomorrow?" 
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "friendInitiateId": 1,
+      "userId": 2,
+      "active": true
+    },
+    {
+      "id": 2,
+      "friendInitiateId": 2,
+      "userId": 3,
+      "active": true
+    }
+  ]
+}
