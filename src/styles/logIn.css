@@ -1,0 +1,12 @@
+.logInForm{
+  justify-content: center;
+  text-align: center;
+  margin: 10%;
+}
+
+.logInUserContainer{
+  margin: 5px;
+}
+.logInPassContainer{
+  margin: 5px;
+}
