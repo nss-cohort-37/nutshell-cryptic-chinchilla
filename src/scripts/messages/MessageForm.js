@@ -12,3 +12,10 @@ export const MessageForm = message => {
     </section>
   `;
 };
+
+const message = new CustomEvent("messageSent", {
+  detail: {
+      messageId: document.querySelector.startsWith("saveMessage").split("--")[1]
+  }
+})
+eventHub.dispatchEvent(message)
