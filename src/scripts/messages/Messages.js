@@ -1,11 +1,10 @@
 export const MessageComponent = (message) => {
-    
     return `
         <section class="message">
             <div class="messageUsername">
-                ${message.user.username}: 
+                ${message.user.userName}: 
             </div>
-            <div class="messageContent>
+            <div class="messageContent">
                 ${message.message}
             </div>
             <div class="messageEditButton">
