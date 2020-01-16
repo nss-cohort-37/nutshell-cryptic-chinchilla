@@ -22,14 +22,16 @@
       "userId": 2,
       "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
       "title": "Wormholes Allow Information to Escape Black Holes",
-      "synopsis": "Check out this recent discovery about workholes"
+      "synopsis": "Check out this recent discovery about workholes",
+      "date": "01-01-2020"
     },
     {
       "id": 2,
       "userId": 1,
       "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
       "title": "Flat Earth",
-      "synopsis": "The Earth is flat."
+      "synopsis": "The Earth is flat.",
+      "date": "01-02-2020"
     }
   ],
   "events": [
