@@ -15,7 +15,21 @@ export const logInForm = () => {
     <button id="button--logIn">Log In/Register</button>
   </div>
   `
+}
 
-eventHub.addEventListener()
+export const logInEvent = () => {
+eventHub.addEventListener("click", event => {
+  if (event.target.id === "button--logIn") {
+    const userNameValue = document.querySelector(".logInUser").value
+    const userPassValue = document.querySelector(".logInPass").value
+    const message = new CustomEvent("logInButtonClicked", {
+      detail: {
+        userName: userNameValue,
+        userPass = userPassValue
+      }
+    })
+    eventHub.dispatchEvent(message)
+  }
+})
 
 }
