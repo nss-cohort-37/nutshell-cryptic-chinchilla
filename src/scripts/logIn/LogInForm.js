@@ -10,26 +10,20 @@ export const logInForm = () => {
   </div>
   <div class="logInPassContainer"> 
     <label for="logInPass">Password:</label>
-    <input type="text" class="logInPass" name="logInPass">
+    <input type="password" class="logInPass" name="logInPass">
     <br>
-    <button id="button--logIn">Log In/Register</button>
+    <div class="logInButtons">
+      <button id="button--logIn">Log In</button>
+      <button id="button--register">Register</button>
+    </div>
   </div>
   `
 }
 
 export const logInEvent = () => {
-eventHub.addEventListener("click", event => {
-  if (event.target.id === "button--logIn") {
-    const userNameValue = document.querySelector(".logInUser").value
-    const userPassValue = document.querySelector(".logInPass").value
-    const message = new CustomEvent("logInButtonClicked", {
-      detail: {
-        userName: userNameValue,
-        userPass = userPassValue
-      }
-    })
-    eventHub.dispatchEvent(message)
-  }
-})
+  eventHub.addEventListener("click", event => {
+    if (event.target.id === "button--register") {
 
+    }
+  })
 }
