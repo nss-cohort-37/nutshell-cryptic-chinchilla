@@ -17,42 +17,6 @@
       "userName": "Leah",
       "email": "leah@me.com",
       "password": 123
-    },
-    {
-      "userName": "test1",
-      "email": "test1",
-      "password": "123",
-      "id": 4
-    },
-    {
-      "userName": "1",
-      "email": "1",
-      "password": "1",
-      "id": 5
-    },
-    {
-      "userName": "2",
-      "email": "2",
-      "password": "2",
-      "id": 6
-    },
-    {
-      "userName": "audry",
-      "email": "asdfasd",
-      "password": "asdf",
-      "id": 7
-    },
-    {
-      "userName": "james",
-      "email": "james",
-      "password": "james",
-      "id": 8
-    },
-    {
-      "userName": "work",
-      "email": "please",
-      "password": "1",
-      "id": 9
     }
   ],
   "news": [

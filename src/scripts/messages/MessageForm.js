@@ -1,13 +1,13 @@
-export const MessageForm = message => {
+export const MessageForm = () => {
   return `
     <section class="messageFormCard">
       <fieldset>
         <form class="messageForm">
           <div class="messageFormInfo">
-            Message: <textarea id="messageForm" type="text" placeholder="Please enter message....."></textarea>
+            Message: <br><textarea id="messageForm" type="text" placeholder="Please enter message....."></textarea>
           </div>
         </form>
-        <button id="saveMessage--${message.id}" class="saveMessageBtn">Save Message</button>
+        <button id="saveMessage" class="saveMessageBtn">Save Message</button>
       </fieldset>
     </section>
   `;
