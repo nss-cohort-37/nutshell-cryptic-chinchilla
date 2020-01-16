@@ -1,8 +1,7 @@
-@import './logIn.css';
-@import './messages.css';
+
 
 .navbar-inverse{
-  background-color: #484343;
+  background-color: #222;
   border-color: #080808
 }
 
