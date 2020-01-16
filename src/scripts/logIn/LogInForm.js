@@ -41,7 +41,9 @@ export const logInEvent = () => {
           <input type="password" class="registerPass" name="registerPass">
         </div>
         <br>
-        <button id="button--saveUser">Register</button>
+        <form action="dashboard.html">
+          <button id="button--saveUser">Register</button>
+        </form>
       `
     }
 
@@ -54,6 +56,7 @@ export const logInEvent = () => {
       } else {
         sessionStorage.setItem("activeUser", foundUser.id)
         console.log(sessionStorage.getItem("activeUser"))
+        window.location.replace("dashboard.html")
       }
     }
 

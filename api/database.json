@@ -53,6 +53,18 @@
       "email": "please",
       "password": "1",
       "id": 9
+    },
+    {
+      "userName": "abc123",
+      "email": "abc123@gmail.com",
+      "password": "password",
+      "id": 10
+    },
+    {
+      "userName": "abc123",
+      "email": "abc123@gmail.com",
+      "password": "password",
+      "id": 11
     }
   ],
   "news": [
@@ -113,6 +125,41 @@
       "id": 2,
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
+    },
+    {
+      "userId": "10",
+      "message": "test",
+      "id": 3
+    },
+    {
+      "userId": "10",
+      "message": "test",
+      "id": 4
+    },
+    {
+      "userId": "10",
+      "message": "test2",
+      "id": 5
+    },
+    {
+      "userId": "10",
+      "message": "test3",
+      "id": 6
+    },
+    {
+      "userId": "10",
+      "message": "please work",
+      "id": 7
+    },
+    {
+      "userId": "10",
+      "message": "test1234",
+      "id": 8
+    },
+    {
+      "userId": "10",
+      "message": "it works!",
+      "id": 9
     }
   ],
   "friends": [

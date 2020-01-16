@@ -10,27 +10,6 @@ export const MessageList = () => {
     const messages = useMessages()
     const userId = sessionStorage.getItem("activeUser")
 
-    eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.classList.contains("saveMessage")) {
-            let messageUserId = userId
-            let messageText = document.getElementById("messageForm").value
-
-            let newMessage = {
-                userId: messageUserId,
-                message: messageText
-            }
-
-            const sentMessage = new CustomEvent("messageSent", {
-                detail: {
-                    wasMessageSent: "Yes"
-                }
-            })
-
-            saveMessage(message)
-                .then(() => eventHub.dispatchEvent(sentMessage))
-        }
-    })
-
     eventHub.addEventListener("messageSent", messageEvent => {
         const sentStatus = messageEvent.detail.wasMessageSent
         if (sentStatus === "yes") {
@@ -44,7 +23,7 @@ export const MessageList = () => {
         }
     })
 
-    const render = () => {
+    const render = (messages) => {
         contentTarget.innerHTML = messages.map(message => {
             // Get HTML representation of product
             const html = MessageComponent(message)
@@ -53,11 +32,30 @@ export const MessageList = () => {
         }).join("")
     }
 
+    eventHub.addEventListener("click", clickEvent => {
+        if (clickEvent.target.classList.contains("saveMessageBtn")) {
+            debugger
+            let messageUserId = userId
+            let messageText = document.getElementById("messageForm").value
+
+            let newMessage = {
+                userId: messageUserId,
+                message: messageText
+            }
+
+            saveMessage(newMessage)
+                .then(() => {
+                    const updatedMessages = useMessages()
+                    render(updatedMessages)
+                })
+        }
+    })
+
     const renderForm = () => {
         formTarget.innerHTML = MessageForm()
     }
 
-    render()
+    render(messages)
     renderForm()
 }
 
