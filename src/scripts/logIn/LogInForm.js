@@ -1,3 +1,5 @@
+const eventHub = document.querySelector(".container")
+
 export const logInForm = () => {
   return `
   <h1>Welcome!</h1>
@@ -13,4 +15,7 @@ export const logInForm = () => {
     <button id="button--logIn">Log In/Register</button>
   </div>
   `
+
+eventHub.addEventListener()
+
 }
