@@ -2,18 +2,57 @@
   "users": [
     {
       "id": 1,
-      "username": "Steve",
-      "email": "steve@me.com"
+      "userName": "Steve",
+      "email": "steve@me.com",
+      "password": 123
     },
     {
       "id": 2,
-      "username": "Mo",
-      "email": "mo@me.com"
+      "userName": "Mo",
+      "email": "mo@me.com",
+      "password": 123
     },
     {
       "id": 3,
-      "username": "Leah",
-      "email": "leah@me.com"
+      "userName": "Leah",
+      "email": "leah@me.com",
+      "password": 123
+    },
+    {
+      "userName": "test1",
+      "email": "test1",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "userName": "1",
+      "email": "1",
+      "password": "1",
+      "id": 5
+    },
+    {
+      "userName": "2",
+      "email": "2",
+      "password": "2",
+      "id": 6
+    },
+    {
+      "userName": "audry",
+      "email": "asdfasd",
+      "password": "asdf",
+      "id": 7
+    },
+    {
+      "userName": "james",
+      "email": "james",
+      "password": "james",
+      "id": 8
+    },
+    {
+      "userName": "work",
+      "email": "please",
+      "password": "1",
+      "id": 9
     }
   ],
   "news": [
@@ -64,14 +103,16 @@
       "completionDate": "02-02-2021"
     }
   ],
-  "messages":[
-    { "id": 1,
-      "userId": 1, 
-      "message": "What's up?" 
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "message": "What's up?"
     },
-    { "id": 2,
-      "userId": 3, 
-      "message": "Meet me at the Ice Wall tomorrow?" 
+    {
+      "id": 2,
+      "userId": 3,
+      "message": "Meet me at the Ice Wall tomorrow?"
     }
   ],
   "friends": [

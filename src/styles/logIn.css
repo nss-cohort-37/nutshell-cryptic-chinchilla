@@ -10,3 +10,18 @@
 .logInPassContainer{
   margin: 5px;
 }
+
+.logInButtons{
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  margin: 5px;
+}
+
+#button--register{
+  margin: 5px;
+}
+#button--logIn{
+  margin: 5px;
+}
+
