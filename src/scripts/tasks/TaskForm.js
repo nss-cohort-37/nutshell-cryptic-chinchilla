@@ -7,7 +7,7 @@ export const TaskForm = task => {
           Task: <input id="task-name" type="text" placeholder="Please enter task.....">
         </div>
         <div class="taskFormInfo">
-          Date: <input id="task-date" type="date">
+          Completion Date: <input id="task-date" type="date">
         </div>
         </form>
         <button id="saveTask--${task.id}" class="saveTaskBtn">Save Task</button>
