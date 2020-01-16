@@ -1,6 +1,6 @@
-import { saveUser, useUsers } from "../users/UsersProvider.js"
+import { saveUser, useUsers } from "../users/UsersProvider.js";
 
-const eventHub = document.querySelector(".container")
+const eventHub = document.querySelector(".container");
 
 export const logInForm = () => {
   return `
@@ -19,13 +19,13 @@ export const logInForm = () => {
       <button id="button--logIn">Log In</button>
       <button id="button--register">Register</button>
     </div>
-  `
-}
+  `;
+};
 
 export const logInEvent = () => {
   eventHub.addEventListener("click", event => {
     if (event.target.id === "button--register") {
-      const contentTarget = document.querySelector(".logInForm")
+      const contentTarget = document.querySelector(".logInForm");
       contentTarget.innerHTML = `
         <h3>Please Register</h3>
         <div class="registerUserContainer">
@@ -41,45 +41,51 @@ export const logInEvent = () => {
           <input type="password" class="registerPass" name="registerPass">
         </div>
         <br>
-        <form action="dashboard.html">
           <button id="button--saveUser">Register</button>
-        </form>
-      `
+      `;
     }
 
     if (event.target.id === "button--logIn") {
-      const users = useUsers()
-      const userName = document.querySelector(".logInUser").value
-      const foundUser = users.find(user => user.userName === userName)
+      const users = useUsers();
+      const userName = document.querySelector(".logInUser").value;
+      const foundUser = users.find(user => user.userName === userName);
       if (foundUser === undefined) {
-        alert("Please register a new Account")
+        alert("Please register a new Account");
       } else {
-        sessionStorage.setItem("activeUser", foundUser.id)
-        console.log(sessionStorage.getItem("activeUser"))
-        window.location.replace("dashboard.html")
+        if (sessionStorage.hasOwnProperty("activeUser")) {
+          sessionStorage.removeItem("activeUser");
+        }
+        sessionStorage.setItem("activeUser", foundUser.id);
+        console.log(sessionStorage.getItem("activeUser"));
+        window.location.replace("dashboard.html");
       }
     }
 
     if (event.target.id === "button--saveUser") {
-      let userNameValue = document.querySelector(".registerUser").value
-      let emailValue = document.querySelector(".registerEmail").value
-      let passwordValue = document.querySelector(".registerPass").value
-      if(userNameValue === "" || emailValue === "" || passwordValue ==="") {
-          alert("Please fill out all Fields")
-       } else {
-      const newUser = {
-        userName: userNameValue,
-        email: emailValue,
-        password: passwordValue
+      let userNameValue = document.querySelector(".registerUser").value;
+      let emailValue = document.querySelector(".registerEmail").value;
+      let passwordValue = document.querySelector(".registerPass").value;
+      if (userNameValue === "" || emailValue === "" || passwordValue === "") {
+        alert("Please fill out all Fields");
+      } else {
+        const newUser = {
+          userName: userNameValue,
+          email: emailValue,
+          password: passwordValue
+        };
+        console.log(newUser);
+        saveUser(newUser).then(() => {
+          console.log("potato");
+          const users = useUsers();
+          const foundUser = users.find(user => user.userName === userNameValue);
+          // if (sessionStorage.hasOwnProperty("activeUser")) {
+          //   sessionStorage.removeItem("activeUser")
+          // }
+          sessionStorage.setItem("activeUser", foundUser.id);
+          console.log(sessionStorage.getItem("activeUser"));
+          window.location.replace("dashboard.html");
+        });
       }
-      console.log(newUser)
-      saveUser(newUser).then( () => {
-        const users = useUsers()
-        const foundUser = users.find(user => user.userName === userNameValue)
-        sessionStorage.setItem("activeUser", foundUser.id)
-        window.location.replace("dashboard.html")
-      })
-  }
-  }
-  })
-}
+    }
+  });
+};

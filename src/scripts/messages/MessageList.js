@@ -38,7 +38,7 @@ export const MessageList = () => {
 
     eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.classList.contains("saveMessageBtn")) {
-            let messageUserId = userId
+            let messageUserId = parseInt(userId, 10)
             let messageText = document.getElementById("messageForm").value
 
             let newMessage = {
