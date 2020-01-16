@@ -32,9 +32,12 @@ export const MessageList = () => {
         }).join("")
     }
 
+    const renderForm = () => {
+        formTarget.innerHTML = MessageForm()
+    }
+
     eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.classList.contains("saveMessageBtn")) {
-            debugger
             let messageUserId = userId
             let messageText = document.getElementById("messageForm").value
 
@@ -47,13 +50,11 @@ export const MessageList = () => {
                 .then(() => {
                     const updatedMessages = useMessages()
                     render(updatedMessages)
+                    renderForm()
+                    
                 })
         }
     })
-
-    const renderForm = () => {
-        formTarget.innerHTML = MessageForm()
-    }
 
     render(messages)
     renderForm()

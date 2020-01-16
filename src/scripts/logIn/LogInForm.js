@@ -77,6 +77,7 @@ export const logInEvent = () => {
         const users = useUsers()
         const foundUser = users.find(user => user.userName === userNameValue)
         sessionStorage.setItem("activeUser", foundUser.id)
+        window.location.replace("dashboard.html")
       })
   }
   }

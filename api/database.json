@@ -160,6 +160,16 @@
       "userId": "10",
       "message": "it works!",
       "id": 9
+    },
+    {
+      "userId": "1",
+      "message": "Rerender form",
+      "id": 10
+    },
+    {
+      "userId": "1",
+      "message": "Need to scroll",
+      "id": 11
     }
   ],
   "friends": [
