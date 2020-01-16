@@ -4,7 +4,7 @@ import { MessageForm } from "./MessageForm.js"
 
 const contentTarget = document.querySelector(".messagesContainer")
 const formTarget = document.querySelector(".messagesForm")
-const eventHub = document.querySelector('.appContainer')
+const eventHub = document.querySelector('.container')
 
 export const MessageList = () => {
     const messages = useMessages()
