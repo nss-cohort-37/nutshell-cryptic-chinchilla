@@ -62,16 +62,30 @@
       "userId": 2,
       "name": "Deny moon landing",
       "completionDate": "02-02-2021"
+    },
+    {
+      "userId": 3,
+      "name": "Test ",
+      "completionDate": "2020-01-16",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "name": "Test 2",
+      "completionDate": "2020-01-16",
+      "id": 4
     }
   ],
-  "messages":[
-    { "id": 1,
-      "userId": 1, 
-      "message": "What's up?" 
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "message": "What's up?"
     },
-    { "id": 2,
-      "userId": 3, 
-      "message": "Meet me at the Ice Wall tomorrow?" 
+    {
+      "id": 2,
+      "userId": 3,
+      "message": "Meet me at the Ice Wall tomorrow?"
     }
   ],
   "friends": [

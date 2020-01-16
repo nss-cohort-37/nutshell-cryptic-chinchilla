@@ -1,7 +1,8 @@
-export const TaskForm = task => {
+export const TaskForm = () => {
   return `
     <section class="taskFormCard">
       <fieldset>
+      <input id="hidden-value" type="hidden">
         <form class="taskForm">
         <div class="taskFormInfo">
           Task: <input id="task-name" type="text" placeholder="Please enter task.....">
@@ -10,7 +11,7 @@ export const TaskForm = task => {
           Completion Date: <input id="task-date" type="date">
         </div>
         </form>
-        <button id="saveTask--${task.id}" class="saveTaskBtn">Save Task</button>
+        <button id="saveTask--" class="saveTaskBtn btn btn-primary">Save Task</button>
       </fieldset>
     </section>
   `;
