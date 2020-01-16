@@ -1,5 +1,9 @@
 import { logInList } from "./logIn/LogInList.js";
 import { logInEvent } from "./logIn/LogInForm.js";
+import { getUsers } from "./users/UsersProvider.js";
 
-logInList()
-logInEvent()
+getUsers().then( () => {
+  logInList()
+  logInEvent()
+}
+)

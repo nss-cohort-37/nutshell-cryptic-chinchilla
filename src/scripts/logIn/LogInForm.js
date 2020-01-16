@@ -1,4 +1,4 @@
-import { saveUser } from "../users/UsersProvider.js"
+import { saveUser, useUsers } from "../users/UsersProvider.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -45,6 +45,18 @@ export const logInEvent = () => {
       `
     }
 
+    if (event.target.id === "button--logIn") {
+      const users = useUsers()
+      const userName = document.querySelector(".logInUser").value
+      const foundUser = users.find(user => user.userName === userName)
+      if (foundUser === undefined) {
+        alert("Please register a new Account")
+      } else {
+        sessionStorage.setItem("activeUser", foundUser.id)
+        console.log(sessionStorage.getItem("activeUser"))
+      }
+    }
+
     if (event.target.id === "button--saveUser") {
       let userNameValue = document.querySelector(".registerUser").value
       let emailValue = document.querySelector(".registerEmail").value
@@ -58,7 +70,11 @@ export const logInEvent = () => {
         password: passwordValue
       }
       console.log(newUser)
-      saveUser(newUser)
+      saveUser(newUser).then( () => {
+        const users = useUsers()
+        const foundUser = users.find(user => user.userName === userNameValue)
+        sessionStorage.setItem("activeUser", foundUser.id)
+      })
   }
   }
   })
