@@ -2,18 +2,21 @@
   "users": [
     {
       "id": 1,
-      "username": "Steve",
-      "email": "steve@me.com"
+      "userName": "Steve",
+      "email": "steve@me.com",
+      "password": 123
     },
     {
       "id": 2,
-      "username": "Mo",
-      "email": "mo@me.com"
+      "userName": "Mo",
+      "email": "mo@me.com",
+      "password": 123
     },
     {
       "id": 3,
-      "username": "Leah",
-      "email": "leah@me.com"
+      "userName": "Leah",
+      "email": "leah@me.com",
+      "password": 123
     }
   ],
   "news": [

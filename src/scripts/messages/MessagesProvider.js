@@ -18,7 +18,7 @@ export const editMessage = message => {
 }
 
 export const saveMessage = message => {    
-    fetch('http://localhost:3000/messages', {
+    return fetch('http://localhost:3000/messages', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
