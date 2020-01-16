@@ -1,0 +1,19 @@
+export const NewsForm = () => {
+    return `
+    <dialog class="newsDialog">
+        <div class="newsTitle">
+            <label for="newsTitleText">Article title: </label>
+            <input type="text" id="newsTitleText"></input>
+        </div>
+        <div class="newsSynopsis">
+            <label for="newsSynopsisText">Article synopsis: </label>
+            <input type="text" id="newsSynopsisText"></input>
+        </div>
+        <div class="newsURL">
+            <label for="newsURLText">Article URL: </label>
+            <input type="text" id="newsURLText"></input>
+        </div>
+        <button class="closeDialog">Save Article</button>
+    </dialog>
+    `
+}
