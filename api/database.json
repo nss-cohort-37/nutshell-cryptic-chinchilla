@@ -3,17 +3,20 @@
     {
       "id": 1,
       "username": "Steve",
-      "email": "steve@me.com"
+      "email": "steve@me.com",
+      "password": 123
     },
     {
       "id": 2,
       "username": "Mo",
-      "email": "mo@me.com"
+      "email": "mo@me.com",
+      "password": 123
     },
     {
       "id": 3,
       "username": "Leah",
-      "email": "leah@me.com"
+      "email": "leah@me.com",
+      "password": 123
     }
   ],
   "news": [
@@ -62,14 +65,16 @@
       "completionDate": "02-02-2021"
     }
   ],
-  "messages":[
-    { "id": 1,
-      "userId": 1, 
-      "message": "What's up?" 
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "message": "What's up?"
     },
-    { "id": 2,
-      "userId": 3, 
-      "message": "Meet me at the Ice Wall tomorrow?" 
+    {
+      "id": 2,
+      "userId": 3,
+      "message": "Meet me at the Ice Wall tomorrow?"
     }
   ],
   "friends": [

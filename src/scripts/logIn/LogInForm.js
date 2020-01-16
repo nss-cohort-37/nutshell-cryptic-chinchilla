@@ -1,3 +1,5 @@
+import { saveUser } from "../users/UsersProvider.js"
+
 const eventHub = document.querySelector(".container")
 
 export const logInForm = () => {
@@ -12,18 +14,52 @@ export const logInForm = () => {
     <label for="logInPass">Password:</label>
     <input type="password" class="logInPass" name="logInPass">
     <br>
+    </div>
     <div class="logInButtons">
       <button id="button--logIn">Log In</button>
       <button id="button--register">Register</button>
     </div>
-  </div>
   `
 }
 
 export const logInEvent = () => {
   eventHub.addEventListener("click", event => {
     if (event.target.id === "button--register") {
-
+      const contentTarget = document.querySelector(".logInForm")
+      contentTarget.innerHTML = `
+        <h3>Please Register</h3>
+        <div class="registerUserContainer">
+          <label for="registerUser">User Name:</label>
+          <input type="text" class="registerUser" name="registerUser">  
+        </div>
+        <div class="registerEmailContainer">
+          <label for="registerEmail">Email:</label>
+          <input type="text" class="registerEmail" name="registerEmail">  
+        </div>
+        <div class="registerPassContainer"> 
+          <label for="registerPass">Password:</label>
+          <input type="password" class="registerPass" name="registerPass">
+        </div>
+        <br>
+        <button id="button--saveUser">Register</button>
+      `
     }
+
+    if (event.target.id === "button--saveUser") {
+      let userNameValue = document.querySelector(".registerUser").value
+      let emailValue = document.querySelector(".registerEmail").value
+      let passwordValue = document.querySelector(".registerPass").value
+      if(userNameValue === "" || emailValue === "" || passwordValue ==="") {
+          alert("Please fill out all Fields")
+       } else {
+      const newUser = {
+        userName: userNameValue,
+        email: emailValue,
+        password: passwordValue
+      }
+      console.log(newUser)
+      saveUser(newUser)
+  }
+  }
   })
 }
