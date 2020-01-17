@@ -6,3 +6,6 @@ getUsers()
 
 getEvents()
     .then(() => EventList())
+import { NavbarEventListener } from "./navbar/navbarList.js";
+
+NavbarEventListener()
