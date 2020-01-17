@@ -1,5 +1,4 @@
 import { useEvents, saveEvent } from "./EventProvider.js"
-import { useUsers } from "../users/UsersProvider.js"
 import { useFriends } from "./FriendsProvider.js"
 import { EventComponent } from "./Event.js"
 import { EventsForm } from "./EventForm.js"
@@ -90,7 +89,6 @@ export const EventList = () => {
     renderButton()
 
     eventHub.addEventListener("eventSaved", event => {
-        debugger
         if (event.detail.wasEventSaved === "yes") {
             const updatedEvents = useEvents()
             const updatedUsersEvents = updatedEvents.filter(

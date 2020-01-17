@@ -13,7 +13,7 @@ export const EventsForm = () => {
             <label for="eventLocationText">Event location: </label>
             <input type="text" id="eventLocationText"></input>
         </div>
-        <button id="closeEventDialog">Save Article</button>
+        <button id="closeEventDialog">Save event</button>
     </dialog>
     `
 }
