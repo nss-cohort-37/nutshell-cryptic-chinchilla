@@ -16,25 +16,26 @@ export const MessageForm = () => {
 export const editMessageListener = () => {
   const eventHub = document.querySelector(".container")
   eventHub.addEventListener("click", event => {
-      if (event.target.id.startsWith("editMessage--")) {
-          const [prefix, id] = event.target.id.split("--")
-          const editMessage = new CustomEvent("editMessageButtonClicked", {
-              detail: {
-                messageId: id
-              }
-            })
-            eventHub.dispatchEvent(editMessage)
-            const dialogSiblingSelector = `#${event.target.id}+dialog`
-            const theDialog = document.querySelector(dialogSiblingSelector)
-            theDialog.showModal()
-            
-      }
-      if (event.target.id.startsWith("saveEdit--")) {
-      const dialogElement = event.target.parentNode
-      console.log(dialogElement)
-      dialogElement.close()
-
-      }
+    if (event.target.id.startsWith("editMessage--")) {
+      const [prefix, id] = event.target.id.split("--")
+      const editMessage = new CustomEvent("editMessageButtonClicked", {
+        detail: {
+          messageId: id
+        }
+      })
+      eventHub.dispatchEvent(editMessage)
+    }
   })
+}
 
+export const editMessageDialog = () => {
+  const eventHub = document.querySelector(".container")
+  eventHub.addEventListener("click", event => {
+    if (event.target.id.startsWith("editMessage")) {
+      const [prefix, id] = event.target.id.split("--")
+      console.log(id)
+      const theDialog =document.querySelector(`#details--${id}`)
+      theDialog.showModal()
+    }
+  })
 }

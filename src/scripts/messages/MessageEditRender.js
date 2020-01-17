@@ -1,13 +1,10 @@
 export const messageEditRender = (messages) => {
-  debugger 
-  console.log(message.userId)
-  const content = document.querySelector(".editButtonContainer")
-    messages.map(message => {
+  messages.map(message => {
+    const contentTarget =  document.querySelector(`.editButtonContainer--${message.id}`)
     if (message.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
-      content.innerHTML = `
+      contentTarget.innerHTML = `
       <button id="editMessage--${message.id}">Edit Message</button>
       `
     }
   })
 }
-

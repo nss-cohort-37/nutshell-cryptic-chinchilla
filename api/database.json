@@ -76,68 +76,23 @@
   "messages": [
     {
       "id": 1,
-      "message": "This",
+      "message": "I am the ABYSS",
       "userId": 1
     },
     {
       "id": 3,
-      "message": "WorksW",
+      "message": "I HATE MYSELF I REALLY DO",
       "userId": 1
     },
     {
       "id": 4,
-      "message": "please",
+      "message": "YOYO",
       "userId": 2
     },
     {
-      "userId": 1,
-      "message": "f",
-      "id": 5
-    },
-    {
-      "id": 6,
-      "message": "pleasee",
+      "id": 5,
+      "message": "heyyy",
       "userId": 1
-    },
-    {
-      "userId": 2,
-      "message": "pleasee",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "message": "delete",
-      "userId": 1
-    },
-    {
-      "userId": 2,
-      "message": "yup",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "message": "yup",
-      "id": 10
-    },
-    {
-      "userId": 2,
-      "message": "yeaheee",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "message": "yeaheee",
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "message": "yeaheee",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "message": "sup cooer",
-      "id": 14
     }
   ],
   "friends": [

@@ -8,7 +8,6 @@ export const NavbarEventListener = () => {
 
   eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "logOut") {
-      debugger
       sessionStorage.clear();
       document.querySelector(".friendsContainer").innerHTML=""
       document.querySelector(".newsContainer").innerHTML=""

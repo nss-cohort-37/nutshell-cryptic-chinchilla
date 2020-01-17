@@ -1,6 +1,6 @@
 import { useMessages, saveMessage, editMessage } from "./MessagesProvider.js"
 import { MessageComponent } from "./Messages.js"
-import { MessageForm, editMessageListener } from "./MessageForm.js"
+import { MessageForm, editMessageListener, editMessageDialog } from "./MessageForm.js"
 import { messageEditRender } from "./MessageEditRender.js"
 
 const contentTarget = document.querySelector(".messagesContainer")
@@ -65,6 +65,7 @@ export const MessageList = () => {
           .then(() => {
               const updatedMessages = useMessages()
             render(updatedMessages)
+            messageEditRender(updatedMessages)
             renderForm()
         })
     }
@@ -95,4 +96,5 @@ eventHub.addEventListener("click", clickEvent => {
     renderForm()
     editMessageListener()
     messageEditRender(messages)
+    editMessageDialog()
 }
