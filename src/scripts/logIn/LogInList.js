@@ -7,6 +7,4 @@ export const logInList = () => {
   const users = useUsers()
   const contentTarget = document.querySelector(".logInForm")
   contentTarget.innerHTML = `${logInForm()}`
-  
-
 }

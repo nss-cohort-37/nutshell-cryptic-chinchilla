@@ -4,9 +4,10 @@ import { MessageForm } from "./MessageForm.js"
 
 const contentTarget = document.querySelector(".messagesContainer")
 const formTarget = document.querySelector(".messagesForm")
-const eventHub = document.querySelector('.appContainer')
+const eventHub = document.querySelector('.container')
 
 export const MessageList = () => {
+
     const messages = useMessages()
     const userId = sessionStorage.getItem("activeUser")
 
@@ -31,6 +32,8 @@ export const MessageList = () => {
             return html
         }).join("")
     }
+
+    
 
     const renderForm = () => {
         formTarget.innerHTML = MessageForm()
@@ -90,6 +93,5 @@ export const MessageList = () => {
 
     render(messages)
     renderForm()
+        
 }
-
-export default MessageList
