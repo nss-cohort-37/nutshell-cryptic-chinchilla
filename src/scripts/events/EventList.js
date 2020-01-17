@@ -1,15 +1,18 @@
 import { useEvents, saveEvent } from "./EventProvider.js"
 import { useUsers } from "../users/UsersProvider.js"
+import { useFriends } from "./FriendsProvider.js"
 import { EventComponent } from "./Event.js"
 import { EventsForm } from "./EventForm.js"
 
-const buttonTarget = document.querySelector(".addEventsButton")
 const contentTarget = document.querySelector(".eventsRenderArea")
+const formTarget = document.querySelector(".eventsFormArea")
 const eventHub = document.querySelector(".container")
 
 export const EventList = () => {
+
     const events = useEvents()
-    const users = useUsers()
+    const friends = useFriends()
+
     let currentUserId = parseInt(sessionStorage.getItem("activeUser"), 10)
 
     const usersEvents = events.filter(
@@ -18,30 +21,22 @@ export const EventList = () => {
     )
 
     let friendsEvents = []
-    users.map(user => {
-        if (user.id === currentUserId) {
-            user.friends.map(friend => {
-                events.filter(
-                    event => {
-                        if (event.userId === friend.friendInitiateId) {
-                            friendsEvents.push(event)
-                        }
+    friends.map(friend => {
+        if (friend.friendInitiateId === currentUserId) {
+            events.filter(
+                event => {
+                    if (event.userId === friend.user.id) {
+                        friendsEvents.push(event)
                     }
-                )
-            })
+                }
+            )
         }
     })
 
     const combinedArray = usersEvents.concat(friendsEvents)
 
-    const renderButton = () => {
-        buttonTarget.innerHTML = `
-        <button id="addEventButton">Add event</button>
-        `
-    }
-
-    const render = () => {
-        contentTarget.innerHTML = combinedArray.map(event => {
+    const render = (eventsArray) => {
+        contentTarget.innerHTML = eventsArray.map(event => {
             // Get HTML representation of product
             const html = EventComponent(event)
 
@@ -50,24 +45,23 @@ export const EventList = () => {
     }
 
     const renderForm = () => {
-        contentTarget.innerHTML = EventsForm()
+        formTarget.innerHTML = EventsForm()
     }
 
     eventHub.addEventListener("click", clickEvent => {
         if(clickEvent.target.id === "addEventButton") {
-            contentTarget.innerHTML = ""
-            renderForm()
-            contentTarget.showModal()
+        const dialogTarget = document.querySelector(".eventDialog")
+        dialogTarget.showModal()
         }
     })
 
     eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id === closeEventDialog) {
+        if (clickEvent.target.id === "closeEventDialog") {
             const newEvent = {
                 userId: currentUserId,
                 name: document.getElementById("eventTitleText").value,
                 date: document.getElementById("eventDateTime").value,
-                location: document.getElementById("eventLocation").vakue
+                location: document.getElementById("eventLocationText").value
             }
 
             const message = new CustomEvent("eventSaved", {
@@ -83,12 +77,45 @@ export const EventList = () => {
         }
     })
 
+    render(combinedArray)
+    renderForm()
+
+    const renderButton = () => {
+        const buttonTarget = document.querySelector(".addEventsButton")
+        buttonTarget.innerHTML = `
+        <button id="addEventButton">Add event</button>
+        `
+    }
+    
+    renderButton()
+
     eventHub.addEventListener("eventSaved", event => {
+        debugger
         if (event.detail.wasEventSaved === "yes") {
             const updatedEvents = useEvents()
+            const updatedUsersEvents = updatedEvents.filter(
+                event =>
+                    event.userId === currentUserId
+            )
+        
+            let updatedFriendsEvents = []
+            friends.map(friend => {
+                if (friend.friendInitiateId === currentUserId) {
+                    updatedEvents.filter(
+                        event => {
+                            if (event.userId === friend.user.id) {
+                                updatedFriendsEvents.push(event)
+                            }
+                        }
+                    )
+                }
+            })
+        
+            const updatedCombinedArray = updatedUsersEvents.concat(updatedFriendsEvents)
+            render(updatedCombinedArray)
+            renderButton()
+            const dialogTarget = document.querySelector(".eventDialog")
+            dialogTarget.close()
         }
     })
-
-    renderButton()
-    render()
 }

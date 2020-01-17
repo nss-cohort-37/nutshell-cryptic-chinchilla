@@ -1,11 +1,11 @@
-import { MessageList } from "./MessageList.js"
+import { EventList } from "./EventList.js"
 
 const eventHub = document.querySelector('.container')
 
-export const MessageEventListener = () => {
+export const EventsEventListener = () => {
     eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.id === "button--logIn") {
-            MessageList()
+            EventList()
         }
     })
 }

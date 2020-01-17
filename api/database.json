@@ -58,6 +58,20 @@
       "name": "Point a Laser Pointer Across the Earth",
       "date": "02-02-2021",
       "location": "Center of the Universe"
+    },
+    {
+      "userId": 1,
+      "name": "Debunk the lies",
+      "date": "2100-12-31T00:00",
+      "location": "My basement",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "name": "test",
+      "date": "2022-12-12T00:12",
+      "location": "test",
+      "id": 5
     }
   ],
   "tasks": [
@@ -94,7 +108,13 @@
       "active": true
     },
     {
-      "id": 2,
+      "id": 1,
+      "friendInitiateId": 1,
+      "userId": 3,
+      "active": true
+    },
+    {
+      "id": 3,
       "friendInitiateId": 2,
       "userId": 3,
       "active": true

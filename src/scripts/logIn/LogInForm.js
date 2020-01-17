@@ -3,6 +3,7 @@ import { saveUser, useUsers } from "../users/UsersProvider.js";
 const eventHub = document.querySelector(".container");
 
 export const logInForm = () => {
+  sessionStorage.clear()
   return `
   <h1>Welcome!</h1>
   <h3>Please Log In or Register!</h3>
