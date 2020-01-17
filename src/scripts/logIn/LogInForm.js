@@ -39,6 +39,9 @@ export const logInEvent = () => {
         <div class="registerPassContainer"> 
           <label for="registerPass">Password:</label>
           <input type="password" class="registerPass" name="registerPass">
+          <br>
+          <label for="confirmPass">Confirm Password:</label>
+          <input type="password" class="confirmPass" name="confirmPass">
         </div>
         <br>
           <button id="button--saveUser">Register</button>
@@ -65,8 +68,11 @@ export const logInEvent = () => {
       let userNameValue = document.querySelector(".registerUser").value;
       let emailValue = document.querySelector(".registerEmail").value;
       let passwordValue = document.querySelector(".registerPass").value;
+      let confirmPass = document.querySelector(".confirmPass").value;
       if (userNameValue === "" || emailValue === "" || passwordValue === "") {
         alert("Please fill out all Fields");
+      } else if (passwordValue !== confirmPass) {
+          alert("Your Password don't match!!!!!!!!!!")
       } else {
         const newUser = {
           userName: userNameValue,

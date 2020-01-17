@@ -17,6 +17,12 @@
       "userName": "Leah",
       "email": "leah@me.com",
       "password": 123
+    },
+    {
+      "userName": "james",
+      "email": "james",
+      "password": "james",
+      "id": 4
     }
   ],
   "news": [
@@ -70,13 +76,18 @@
   "messages": [
     {
       "id": 1,
-      "userId": 1,
-      "message": "What's up?"
+      "message": "updated DB",
+      "userId": 1
     },
     {
-      "id": 2,
-      "userId": 3,
-      "message": "Meet me at the Ice Wall tomorrow?"
+      "id": 3,
+      "message": "Works",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "message": "please",
+      "userId": 2
     }
   ],
   "friends": [
