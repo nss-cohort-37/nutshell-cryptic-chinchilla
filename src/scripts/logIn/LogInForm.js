@@ -59,12 +59,9 @@ export const logInEvent = () => {
       } else if (foundUserPW === undefined) {
         alert("Incorrect Password!");
       } else {
-        if (sessionStorage.hasOwnProperty("activeUser")) {
-          sessionStorage.removeItem("activeUser");
-        }
         sessionStorage.setItem("activeUser", foundUser.id);
-        console.log(sessionStorage.getItem("activeUser"));
-        window.location.replace("dashboard.html");
+        const contentTarget = document.querySelector(".logInForm")
+        contentTarget.innerHTML=""
       }
     }
 
@@ -80,17 +77,15 @@ export const logInEvent = () => {
           email: emailValue,
           password: passwordValue
         };
-        console.log(newUser);
         saveUser(newUser).then(() => {
-          console.log("potato");
           const users = useUsers();
           const foundUser = users.find(user => user.userName === userNameValue);
           // if (sessionStorage.hasOwnProperty("activeUser")) {
           //   sessionStorage.removeItem("activeUser")
           // }
           sessionStorage.setItem("activeUser", foundUser.id);
-          console.log(sessionStorage.getItem("activeUser"));
-          window.location.replace("dashboard.html");
+          const contentTarget = document.querySelector(".logInForm")
+          contentTarget.innerHTML=""
         });
       }
     }
