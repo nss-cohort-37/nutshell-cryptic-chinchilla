@@ -48,9 +48,16 @@ export const logInEvent = () => {
     if (event.target.id === "button--logIn") {
       const users = useUsers();
       const userName = document.querySelector(".logInUser").value;
+      const userNamePw = document.querySelector(".logInPass").value;
       const foundUser = users.find(user => user.userName === userName);
+      const foundUserPW = users.find(
+        user => user.password === parseInt(userNamePw)
+      );
+
       if (foundUser === undefined) {
         alert("Please register a new Account");
+      } else if (foundUserPW === undefined) {
+        alert("Incorrect Password!");
       } else {
         if (sessionStorage.hasOwnProperty("activeUser")) {
           sessionStorage.removeItem("activeUser");
