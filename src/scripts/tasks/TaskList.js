@@ -19,22 +19,20 @@ export const TaskList = () => {
     }
   });
 
-  // eventHub.addEventListener("click", clickEvent => {
-  //   const taskName = document.querySelector(".task-name").value;
-  //   const taskCompletionDate = document.querySelector(".task-date").value;
+  eventHub.addEventListener("click", clickEvent => {
+    const taskName = document.querySelector(".task-name").value;
+    const taskCompletionDate = document.querySelector(".task-date").value;
 
-  //   if (clickEvent.target.id.startsWith("saveTask--")) {
-  //     const [prefix, taskId] = clickEvent.target.id.split("--");
-  //     const saveTaskCustomEvent = new CustomEvent("task-saved", {
-  //       detail: {
-  //         taskId: taskId,
-  //         taskName: taskName,
-  //         taskCompletionDate: taskCompletionDate
-  //       }
-  //     });
-  //     eventHub.dispatchEvent(saveTaskCustomEvent);
-  //   }
-  // });
+    if (clickEvent.target.id.startsWith("saveTask--")) {
+      const saveTaskCustomEvent = new CustomEvent("task-saved", {
+        detail: {
+          taskName: taskName,
+          taskCompletionDate: taskCompletionDate
+        }
+      });
+      eventHub.dispatchEvent(saveTaskCustomEvent);
+    }
+  });
 
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteTask--")) {
@@ -49,20 +47,18 @@ export const TaskList = () => {
   // render tasks
   const gotUsers = useUsers();
 
-  const renderTask = taskcollection => {
-    targetElement.innerHTML = `
-     ${gotUsers
-       .map(user => {
-         const findTask = taskcollection.filter(
-           task => user.id === task.userId
-         );
+  const renderTask = taskCollection => {
+    const foundTask = taskCollection.filter(
+      task => task.userId === parseInt(sessionStorage.getItem("activeUser"))
+    );
+    targetElement.innerHTML = foundTask
+      .map(taskFound => {
+        const findUser = gotUsers.filter(user => taskFound.userId === user.id);
 
-         const HTMLRepresentation = TaskComponent(user, findTask);
-         return HTMLRepresentation;
-       })
-       .join("")}
-  
-`;
+        const HTMLRepresentation = TaskComponent(taskFound, findUser);
+        return HTMLRepresentation;
+      })
+      .join("");
   };
 
   const gotTask = useTasks();

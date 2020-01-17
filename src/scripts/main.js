@@ -6,9 +6,9 @@ import { TaskListForm } from "./tasks/TaskFormList.js";
 import { TaskDialog } from "./tasks/taskDialog.js";
 
 getUsers()
+  .then(getTasks)
   .then(TaskForm)
   .then(TaskListForm)
-  .then(getTasks)
   .then(TaskList)
   .then(TaskDialog);
 import { NavbarEventListener } from "./navbar/navbarList.js";
