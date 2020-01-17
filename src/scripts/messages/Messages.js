@@ -4,10 +4,8 @@ export const MessageComponent = (message) => {
             <div class="messageUsername">
                 ${message.user.userName}: 
             </div>
-            <div class="messageContent">
-                ${message.message}
-            </div>
-            <button id="editMessage--${message.id}">Edit Message</button>
+            <div class="messageContent">${message.message}</div>
+            <div class="editButtonContainer"></div>
             <dialog  id="details--${message.id}" class="editDialog">
             <input type="hidden" class="hiddenId" id="entry-id"/>
             <input type="text" id="messageText--${message.id}" value="${message.message}"></input>

@@ -13,8 +13,8 @@ export const MessageForm = () => {
   `;
 };
 
-export const editMessage = () => {
-  const eventHub = document.querySelector(".appContainer")
+export const editMessageListener = () => {
+  const eventHub = document.querySelector(".container")
   eventHub.addEventListener("click", event => {
       if (event.target.id.startsWith("editMessage--")) {
           const [prefix, id] = event.target.id.split("--")
