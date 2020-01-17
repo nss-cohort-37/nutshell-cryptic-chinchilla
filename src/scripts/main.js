@@ -11,3 +11,6 @@ getUsers()
   .then(getTasks)
   .then(TaskList)
   .then(TaskDialog);
+import { NavbarEventListener } from "./navbar/navbarList.js";
+
+NavbarEventListener();
