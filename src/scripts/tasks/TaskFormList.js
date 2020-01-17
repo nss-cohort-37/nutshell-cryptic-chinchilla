@@ -13,10 +13,10 @@ export const TaskListForm = () => {
     const useTask = useTasks();
     const foundTask = useTask.find(task => task.id === parseInt(taskId), 10);
 
-    document.querySelector("#hidden-value").value = foundTask.id;
     document.querySelector(`#task-name--${taskId}`).value = foundTask.name;
     document.querySelector(`#task-date--${taskId}`).value =
       foundTask.completionDate;
+    document.querySelector("#hidden-value").value = foundTask.id;
   });
 
   // Save new task or edited task
@@ -28,13 +28,14 @@ export const TaskListForm = () => {
     if (hiddenValue !== "") {
       const editedTask = {
         userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-        id: document.querySelector("#hidden-value").value,
         name: document.querySelector(`#task-name--${taskId}`).value,
-        completionDate: document.querySelector(`#task-date--${taskId}`).value
+        completionDate: document.querySelector(`#task-date--${taskId}`).value,
+        id: document.querySelector("#hidden-value").value
       };
       editTask(editedTask);
     } else {
       const newTask = {
+        userId: parseInt(sessionStorage.getItem("activeUser"), 10),
         name: savedTaskName,
         completionDate: savedTaskDate
       };

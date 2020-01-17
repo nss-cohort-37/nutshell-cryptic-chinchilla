@@ -62,15 +62,15 @@
   "tasks": [
     {
       "userId": 1,
-      "id": 1,
       "name": "Question everything",
-      "completionDate": "2020-01-01"
+      "completionDate": "2020-01-01",
+      "id": 1
     },
     {
       "userId": 2,
-      "id": 2,
       "name": "Deny moon landing",
-      "completionDate": "2020-02-01"
+      "completionDate": "2020-02-01",
+      "id": 2
     }
   ],
   "messages": [

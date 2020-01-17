@@ -20,8 +20,8 @@ export const TaskList = () => {
   });
 
   eventHub.addEventListener("click", clickEvent => {
-    const taskName = document.querySelector(".task-name").value;
-    const taskCompletionDate = document.querySelector(".task-date").value;
+    const taskName = document.querySelector("#task-name").value;
+    const taskCompletionDate = document.querySelector("#task-date").value;
 
     if (clickEvent.target.id.startsWith("saveTask--")) {
       const saveTaskCustomEvent = new CustomEvent("task-saved", {
