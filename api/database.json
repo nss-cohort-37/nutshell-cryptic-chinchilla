@@ -17,6 +17,12 @@
       "userName": "Leah",
       "email": "leah@me.com",
       "password": 123
+    },
+    {
+      "id": 4,
+      "userName": "Terio",
+      "email": "terio@me.com",
+      "password": 123
     }
   ],
   "news": [
@@ -55,28 +61,16 @@
   ],
   "tasks": [
     {
-      "id": 1,
       "userId": 1,
+      "id": 1,
       "name": "Question everything",
-      "completionDate": "01-01-2021"
+      "completionDate": "2020-01-01"
     },
     {
+      "userId": 2,
       "id": 2,
-      "userId": 2,
       "name": "Deny moon landing",
-      "completionDate": "02-02-2021"
-    },
-    {
-      "userId": 3,
-      "name": "Test ",
-      "completionDate": "2020-01-16",
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "name": "Test 2",
-      "completionDate": "2020-01-16",
-      "id": 4
+      "completionDate": "2020-02-01"
     }
   ],
   "messages": [

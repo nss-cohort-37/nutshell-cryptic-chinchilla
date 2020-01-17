@@ -1,34 +1,61 @@
-import { useTasks, getTasks, saveTask } from "./TaskProvider.js";
+import { useTasks, deleteTask } from "./TaskProvider.js";
 import { useUsers } from "../users/UsersProvider.js";
 import { TaskComponent } from "./Task.js";
 
 export const TaskList = () => {
   const eventHub = document.querySelector(".container");
   const targetElement = document.querySelector(".tasksContainer");
-  const gotTask = useTasks();
-  const gotUsers = useUsers();
 
-  // eventHub.addEventListener("click", clickEvent);
-
-  eventHub.addEventListener("task-saved", clickEvent => {
-    const savedTaskName = clickEvent.detail.taskName;
-    const savedTaskDate = clickEvent.detail.taskCompletionDate;
-
-    const newTask = {
-      name: savedTaskName,
-      completionDate: savedTaskDate
-    };
-
-    saveTask(newTask).then(() => {
-      const taskWereSavedEvent = new CustomEvent("task-need-to-be-updated");
-      eventHub.dispatchEvent(taskWereSavedEvent);
-    });
+  // Edit Task btn clicked
+  eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("editTask--")) {
+      const [prefix, taskId] = clickEvent.target.id.split("--");
+      const editTaskCustomEvent = new CustomEvent("edit-btn-has-been-click", {
+        detail: {
+          taskId: taskId
+        }
+      });
+      eventHub.dispatchEvent(editTaskCustomEvent);
+    }
   });
 
-  targetElement.innerHTML = `
+  // eventHub.addEventListener("click", clickEvent => {
+  //   const taskName = document.querySelector(".task-name").value;
+  //   const taskCompletionDate = document.querySelector(".task-date").value;
+
+  //   if (clickEvent.target.id.startsWith("saveTask--")) {
+  //     const [prefix, taskId] = clickEvent.target.id.split("--");
+  //     const saveTaskCustomEvent = new CustomEvent("task-saved", {
+  //       detail: {
+  //         taskId: taskId,
+  //         taskName: taskName,
+  //         taskCompletionDate: taskCompletionDate
+  //       }
+  //     });
+  //     eventHub.dispatchEvent(saveTaskCustomEvent);
+  //   }
+  // });
+
+  eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteTask--")) {
+      const [prefix, taskId] = clickEvent.target.id.split("--");
+      deleteTask(taskId).then(() => {
+        const taskHasBeenDeletedCustomEvent = new CustomEvent("task-deleted");
+        eventHub.dispatchEvent(taskHasBeenDeletedCustomEvent);
+      });
+    }
+  });
+
+  // render tasks
+  const gotUsers = useUsers();
+
+  const renderTask = taskcollection => {
+    targetElement.innerHTML = `
      ${gotUsers
        .map(user => {
-         const findTask = gotTask.filter(task => user.id === task.userId);
+         const findTask = taskcollection.filter(
+           task => user.id === task.userId
+         );
 
          const HTMLRepresentation = TaskComponent(user, findTask);
          return HTMLRepresentation;
@@ -36,4 +63,8 @@ export const TaskList = () => {
        .join("")}
   
 `;
+  };
+
+  const gotTask = useTasks();
+  renderTask(gotTask);
 };
