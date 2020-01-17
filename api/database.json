@@ -93,6 +93,26 @@
       "id": 5,
       "message": "heyyy",
       "userId": 1
+    },
+    {
+      "userId": 2,
+      "message": "hey",
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "message": "yo",
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "message": "sup",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "message": "no",
+      "userId": 2
     }
   ],
   "friends": [

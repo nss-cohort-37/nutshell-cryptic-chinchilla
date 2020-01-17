@@ -86,6 +86,7 @@ eventHub.addEventListener("click", clickEvent => {
             .then(() => {
                 const updatedMessages = useMessages()
                 render(updatedMessages)
+                messageEditRender(updatedMessages)
                 renderForm()
                 
             })
