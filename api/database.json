@@ -51,6 +51,13 @@
       "name": "NASA Lies",
       "date": "02-02-2021",
       "location": "Ice Wall"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "name": "Point a Laser Pointer Across the Earth",
+      "date": "02-02-2021",
+      "location": "Center of the Universe"
     }
   ],
   "tasks": [
