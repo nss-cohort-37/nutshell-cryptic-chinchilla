@@ -22,3 +22,13 @@ export const MessageComponent = (message) => {
         </section>
     `
 }
+
+export const showEditButton = () => {
+    if (message.userId === parseInt(sessionStorage.getItem("activeUser), 10)) {
+    let contentTarget = document.querySelector(".editMessageButton")
+    contentTarget.innerHTML = `
+        <button id="saveEdit--${message.id}">
+                Save Edit
+        </button>
+    `
+}

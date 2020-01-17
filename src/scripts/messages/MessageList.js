@@ -33,6 +33,8 @@ export const MessageList = () => {
         }).join("")
     }
 
+    
+
     const renderForm = () => {
         formTarget.innerHTML = MessageForm()
     }
