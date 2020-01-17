@@ -7,6 +7,7 @@ const formTarget = document.querySelector(".messagesForm")
 const eventHub = document.querySelector('.container')
 
 export const MessageList = () => {
+
     const messages = useMessages()
     const userId = sessionStorage.getItem("activeUser")
 
@@ -58,6 +59,5 @@ export const MessageList = () => {
 
     render(messages)
     renderForm()
+        
 }
-
-export default MessageList

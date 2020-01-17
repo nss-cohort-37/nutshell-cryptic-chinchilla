@@ -53,7 +53,7 @@ export const logInEvent = () => {
         alert("Please register a new Account");
       } else {
         sessionStorage.setItem("activeUser", foundUser.id);
-        const contentTarget = document.querySelector(".renderArea")
+        const contentTarget = document.querySelector(".logInForm")
         contentTarget.innerHTML=""
       }
     }
@@ -77,7 +77,7 @@ export const logInEvent = () => {
           //   sessionStorage.removeItem("activeUser")
           // }
           sessionStorage.setItem("activeUser", foundUser.id);
-          const contentTarget = document.querySelector(".renderArea")
+          const contentTarget = document.querySelector(".logInForm")
           contentTarget.innerHTML=""
         });
       }
