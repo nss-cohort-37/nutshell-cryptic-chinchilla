@@ -11,7 +11,7 @@ export const TaskForm = () => {
         Completion Date: <input id="task-date" type="date">
       </div>
       </form>
-      <button id="saveTask--" class="saveTaskBtn btn btn-primary">Save Task</button>
+      <button id="saveTask--" class="btn btn-primary">Save Task</button>
     </fieldset>
     </section>
   `;

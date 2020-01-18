@@ -28,8 +28,8 @@ export const TaskListForm = () => {
     if (hiddenValue !== "") {
       const editedTask = {
         userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-        name: document.querySelector(`#task-name--${taskId}`).value,
-        completionDate: document.querySelector(`#task-date--${taskId}`).value,
+        name: document.querySelector(`#task-name`).value,
+        completionDate: document.querySelector(`#task-date`).value,
         id: document.querySelector("#hidden-value").value
       };
       editTask(editedTask);
@@ -40,7 +40,16 @@ export const TaskListForm = () => {
         completionDate: savedTaskDate
       };
 
-      saveTask(newTask);
+      saveTask(newTask).then(() => {
+        const customEvent = new CustomEvent("update");
+        eventHub.dispatchEvent(customEvent);
+      });
+    }
+  });
+
+  eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "button--logIn") {
+      renderTaskForm();
     }
   });
 
@@ -48,5 +57,6 @@ export const TaskListForm = () => {
   const renderTaskForm = () => {
     targetElement.innerHTML = TaskForm();
   };
-  renderTaskForm();
 };
+
+//change input form ids for dialog to be different from on screen user input
