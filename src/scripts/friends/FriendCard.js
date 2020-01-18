@@ -8,7 +8,7 @@ export const FriendCard = friend => {
     <section class="friendCard">
       <div class="friendCardInfo">${friend.user.userName}</div>
       <img class="picSize" src="./assets/hey-arnold.jpg">
-      <button id="removeFriend--${friend.user.id}" class="removeFriendBtn">Remove Friend</button>
+      <button id="removeFriend--${friend.id}" class="removeFriendBtn">Remove Friend</button>
     </section>
   `;
 };
