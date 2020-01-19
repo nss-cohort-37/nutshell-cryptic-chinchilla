@@ -47,6 +47,7 @@ export const TaskList = () => {
 
         // Update task array once task is deleted
         reRenderTask();
+        clearAllValues();
       });
     }
   });
@@ -55,9 +56,7 @@ export const TaskList = () => {
   eventHub.addEventListener("update", clickEvent => {
     const updateTask = useTasks();
     renderTask(updateTask);
-    document.querySelector("#task-name").value = "";
-    document.querySelector("#task-date").value = "";
-    document.querySelector("#hidden-value").value = "";
+    clearAllValues();
   });
 
   // Render task once logged in
@@ -70,6 +69,12 @@ export const TaskList = () => {
   const reRenderTask = () => {
     const updateTask = useTasks();
     renderTask(updateTask);
+  };
+
+  const clearAllValues = () => {
+    document.querySelector("#task-name").value = "";
+    document.querySelector("#task-date").value = "";
+    document.querySelector("#hidden-value").value = "";
   };
 
   // render tasks

@@ -65,7 +65,7 @@ export const TaskListForm = () => {
     targetElement.innerHTML = TaskForm();
   };
 
-  // Display task once logged in
+  // Only display task once logged in
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "button--logIn") {
       renderTaskForm();
