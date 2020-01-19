@@ -23,23 +23,30 @@ export const TaskList = () => {
     if (clickEvent.target.id.startsWith("saveTask--")) {
       const taskName = document.querySelector("#task-name").value;
       const taskCompletionDate = document.querySelector("#task-date").value;
+      const hiddenValue = document.querySelector("#hidden-value").value;
 
       const saveTaskCustomEvent = new CustomEvent("task-saved", {
         detail: {
           taskName: taskName,
-          taskCompletionDate: taskCompletionDate
+          taskCompletionDate: taskCompletionDate,
+          taskHiddenValue: hiddenValue
         }
       });
       eventHub.dispatchEvent(saveTaskCustomEvent);
     }
   });
 
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.classList.contains("saveTaskBtn")) {
-      const updateTask = useTasks();
-      renderTask(updateTask);
-    }
-  });
+  // eventHub.addEventListener("click", clickEvent => {
+  //   if (clickEvent.target.classList.contains("saveTaskBtn")) {
+  //     getTasks().then(() => {
+  //       const updateTask = useTasks();
+  //       renderTask(updateTask);
+  //     });
+  //     document.querySelector("#task-name").value = "";
+  //     document.querySelector("#task-date").value = "";
+  //     document.querySelector("#hidden-value").value = "";
+  //   }
+  // });
 
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteTask--")) {
@@ -57,16 +64,9 @@ export const TaskList = () => {
   eventHub.addEventListener("update", clickEvent => {
     const updateTask = useTasks();
     renderTask(updateTask);
-  });
-
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.classList.contains("saveTaskBtn")) {
-      console.log("Save");
-      getTasks().then(() => {
-        const updateTask = useTasks();
-        renderTask(updateTask);
-      });
-    }
+    document.querySelector("#task-name").value = "";
+    document.querySelector("#task-date").value = "";
+    document.querySelector("#hidden-value").value = "";
   });
 
   eventHub.addEventListener("click", clickEvent => {

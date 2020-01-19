@@ -23,16 +23,21 @@ export const TaskListForm = () => {
   eventHub.addEventListener("task-saved", clickEvent => {
     const savedTaskName = clickEvent.detail.taskName;
     const savedTaskDate = clickEvent.detail.taskCompletionDate;
+    const taskHiddenValue = clickEvent.detail.taskHiddenValue;
 
     const hiddenValue = document.querySelector("#hidden-value").value;
     if (hiddenValue !== "") {
       const editedTask = {
         userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-        name: document.querySelector(`#task-name`).value,
-        completionDate: document.querySelector(`#task-date`).value,
+        name: document.querySelector(`#task-name--${taskHiddenValue}`).value,
+        completionDate: document.querySelector(`#task-date--${taskHiddenValue}`)
+          .value,
         id: document.querySelector("#hidden-value").value
       };
-      editTask(editedTask);
+      editTask(editedTask).then(() => {
+        const customEvent = new CustomEvent("update");
+        eventHub.dispatchEvent(customEvent);
+      });
     } else {
       const newTask = {
         userId: parseInt(sessionStorage.getItem("activeUser"), 10),

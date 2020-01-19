@@ -74,15 +74,9 @@
     },
     {
       "userId": 4,
-      "name": "Test",
+      "name": "Testing",
       "completionDate": "2020-01-17",
       "id": 3
-    },
-    {
-      "userId": 4,
-      "name": "Test 2wefwfqw",
-      "completionDate": "2020-01-17",
-      "id": 4
     }
   ],
   "messages": [
