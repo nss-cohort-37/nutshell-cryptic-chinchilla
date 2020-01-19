@@ -36,18 +36,6 @@ export const TaskList = () => {
     }
   });
 
-  // eventHub.addEventListener("click", clickEvent => {
-  //   if (clickEvent.target.classList.contains("saveTaskBtn")) {
-  //     getTasks().then(() => {
-  //       const updateTask = useTasks();
-  //       renderTask(updateTask);
-  //     });
-  //     document.querySelector("#task-name").value = "";
-  //     document.querySelector("#task-date").value = "";
-  //     document.querySelector("#hidden-value").value = "";
-  //   }
-  // });
-
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteTask--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--");
