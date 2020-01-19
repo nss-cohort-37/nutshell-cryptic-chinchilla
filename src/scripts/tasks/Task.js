@@ -31,7 +31,7 @@ export const TaskComponent = (tasks, users) => {
           <button id="saveTask--${
             tasks.id
           }" class="saveTaskBtn btn btn-primary">Save Task</button>
-          <button id="closeDialog--" class="closeBtn">Close</button>
+          <button id="closeDialog--" class="closeBtn btn btn-secondary">Close</button>
           </dialog>
     </section>
   `;

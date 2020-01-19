@@ -6,10 +6,11 @@ export const TaskListForm = () => {
   const targetElement = document.querySelector(".taskForm");
 
   let taskId = "";
-  // Found task and placed values in inputs
+
   eventHub.addEventListener("edit-btn-has-been-click", clickEvent => {
     taskId = clickEvent.detail.taskId;
 
+    // Find task and placed values in inputs
     const useTask = useTasks();
     const foundTask = useTask.find(task => task.id === parseInt(taskId), 10);
 
@@ -34,9 +35,10 @@ export const TaskListForm = () => {
           .value,
         id: document.querySelector("#hidden-value").value
       };
+
+      // Edit task PUT method
       editTask(editedTask).then(() => {
-        const customEvent = new CustomEvent("update");
-        eventHub.dispatchEvent(customEvent);
+        customEventToUpdateTask();
       });
     } else {
       const newTask = {
@@ -45,23 +47,28 @@ export const TaskListForm = () => {
         completionDate: savedTaskDate
       };
 
+      // Save task POST method
       saveTask(newTask).then(() => {
-        const customEvent = new CustomEvent("update");
-        eventHub.dispatchEvent(customEvent);
+        customEventToUpdateTask();
       });
     }
   });
 
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "button--logIn") {
-      renderTaskForm();
-    }
-  });
+  // Custom event that update Task array and clear values
+  const customEventToUpdateTask = () => {
+    const customEvent = new CustomEvent("update");
+    eventHub.dispatchEvent(customEvent);
+  };
 
   // Render task form
   const renderTaskForm = () => {
     targetElement.innerHTML = TaskForm();
   };
-};
 
-//change input form ids for dialog to be different from on screen user input
+  // Display task once logged in
+  eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "button--logIn") {
+      renderTaskForm();
+    }
+  });
+};
