@@ -5,11 +5,7 @@ const eventHub = document.querySelector(".container");
 const contentElement = document.querySelector(".friendsCards");
 
 export const FriendsListComponent = () => {
-  eventHub.addEventListener("click", clickEvent => {
-    if (
-      clickEvent.target.id === "button--saveUser" ||
-      clickEvent.target.id === "button--logIn"
-    ) {
+  
       const allFriends = useFriends();
       const activeUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
       console.log("activeUserId");
@@ -30,8 +26,8 @@ export const FriendsListComponent = () => {
         render(updatedFoundFriendsArray);
       });
     }
-  });
-}
+  
+
   export const render = foundFriendsArray => {
     contentElement.innerHTML = `
   ${foundFriendsArray

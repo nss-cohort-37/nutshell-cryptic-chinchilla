@@ -5,7 +5,7 @@ import { addSearchEventListeners } from "../friends/FriendSearchList.js";
 import { NavbarEventListener } from "../navbar/navbarList.js";
 import { getFriends } from "../friends/FriendsProvider.js";
 import { getUsers } from "../users/UsersProvider.js";
-
+import { initiateDashboardEventListener } from "../dashboardEvents/DashboardLoad.js";
 
 const eventHub = document.querySelector(".container");
 
@@ -15,7 +15,8 @@ export const MessageEventListener = () => {
       clickEvent.target.id === "button--logIn" ||
       clickEvent.target.id === "button--saveUser"
     ) {
-      MessageList()
+      MessageList();
       
-  }});
+    }
+  });
 };

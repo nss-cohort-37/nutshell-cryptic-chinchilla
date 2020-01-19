@@ -8,7 +8,9 @@ import { FriendsListComponent} from "./friends/FriendsList.js";
 import { getFriends } from "./friends/FriendsProvider.js";
 import { addSearchEventListeners } from "./friends/FriendSearchList.js";
 import { initiateFriendSearchComponent } from "./friends/FriendSearch.js";
-import { FriendRender } from "./friends/FriendsList.js";
+import { initiateDashboardEventListener } from "./dashboardEvents/DashboardLoad.js";
+import { MessageList } from "./messages/MessageList.js";
+
 
 if(!(sessionStorage.hasOwnProperty("activeUser"))){
 getUsers()
@@ -20,18 +22,20 @@ getUsers()
   .then(getFriends)
   .then(getUsers)
   .then(() => {
-    initiateFriendSearchComponent()
-    FriendsListComponent();
-    addSearchEventListeners();
-    NavbarEventListener();
-  })}else{
+    initiateDashboardEventListener()
+  })}
+  
+  else{
     getUsers().then(getMessages)
   .then(() => MessageEventListener())
   .then(getFriends)
   .then(getUsers)
   .then(() => {
-    FriendRender()
+    logInEvent()
     FriendsListComponent()
+    initiateFriendSearchComponent()
+    MessageList()
     addSearchEventListeners()
     NavbarEventListener()
+    initiateDashboardEventListener()
   })}
