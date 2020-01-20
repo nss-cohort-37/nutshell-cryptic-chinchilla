@@ -13,7 +13,7 @@ export const TaskComponent = tasks => {
         </ul>
       </div>
       <div>
-        Hide Task When Completed: <input id="hideTask--${tasks.id}" class="hideTask" type="checkbox">
+        Task Completed: <input id="hideTask--${tasks.id}" class="hideTask" type="checkbox">
       </div>
       <button id="editTask--${tasks.id}" class="editTask btn btn-secondary">Edit Task
       </button>

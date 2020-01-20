@@ -76,8 +76,7 @@ export const TaskList = () => {
 
   // Update task array and clear values once new task is created or task is edited
   eventHub.addEventListener("update", clickEvent => {
-    const updateTask = useTasks();
-    renderTask(updateTask);
+    reRenderTask();
     clearAllValues();
   });
 

@@ -65,7 +65,7 @@
       "name": "Ouestion everything",
       "completionDate": "2020-01-10",
       "id": 4,
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "userId": 2,
@@ -83,9 +83,9 @@
     },
     {
       "userId": 1,
-      "name": "Testing",
-      "completionDate": "2020-01-20",
-      "id": 5,
+      "name": "Cetuj",
+      "completionDate": "2020-01-07",
+      "id": 8,
       "isCompleted": false
     }
   ],
