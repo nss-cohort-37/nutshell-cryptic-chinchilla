@@ -1,7 +1,6 @@
 import { getUsers } from "./users/UsersProvider.js";
 import { getEvents } from "./events/EventProvider.js"
 import { getMessages } from "./messages/MessagesProvider.js"
-import { getFriends } from "./events/FriendsProvider.js"
 import { getNews } from "./news/NewsProvider.js"
 import { logInList } from "./logIn/LogInList.js";
 import { logInEvent } from "./logIn/LogInForm.js";

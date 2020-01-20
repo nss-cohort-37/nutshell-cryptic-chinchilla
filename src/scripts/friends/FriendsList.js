@@ -26,7 +26,7 @@ export const FriendsListComponent = () => {
 
       render(foundFriendsArray);
 
-      }
+}
       //custom event that says a new friend should be added to friends table
 
      

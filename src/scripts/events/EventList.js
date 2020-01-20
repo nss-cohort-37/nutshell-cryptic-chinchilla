@@ -48,81 +48,6 @@ export const EventList = () => {
         formTarget.innerHTML = EventsForm()
     }
 
-    eventHub.addEventListener("click", clickEvent => {
-        if(clickEvent.target.id === "addEventButton") {
-        const dialogTarget = document.querySelector(".eventDialog")
-        dialogTarget.showModal()
-        }
-    })
-
-    eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id === "closeEventDialog") {
-            const newEvent = {
-                userId: currentUserId,
-                name: document.getElementById("eventTitleText").value,
-                date: document.getElementById("eventDateTime").value,
-                location: document.getElementById("eventLocationText").value
-            }
-
-            const message = new CustomEvent("eventSaved", {
-                detail: {
-                    wasEventSaved: "yes"
-                }
-            })
-
-            saveEvent(newEvent)
-                .then(() => {
-                    eventHub.dispatchEvent(message)
-                })
-        }
-    })
-
-    eventHub.addEventListener("editEventButtonClicked", event => {
-        const eventToEdit = event.detail.eventId
-        const allEvents = useEvents()
-        const foundEvent = allEvents.find(
-            (currentEvent) => {
-              return currentEvent.id === parseInt(eventToEdit, 10)
-            }
-          )
-          document.querySelector("#entry-id").value = foundMessage.id
-          document.querySelector(`#messageText--${messageToEdit}`).value = foundMessage.message      
-    })
-
-        //saves edit message
-    eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id.startsWith("saveEdit")) {
-          const [prefix, id] = clickEvent.target.id.split("--")
-          const editedMessage = {
-              id: parseInt(document.querySelector("#entry-id").value, 10),
-              message: document.querySelector(`#messageText--${id}`).value,
-              userId: parseInt(sessionStorage.getItem('activeUser'), 10)
-            }
-          editMessage(editedMessage)
-          .then(() => {
-              const updatedMessages = useMessages()
-            render(updatedMessages)
-            messageEditRender(updatedMessages)
-            renderForm()
-        })
-    }
-})
-
-    render(combinedArray)
-    renderForm()
-    EventEditRender(combinedArray)
-    editEventListener()
-    editEventDialog()
-
-    const renderButton = () => {
-        const buttonTarget = document.querySelector(".addEventsButton")
-        buttonTarget.innerHTML = `
-        <button id="addEventButton">Add event</button>
-        `
-    }
-    
-    renderButton()
-
     eventHub.addEventListener("eventSaved", event => {
         if (event.detail.wasEventSaved === "yes") {
             const updatedEvents = useEvents()
@@ -152,4 +77,115 @@ export const EventList = () => {
         }
     })
 
+    
+
+        //saves edit message
+
+
+    render(combinedArray)
+    renderForm()
+    EventEditRender(combinedArray)
+    editEventListener()
+    editEventDialog()
+
+    const renderButton = () => {
+        const buttonTarget = document.querySelector(".addEventsButton")
+        buttonTarget.innerHTML = `
+        <button id="addEventButton">Add event</button>
+        `
+    }
+    
+    renderButton()
 }
+
+// Listens for click of Add Event button
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id === "addEventButton") {
+    const dialogTarget = document.querySelector(".eventDialog")
+    dialogTarget.showModal()
+    }
+})
+
+// Listens for click of Save Event button
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "closeEventDialog") {
+        const newEvent = {
+            userId: currentUserId,
+            name: document.getElementById("eventTitleText").value,
+            date: document.getElementById("eventDateTime").value,
+            location: document.getElementById("eventLocationText").value
+        }
+
+        const message = new CustomEvent("eventSaved", {
+            detail: {
+                wasEventSaved: "yes"
+            }
+        })
+
+        saveEvent(newEvent)
+            .then(() => {
+                eventHub.dispatchEvent(message)
+            })
+    }
+})
+
+// Listens for click of Edit Event button
+export const editEventListener = () => {
+    const eventHub = document.querySelector(".container")
+    eventHub.addEventListener("click", event => {
+      if (event.target.id.startsWith("editEvent--")) {
+        const [prefix, id] = event.target.id.split("--")
+        const editEvent = new CustomEvent("editEventButtonClicked", {
+          detail: {
+            eventId: id
+          }
+        })
+        eventHub.dispatchEvent(editEvent)
+      }
+    })
+}
+
+// Listens for click of Edit Event button
+eventHub.addEventListener("editEventButtonClicked", event => {
+    const eventToEdit = event.detail.eventId
+    const allEvents = useEvents()
+    const foundEvent = allEvents.find(
+        (currentEvent) => {
+          return currentEvent.id === parseInt(eventToEdit, 10)
+        }
+      )
+      document.querySelector("#entry-id").value = foundMessage.id
+      document.querySelector(`#messageText--${messageToEdit}`).value = foundMessage.message      
+})
+
+// Listens for click of Edit Event button 
+export const editEventDialog = () => {
+    const eventHub = document.querySelector(".container")
+    eventHub.addEventListener("click", event => {
+    if (event.target.id.startsWith("editEvent")) {
+        const [prefix, id] = event.target.id.split("--")
+        const theDialog = document.querySelector(`#details--${id}`)
+        theDialog.showModal()
+      }
+    })
+}
+
+
+// Listens for click of Save Edit button
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("saveEdit")) {
+      const [prefix, id] = clickEvent.target.id.split("--")
+      const editedMessage = {
+          id: parseInt(document.querySelector("#entry-id").value, 10),
+          message: document.querySelector(`#messageText--${id}`).value,
+          userId: parseInt(sessionStorage.getItem('activeUser'), 10)
+        }
+      editMessage(editedMessage)
+      .then(() => {
+          const updatedMessages = useMessages()
+        render(updatedMessages)
+        messageEditRender(updatedMessages)
+        renderForm()
+    })
+}
+})
