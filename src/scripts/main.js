@@ -29,7 +29,7 @@ getUsers()
     getUsers().then(getMessages)
   .then(() => MessageEventListener())
   .then(getFriends)
-  .then(getUsers)
+  // .then(getUsers)
   .then(() => {
     logInEvent()
     FriendsListComponent()
