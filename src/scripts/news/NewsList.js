@@ -5,8 +5,8 @@ import { NewsForm } from "./NewsForm.js"
 import { NewsEditRender } from "./NewsEditRender.js"
 import { NewsDeleteRender } from "./NewsDeleteRender.js"
 
-const contentTarget = document.querySelector(".NewsRenderArea")
-const formTarget = document.querySelector(".NewsFormArea")
+const contentTarget = document.querySelector(".newsRenderArea")
+const formTarget = document.querySelector(".newsFormArea")
 const eventHub = document.querySelector(".container")
 
 const render = (newsArray) => {
@@ -83,6 +83,7 @@ export const NewsList = () => {
             render(updatedCombinedArray)
             renderForm()
             renderButton()
+            debugger
             NewsEditRender(updatedCombinedArray)
             NewsDeleteRender(updatedCombinedArray)
             const dialogTarget = document.querySelector(".newsDialog")
@@ -92,6 +93,7 @@ export const NewsList = () => {
 
     render(combinedArray)
     renderForm()
+    debugger
     NewsEditRender(combinedArray)
     NewsDeleteRender(combinedArray)
     renderButton()
@@ -151,10 +153,10 @@ eventHub.addEventListener("editNewsButtonClicked", event => {
             return currentArticle.id === parseInt(newsToEdit, 10)
         }
     )
-    document.querySelector(`newsTitle--${newsToEdit}`).value = foundNews.title
-    document.querySelector(`newsSynopsis--${newsToEdit}`).value = foundNews.synopsis
-    document.querySelector(`newsURL--${newsToEdit}`).value = foundNews.url
-    const theDialog = document.querySelector(`newsDetails--${foundNews.id}`)
+    document.querySelector(`#newsTitle--${newsToEdit}`).value = foundNews.title
+    document.querySelector(`#newsSynopsis--${newsToEdit}`).value = foundNews.synopsis
+    document.querySelector(`#newsURL--${newsToEdit}`).value = foundNews.url
+    const theDialog = document.querySelector(`#newsDetails--${foundNews.id}`)
     theDialog.showModal()     
 })
 
@@ -175,6 +177,7 @@ eventHub.addEventListener("click", clickEvent => {
             .then(() => {
                 const updatedNews = useNews()
                 render(updatedNews)
+                debugger
                 NewsEditRender(updatedNews)
                 NewsDeleteRender(updatedNews)
                 renderForm()
@@ -191,6 +194,7 @@ eventHub.addEventListener("click", event => {
         .then(() => {
             const updatedNews = useNews()
             render(updatedNews)
+            debugger
             NewsEditRender(updatedNews)
             NewsDeleteRender(updatedNews)
             renderForm()

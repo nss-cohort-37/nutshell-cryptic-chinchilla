@@ -19,6 +19,7 @@ if(!(sessionStorage.hasOwnProperty("activeUser"))){
     .then(() => logInEvent())
     .then(() => getMessages())
     .then(() => getEvents())
+    .then(() => getNews())
     .then(() => MessageEventListener())
     .then(() => getFriends())
     .then(() => getUsers())
