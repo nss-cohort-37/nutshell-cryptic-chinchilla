@@ -20,20 +20,10 @@ export const MessageList = () => {
             }).join("")
         }
     })
-    const render = (messages) => {
-        contentTarget.innerHTML = messages.map(message => {
-            // Get HTML representation of product
-            const html = MessageComponent(message)
-            
-            return html
-        }).join("")
-    }
+  
     
     
-    
-    const renderForm = () => {
-        formTarget.innerHTML = MessageForm()
-    }
+  
     
     //edit MESSAGE BUTTON
     eventHub.addEventListener("editMessageButtonClicked", event => {
@@ -49,49 +39,67 @@ export const MessageList = () => {
         })
 
         //saves edit message
-    eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id.startsWith("saveEdit")) {
-          const [prefix, id] = clickEvent.target.id.split("--")
-          const editedMessage = {
-              id: parseInt(document.querySelector("#entry-id").value, 10),
-              message: document.querySelector(`#messageText--${id}`).value,
-              userId: parseInt(sessionStorage.getItem('activeUser'), 10)
-            }
-          editMessage(editedMessage)
-          .then(() => {
-              const updatedMessages = useMessages()
-            render(updatedMessages)
-            messageEditRender(updatedMessages)
-            renderForm()
-        })
-    }
-})
+ 
 //SAVE MESSAGE
     render(messages)
     renderForm()
-    eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id === "saveMessage" ) {
-            console.log("heard save button")
-            let messageUserId = parseInt(sessionStorage.getItem("activeUser"), 10)
-            let messageText = document.getElementById("messageForm").value
-            
-            let newMessage = {
-                userId: messageUserId,
-                message: messageText
-            }
-            debugger
-            saveMessage(newMessage)
-            .then(() => {
-                const updatedMessages = useMessages()
-                render(updatedMessages)
-                messageEditRender(updatedMessages)
-                renderForm()
-                
-            })
-        }
-    })
+   
     editMessageListener()
     messageEditRender(messages)
     editMessageDialog()
 
 }
+
+const render = (messages) => {
+    contentTarget.innerHTML = messages.map(message => {
+        // Get HTML representation of product
+        const html = MessageComponent(message)
+        
+        return html
+    }).join("")
+}
+
+
+const renderForm = () => {
+    formTarget.innerHTML = MessageForm()
+}
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("saveEdit")) {
+      const [prefix, id] = clickEvent.target.id.split("--")
+      const editedMessage = {
+          id: parseInt(document.querySelector("#entry-id").value, 10),
+          message: document.querySelector(`#messageText--${id}`).value,
+          userId: parseInt(sessionStorage.getItem('activeUser'), 10)
+        }
+      editMessage(editedMessage)
+      .then(() => {
+          const updatedMessages = useMessages()
+        render(updatedMessages)
+        messageEditRender(updatedMessages)
+        renderForm()
+    })
+}
+})
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "saveMessage" ) {
+        console.log("heard save button")
+        let messageUserId = parseInt(sessionStorage.getItem("activeUser"), 10)
+        let messageText = document.getElementById("messageForm").value
+        
+        let newMessage = {
+            userId: messageUserId,
+            message: messageText
+        }
+        debugger
+        saveMessage(newMessage)
+        .then(() => {
+            const updatedMessages = useMessages()
+            render(updatedMessages)
+            messageEditRender(updatedMessages)
+            renderForm()
+            
+        })
+    }
+})

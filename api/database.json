@@ -76,17 +76,17 @@
   "messages": [
     {
       "id": 1,
-      "message": "new",
+      "message": "testtestestest",
       "userId": 1
     },
     {
       "id": 3,
-      "message": "test",
+      "message": "working",
       "userId": 1
     },
     {
       "id": 4,
-      "message": "test",
+      "message": "yes",
       "userId": 2
     },
     {
@@ -248,6 +248,51 @@
       "userId": 3,
       "message": "test",
       "id": 36
+    },
+    {
+      "userId": 2,
+      "message": "new",
+      "id": 37
+    },
+    {
+      "userId": 2,
+      "message": "new",
+      "id": 38
+    },
+    {
+      "id": 39,
+      "message": "blah",
+      "userId": 1
+    },
+    {
+      "userId": 1,
+      "message": "newmess",
+      "id": 40
+    },
+    {
+      "userId": 1,
+      "message": "newmess",
+      "id": 41
+    },
+    {
+      "userId": 1,
+      "message": "newmess",
+      "id": 42
+    },
+    {
+      "userId": 1,
+      "message": "newmess",
+      "id": 43
+    },
+    {
+      "userId": 1,
+      "message": "test",
+      "id": 44
+    },
+    {
+      "userId": 1,
+      "message": "PLEASE",
+      "id": 45
     }
   ],
   "friends": [
@@ -261,13 +306,13 @@
       "friendInitiateId": 1,
       "userId": 2,
       "active": true,
-      "id": 3
+      "id": 6
     },
     {
       "friendInitiateId": 1,
       "userId": 3,
       "active": true,
-      "id": 5
+      "id": 7
     }
   ]
 }
