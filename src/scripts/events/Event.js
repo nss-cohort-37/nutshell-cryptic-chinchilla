@@ -11,7 +11,7 @@ export const EventComponent = event => {
         <input type="text" id="eventName--${event.id}" value="${event.name}"></input>
         <label for="eventLocation--${event.id}">Event location:</label>
         <input type="text" id="eventLocation--${event.id}" value="${event.location}"></input>
-        <p class ="eventDate--${event.id}">Date: ${event.date}</p>
+        <p id="eventDate--${event.id}">Date: ${event.date}</p>
         <button id="saveEventEdit--${event.id}" class="button--close">Save Edit</button>
       </dialog>
     </section>

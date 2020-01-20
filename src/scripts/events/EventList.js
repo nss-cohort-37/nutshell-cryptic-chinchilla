@@ -166,12 +166,11 @@ eventHub.addEventListener("editEventButtonClicked", event => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveEventEdit")) {
       const [prefix, eventId] = clickEvent.target.id.split("--")
-      debugger
       const editedEvent = {
           id: parseInt(eventId, 10),
           userId: parseInt(sessionStorage.getItem("activeUser"), 10),
           name: document.querySelector(`#eventName--${eventId}`).value,
-          date: document.querySelector(`.eventDate--${eventId}`).textContent.split("Date: ")[1],
+          date: document.querySelector(`#eventDate--${eventId}`).textContent.split("Date: ")[1],
           location: document.querySelector(`#eventLocation--${eventId}`).value
         }
         editEvent(editedEvent)

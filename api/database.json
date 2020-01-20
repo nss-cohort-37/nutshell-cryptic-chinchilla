@@ -104,209 +104,19 @@
       "userId": 2
     },
     {
-      "id": 5,
-      "message": "heyyy",
-      "userId": 1
+      "userId": 3,
+      "message": "post",
+      "id": 5
     },
     {
-      "userId": 2,
-      "message": "hey",
+      "userId": 1,
+      "message": "st",
       "id": 6
     },
     {
-      "userId": 2,
-      "message": "yo",
+      "userId": 1,
+      "message": "test",
       "id": 7
-    },
-    {
-      "userId": 2,
-      "message": "sup",
-      "id": 8
-    },
-    {
-      "id": 9,
-      "message": "no",
-      "userId": 2
-    },
-    {
-      "userId": 2,
-      "message": "test1",
-      "id": 10
-    },
-    {
-      "id": 11,
-      "message": "test",
-      "userId": 1
-    },
-    {
-      "id": 12,
-      "message": "testtest New",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "message": "post1",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "message": "test",
-      "id": 14
-    },
-    {
-      "id": 15,
-      "message": "yo",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "message": "test",
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "message": "yo",
-      "id": 17
-    },
-    {
-      "userId": 2,
-      "message": "plase",
-      "id": 18
-    },
-    {
-      "userId": 2,
-      "message": "plase",
-      "id": 19
-    },
-    {
-      "userId": 2,
-      "message": "please",
-      "id": 20
-    },
-    {
-      "userId": 2,
-      "message": "please",
-      "id": 21
-    },
-    {
-      "id": 22,
-      "message": "test",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "message": "new message",
-      "id": 23
-    },
-    {
-      "id": 24,
-      "message": "test",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "message": "POst",
-      "id": 25
-    },
-    {
-      "userId": 2,
-      "message": "Ps",
-      "id": 26
-    },
-    {
-      "userId": 2,
-      "message": "Ps",
-      "id": 27
-    },
-    {
-      "id": 28,
-      "message": "ed",
-      "userId": 2
-    },
-    {
-      "id": 29,
-      "message": "test",
-      "userId": 1
-    },
-    {
-      "userId": 2,
-      "message": "test",
-      "id": 30
-    },
-    {
-      "userId": 1,
-      "message": "test",
-      "id": 31
-    },
-    {
-      "userId": 1,
-      "message": "yo",
-      "id": 32
-    },
-    {
-      "userId": 3,
-      "message": "yo",
-      "id": 33
-    },
-    {
-      "userId": 3,
-      "message": "yo",
-      "id": 34
-    },
-    {
-      "userId": 3,
-      "message": "test",
-      "id": 35
-    },
-    {
-      "userId": 3,
-      "message": "test",
-      "id": 36
-    },
-    {
-      "userId": 2,
-      "message": "new",
-      "id": 37
-    },
-    {
-      "userId": 2,
-      "message": "new",
-      "id": 38
-    },
-    {
-      "id": 39,
-      "message": "blah",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "message": "newmess",
-      "id": 40
-    },
-    {
-      "userId": 1,
-      "message": "newmess",
-      "id": 41
-    },
-    {
-      "userId": 1,
-      "message": "newmess",
-      "id": 42
-    },
-    {
-      "userId": 1,
-      "message": "newmess",
-      "id": 43
-    },
-    {
-      "userId": 1,
-      "message": "test",
-      "id": 44
-    },
-    {
-      "userId": 1,
-      "message": "PLEASE",
-      "id": 45
     }
   ],
   "friends": [
@@ -318,15 +128,27 @@
     },
     {
       "friendInitiateId": 1,
-      "userId": 2,
-      "active": true,
-      "id": 6
-    },
-    {
-      "friendInitiateId": 1,
       "userId": 3,
       "active": true,
       "id": 7
+    },
+    {
+      "friendInitiateId": 3,
+      "userId": 2,
+      "active": true,
+      "id": 8
+    },
+    {
+      "friendInitiateId": 3,
+      "userId": 1,
+      "active": true,
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "friendInitiateId": 1,
+      "active": true,
+      "id": 10
     }
   ]
 }

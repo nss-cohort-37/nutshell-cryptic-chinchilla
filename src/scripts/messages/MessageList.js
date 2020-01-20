@@ -101,3 +101,22 @@ eventHub.addEventListener("click", clickEvent => {
         })
     }
 })
+<<<<<<< HEAD
+=======
+
+
+eventHub.addEventListener("click", event => {
+    if (event.target.classList.contains("messageUsername")) {
+        const [friendValue, foo] = event.target.innerHTML.split(":")
+        const confirmFriend = confirm(`Add ${friendValue} as a new friend??`)
+        if (confirmFriend === true) {
+            const message = new CustomEvent("friendNameClicked", {
+                detail: {
+                    friendUserName: friendValue
+                }
+            })
+            eventHub.dispatchEvent(message)
+        }
+    }
+})
+>>>>>>> master

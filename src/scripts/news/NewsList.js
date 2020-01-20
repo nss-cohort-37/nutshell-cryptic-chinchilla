@@ -1,18 +1,18 @@
 import { useNews, saveNews, editNews, deleteNews } from "./NewsProvider.js"
 import { useFriends } from "../friends/FriendsProvider.js"
 import { NewsComponent } from "./News.js"
-import { NewsForm } from "./EventForm.js"
-import { EventEditRender } from "./EventEditRender.js"
-import { EventDeleteRender } from "./EventDeleteRender.js"
+import { NewsForm } from "./NewsForm.js"
+import { NewsEditRender } from "./NewsEditRender.js"
+import { NewsDeleteRender } from "./NewsDeleteRender.js"
 
 const contentTarget = document.querySelector(".NewsRenderArea")
 const formTarget = document.querySelector(".NewsFormArea")
 const eventHub = document.querySelector(".container")
 
 const render = (newsArray) => {
-    contentTarget.innerHTML = NewsArray.map(event => {
+    contentTarget.innerHTML = newsArray.map(article => {
         // Get HTML representation of product
-        const html = EventComponent(event)
+        const html = NewsComponent(article)
 
         return html
     }).join("")
@@ -26,29 +26,29 @@ const renderForm = () => {
 const renderButton = () => {
     const buttonTarget = document.querySelector(".addNewsButton")
     buttonTarget.innerHTML = `
-    <button id="addEventButton">Add event</button>
+    <button id="addNewsButton">Add article</button>
     `
 }
 
-export const EventList = () => {
+export const NewsList = () => {
 
-    const News = useNews()
+    const news = useNews()
     const friends = useFriends()
 
     let currentUserId = parseInt(sessionStorage.getItem("activeUser"), 10)
 
-    const usersNews = News.filter(
-        event =>
-            event.userId === currentUserId
+    const usersNews = news.filter(
+        article =>
+            article.userId === currentUserId
     )
 
     let friendsNews = []
     friends.map(friend => {
         if (friend.friendInitiateId === currentUserId) {
-            News.filter(
-                event => {
-                    if (event.userId === friend.user.id) {
-                        friendsNews.push(event)
+            news.filter(
+                article => {
+                    if (article.userId === friend.user.id) {
+                        friendsNews.push(article)
                     }
                 }
             )
@@ -57,8 +57,8 @@ export const EventList = () => {
 
     const combinedArray = usersNews.concat(friendsNews)
 
-    //Listens for click fo Save Event button
-    eventHub.addEventListener("Newsaved", event => {
+    //Listens for click fo Save News button
+    eventHub.addEventListener("newsSaved", event => {
         if (event.detail.wasNewsaved === "yes") {
             const updatedNews = useNews()
             const updatedUsersNews = updatedNews.filter(
@@ -83,50 +83,46 @@ export const EventList = () => {
             render(updatedCombinedArray)
             renderForm()
             renderButton()
-            EventEditRender(updatedCombinedArray)
-            EventDeleteRender(updatedCombinedArray)
-            const dialogTarget = document.querySelector(".eventDialog")
+            NewsEditRender(updatedCombinedArray)
+            NewsDeleteRender(updatedCombinedArray)
+            const dialogTarget = document.querySelector(".newsDialog")
             dialogTarget.close()
         }
     })
 
-    
-
-        //saves edit message
-
-
     render(combinedArray)
     renderForm()
-    EventEditRender(combinedArray)
-    EventDeleteRender(combinedArray)
+    NewsEditRender(combinedArray)
+    NewsDeleteRender(combinedArray)
     renderButton()
 }
 
 // Listens for click of Add Event button
 eventHub.addEventListener("click", clickEvent => {
-    if(clickEvent.target.id === "addEventButton") {
-    const dialogTarget = document.querySelector(".eventDialog")
+    if(clickEvent.target.id === "addNewsButton") {
+    const dialogTarget = document.querySelector(".newsDialog")
     dialogTarget.showModal()
     }
 })
 
 // Listens for click of Save Event button
 eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "closeEventDialog") {
-        const newEvent = {
+    if (clickEvent.target.id === "closeNewsDialog") {
+        const newArticle = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-            name: document.getElementById("eventTitleText").value,
-            date: document.getElementById("eventDateTime").value,
-            location: document.getElementById("eventLocationText").value
+            url: document.getElementById(`newsURL--${news.id}`).value,
+            title: document.getElementById(`newsTitle--${news.id}`).value,
+            synopsis: document.getElementById(`newsSynopsis--${news.id}`).value,
+            date: document.getElementById(`newsDate--${news.id}`).value
         }
 
-        const message = new CustomEvent("Newsaved", {
+        const message = new CustomEvent("newsSaved", {
             detail: {
                 wasNewsaved: "yes"
             }
         })
 
-        saveEvent(newEvent)
+        saveNews(newArticle)
             .then(() => {
                 eventHub.dispatchEvent(message)
             })
@@ -135,11 +131,11 @@ eventHub.addEventListener("click", clickEvent => {
 
 //Listens for click of Edit Event button
 eventHub.addEventListener("click", event => {
-    if (event.target.id.startsWith("editEvent--")) {
+    if (event.target.id.startsWith("editNews--")) {
     const [prefix, id] = event.target.id.split("--")
-    const editEvent = new CustomEvent("editEventButtonClicked", {
+    const editEvent = new CustomEvent("editNewsButtonClicked", {
         detail: {
-        eventId: id
+        newsId: id
         }
     })
     eventHub.dispatchEvent(editEvent)
@@ -147,39 +143,40 @@ eventHub.addEventListener("click", event => {
 })
 
 //Listens for click of Edit Event button
-eventHub.addEventListener("editEventButtonClicked", event => {
-    const eventToEdit = event.detail.eventId
+eventHub.addEventListener("editNewsButtonClicked", event => {
+    const newsToEdit = event.detail.newsId
     const allNews = useNews()
-    const foundEvent = allNews.find(
-        (currentEvent) => {
-            return currentEvent.id === parseInt(eventToEdit, 10)
+    const foundNews = allNews.find(
+        (currentArticle) => {
+            return currentArticle.id === parseInt(newsToEdit, 10)
         }
     )
-    document.querySelector(`#eventName--${eventToEdit}`).value = foundEvent.name
-    document.querySelector(`#eventLocation--${eventToEdit}`).value = foundEvent.location 
-    const theDialog = document.querySelector(`#eventDetails--${foundEvent.id}`)
+    document.querySelector(`newsTitle--${newsToEdit}`).value = foundNews.title
+    document.querySelector(`newsSynopsis--${newsToEdit}`).value = foundNews.synopsis
+    document.querySelector(`newsURL--${newsToEdit}`).value = foundNews.url
+    const theDialog = document.querySelector(`newsDetails--${foundNews.id}`)
     theDialog.showModal()     
 })
 
 
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("saveEventEdit")) {
-      const [prefix, eventId] = clickEvent.target.id.split("--")
-      debugger
-      const editedEvent = {
-          id: parseInt(eventId, 10),
+    if (clickEvent.target.id.startsWith("saveNewsEdit")) {
+      const [prefix, newsId] = clickEvent.target.id.split("--")
+      const editedNews = {
+          id: parseInt(newsId, 10),
           userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-          name: document.querySelector(`#eventName--${eventId}`).value,
-          date: document.querySelector(`.eventDate--${eventId}`).textContent.split("Date: ")[1],
-          location: document.querySelector(`#eventLocation--${eventId}`).value
+          title: document.querySelector(`#newsTitle--${newsId}`).value,
+          synopsis: document.querySelector(`#newsTitle--${newsId}`).value,
+          url: document.querySelector(`#newsURL--${newsId}`).value,
+          date: document.querySelector(`#newsDate--${newsId}`).textContent.split("Date: ")[1]
         }
-        editEvent(editedEvent)
+        editNews(editedNews)
             .then(() => {
                 const updatedNews = useNews()
                 render(updatedNews)
-                EventEditRender(updatedNews)
-                EventDeleteRender(updatedNews)
+                NewsEditRender(updatedNews)
+                NewsDeleteRender(updatedNews)
                 renderForm()
             })
     }
@@ -187,15 +184,15 @@ eventHub.addEventListener("click", clickEvent => {
 
 //Listens for click of Delete Event button
 eventHub.addEventListener("click", event => {
-    if (event.target.id.startsWith("deleteEvent--")) {
-    let [prefix, eventId] = event.target.id.split("--")
-    eventId = parseInt(eventId, 10)
-    deleteEvent(eventId)
+    if (event.target.id.startsWith("deleteNews--")) {
+    let [prefix, newsId] = event.target.id.split("--")
+    newsId = parseInt(newsId, 10)
+    deleteNews(newsId)
         .then(() => {
             const updatedNews = useNews()
             render(updatedNews)
-            EventEditRender(updatedNews)
-            EventDeleteRender(updatedNews)
+            NewsEditRender(updatedNews)
+            NewsDeleteRender(updatedNews)
             renderForm()
         })
     }
