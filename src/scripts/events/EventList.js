@@ -2,6 +2,7 @@ import { useEvents, saveEvent } from "./EventProvider.js"
 import { useFriends } from "./FriendsProvider.js"
 import { EventComponent } from "./Event.js"
 import { EventsForm } from "./EventForm.js"
+import { EventEditRender } from "./EventEditRender.js"
 
 const contentTarget = document.querySelector(".eventsRenderArea")
 const formTarget = document.querySelector(".eventsFormArea")
@@ -78,6 +79,8 @@ export const EventList = () => {
 
     render(combinedArray)
     renderForm()
+    EventEditRender(combinedArray)
+
 
     const renderButton = () => {
         const buttonTarget = document.querySelector(".addEventsButton")
