@@ -1,4 +1,4 @@
-import { useTasks, deleteTask } from "./TaskProvider.js";
+import { useTasks, deleteTask, getTasks } from "./TaskProvider.js";
 import { TaskComponent } from "./Task.js";
 
 const eventHub = document.querySelector(".container");
@@ -55,6 +55,12 @@ export const TaskList = () => {
     }
   });
 
+  eventHub.addEventListener("updateWithoutHide", clickEvent => {
+    const allTasks = useTasks();
+    const showTask = allTasks.filter(task => task.isCompleted === false);
+    renderTask(showTask);
+  });
+
   // Hide task clicked and custom event created
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("hideTask--")) {
@@ -91,8 +97,9 @@ export const TaskList = () => {
 
 // render tasks
 export const reRenderTask = () => {
-  const updateTask = useTasks();
-  renderTask(updateTask);
+  const allTasks = useTasks();
+  const showTask = allTasks.filter(task => task.isCompleted === false);
+  renderTask(showTask);
 };
 
 const renderTask = taskCollection => {

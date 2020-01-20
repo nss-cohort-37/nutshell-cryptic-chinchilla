@@ -40,7 +40,7 @@ export const TaskListForm = () => {
       editTask(hideTask).then(() => {
         if (hideTask.isCompleted !== true) {
           const customMessage = new CustomEvent("updateWithoutHide");
-          eventHub.dispatchEvent();
+          eventHub.dispatchEvent(customMessage);
         }
       });
       document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";

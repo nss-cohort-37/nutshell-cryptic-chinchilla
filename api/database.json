@@ -19,17 +19,10 @@
       "password": 123
     },
     {
-<<<<<<< HEAD
       "id": 4,
       "userName": "Onterio",
       "email": "onterio@me.com",
       "password": 123
-=======
-      "userName": "james",
-      "email": "james",
-      "password": "james",
-      "id": 4
->>>>>>> master
     }
   ],
   "news": [
@@ -93,39 +86,39 @@
       "name": "Testing",
       "completionDate": "2020-01-20",
       "id": 5,
-      "isCompleted": true
+      "isCompleted": false
     }
   ],
   "messages": [
     {
       "id": 1,
-      "message": "testtestestest",
-      "userId": 1
+      "userId": 1,
+      "message": "What's up?"
     },
     {
-      "id": 3,
-      "message": "working",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "message": "yes",
-      "userId": 2
-    },
-    {
+      "id": 2,
       "userId": 3,
-      "message": "post",
+      "message": "Meet me at the Ice Wall tomorrow?"
+    },
+    {
+      "userId": 1,
+      "message": "knqwio",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "message": "knqwio",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "message": "fw",
       "id": 5
     },
     {
       "userId": 1,
-      "message": "st",
+      "message": "fw",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "message": "test",
-      "id": 7
     }
   ],
   "friends": [
@@ -137,27 +130,15 @@
     },
     {
       "friendInitiateId": 1,
+      "userId": 2,
+      "active": true,
+      "id": 3
+    },
+    {
+      "friendInitiateId": 1,
       "userId": 3,
       "active": true,
-      "id": 7
-    },
-    {
-      "friendInitiateId": 3,
-      "userId": 2,
-      "active": true,
-      "id": 8
-    },
-    {
-      "friendInitiateId": 3,
-      "userId": 1,
-      "active": true,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "friendInitiateId": 1,
-      "active": true,
-      "id": 10
+      "id": 5
     }
   ]
 }
