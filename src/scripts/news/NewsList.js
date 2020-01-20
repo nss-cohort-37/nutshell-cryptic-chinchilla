@@ -2,6 +2,7 @@ import { useNews, saveNews } from "./NewsProvider.js"
 import { useFriends } from "../events/FriendsProvider.js"
 import { NewsComponent } from "./News.js"
 import { NewsForm } from "./NewsForm.js"
+import { NewsEditRender } from "./NewsEditRender.js"
 
 const contentTarget = document.querySelector(".newsRenderArea")
 const formTarget = document.querySelector(".newsFormArea")
@@ -88,6 +89,7 @@ export const NewsList = () => {
     }
     
     renderButton()
+    NewsEditRender(combinedArray)
 
     eventHub.addEventListener("articleSaved", event => {
         if (event.detail.wasArticleSaved === "yes") {
