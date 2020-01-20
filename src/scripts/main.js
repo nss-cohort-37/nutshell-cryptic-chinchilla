@@ -1,8 +1,8 @@
 import { logInList } from "./logIn/LogInList.js";
 import { logInEvent } from "./logIn/LogInForm.js";
 import { getUsers } from "./users/UsersProvider.js";
-import { getMessages } from "./messages/MessagesProvider.js";
-import { MessageEventListener } from "./messages/MessageListener.js";
+import { getMessages, editMessage } from "./messages/MessagesProvider.js"
+import { MessageEventListener } from "./messages/MessageListener.js"
 import { NavbarEventListener } from "./navbar/navbarList.js";
 import { FriendsListComponent} from "./friends/FriendsList.js";
 import { getFriends } from "./friends/FriendsProvider.js";
@@ -22,13 +22,12 @@ getUsers()
   .then(getUsers)
   .then(() => {
     initiateDashboardEventListener()
-  })}
-  
+     })}
+
   else{
     getUsers().then(getMessages)
   .then(() => MessageEventListener())
   .then(getFriends)
-  // .then(getUsers)
   .then(() => {
     logInEvent()
     FriendsListComponent()
