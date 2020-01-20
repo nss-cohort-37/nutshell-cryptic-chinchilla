@@ -36,10 +36,9 @@ if (!sessionStorage.hasOwnProperty("activeUser")) {
 } else {
   getUsers()
     .then(getMessages)
+    .then(() => MessageEventListener())
     .then(getFriends)
     .then(getTasks)
-    .then(() => MessageEventListener())
-    // .then(getUsers)
     .then(() => {
       logInEvent();
       TaskForm();
