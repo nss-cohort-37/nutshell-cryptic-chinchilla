@@ -1,6 +1,6 @@
 export const TaskComponent = (tasks, users) => {
   return `
-    <section class="taskCard">
+    <section id="taskCard--${tasks.id}" class="taskCard">
       <div class="taskCardInfo">Name: ${users.map(user => user.userName)}</div>
       <div class="taskCardInfo">To Do:
         <ul>
@@ -11,6 +11,11 @@ export const TaskComponent = (tasks, users) => {
         <ul>
           <li>${tasks.completionDate}</li>
         </ul>
+      </div>
+      <div>
+        Hide Task When Completed: <input id="hideTask--${
+          tasks.id
+        }" class="hideTask" type="checkbox">
       </div>
       <button id="editTask--${
         tasks.id

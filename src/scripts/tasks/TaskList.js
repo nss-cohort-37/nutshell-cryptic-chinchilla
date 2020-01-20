@@ -19,21 +19,35 @@ export const TaskList = () => {
     }
   });
 
+  let taskCompleted = "";
+
   // Save Task
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveTask--")) {
       const taskName = document.querySelector("#task-name").value;
       const taskCompletionDate = document.querySelector("#task-date").value;
       const hiddenValue = document.querySelector("#hidden-value").value;
+      taskCompleted = false;
 
       const saveNewTaskCustomEvent = new CustomEvent("task-saved", {
         detail: {
           taskName: taskName,
           taskCompletionDate: taskCompletionDate,
-          taskHiddenValue: hiddenValue
+          taskHiddenValue: hiddenValue,
+          isCompleted: taskCompleted
         }
       });
       eventHub.dispatchEvent(saveNewTaskCustomEvent);
+    }
+  });
+
+  // Hide task
+  eventHub.addEventListener("hideTask", clickEvent => {
+    const hideTaskId = clickEvent.detail.taskId;
+    let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
+    if (hiddenTask.checked === true) {
+      taskCompleted = true;
+      document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";
     }
   });
 
@@ -49,6 +63,18 @@ export const TaskList = () => {
         reRenderTask();
         clearAllValues();
       });
+    }
+  });
+
+  eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("hideTask--")) {
+      const [prefix, taskId] = clickEvent.target.id.split("--");
+      const hideTask = new CustomEvent("hideTask", {
+        detail: {
+          taskId: taskId
+        }
+      });
+      eventHub.dispatchEvent(hideTask);
     }
   });
 

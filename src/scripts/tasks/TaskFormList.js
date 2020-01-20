@@ -1,5 +1,5 @@
 import { TaskForm } from "./TaskForm.js";
-import { useTasks, editTask, saveTask } from "./TaskProvider.js";
+import { useTasks, editTask, saveTask, getTasks } from "./TaskProvider.js";
 
 export const TaskListForm = () => {
   const eventHub = document.querySelector(".container");
@@ -20,11 +20,26 @@ export const TaskListForm = () => {
     document.querySelector("#hidden-value").value = foundTask.id;
   });
 
+  // let taskWasCompleted = "";
+
+  // eventHub.addEventListener("hideTask", clickEvent => {
+  //   const hideTaskId = clickEvent.detail.taskId;
+  //   let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
+  //   console.log(hiddenTask);
+
+  //   if (hiddenTask.checked === true) {
+  //     taskWasCompleted = true;
+  //     console.log(taskWasCompleted);
+
+  //   }
+  // });
+
   // Save new task or edited task
   eventHub.addEventListener("task-saved", clickEvent => {
     const savedTaskName = clickEvent.detail.taskName;
     const savedTaskDate = clickEvent.detail.taskCompletionDate;
     const taskHiddenValue = clickEvent.detail.taskHiddenValue;
+    let taskWasCompleted = clickEvent.detail.isCompleted;
 
     const hiddenValue = document.querySelector("#hidden-value").value;
     if (hiddenValue !== "") {
@@ -33,7 +48,8 @@ export const TaskListForm = () => {
         name: document.querySelector(`#task-name--${taskHiddenValue}`).value,
         completionDate: document.querySelector(`#task-date--${taskHiddenValue}`)
           .value,
-        id: document.querySelector("#hidden-value").value
+        id: document.querySelector("#hidden-value").value,
+        isCompleted: taskWasCompleted
       };
 
       // Edit task PUT method
@@ -44,7 +60,8 @@ export const TaskListForm = () => {
       const newTask = {
         userId: parseInt(sessionStorage.getItem("activeUser"), 10),
         name: savedTaskName,
-        completionDate: savedTaskDate
+        completionDate: savedTaskDate,
+        isCompleted: taskWasCompleted
       };
 
       // Save task POST method
