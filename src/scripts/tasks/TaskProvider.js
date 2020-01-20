@@ -3,7 +3,7 @@ let tasks = [];
 export const useTasks = () => tasks.slice();
 
 export const getTasks = () => {
-  return fetch("http://localhost:3000/tasks")
+  return fetch("http://localhost:3000/tasks?_expand=user")
     .then(res => res.json())
     .then(parsedTasks => {
       tasks = parsedTasks

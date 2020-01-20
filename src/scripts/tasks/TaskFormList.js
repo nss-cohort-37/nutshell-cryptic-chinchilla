@@ -1,10 +1,10 @@
 import { TaskForm } from "./TaskForm.js";
 import { useTasks, editTask, saveTask, getTasks } from "./TaskProvider.js";
 
-export const TaskListForm = () => {
-  const eventHub = document.querySelector(".container");
-  const targetElement = document.querySelector(".taskForm");
+const eventHub = document.querySelector(".container");
+const targetElement = document.querySelector(".taskForm");
 
+export const TaskListForm = () => {
   let taskId = "";
 
   eventHub.addEventListener("edit-btn-has-been-click", clickEvent => {
@@ -78,14 +78,14 @@ export const TaskListForm = () => {
   };
 
   // Render task form
-  const renderTaskForm = () => {
-    targetElement.innerHTML = TaskForm();
-  };
-
-  // Only display task once logged in
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "button--logIn") {
-      renderTaskForm();
-    }
-  });
 };
+export const renderTaskForm = () => {
+  targetElement.innerHTML = TaskForm();
+};
+
+// Only display task once logged in
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id === "button--logIn") {
+    renderTaskForm();
+  }
+});

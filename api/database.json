@@ -83,10 +83,10 @@
     },
     {
       "userId": 1,
-      "name": "sfgwe",
+      "name": "Testing",
       "completionDate": "2020-01-20",
-      "isCompleted": false,
-      "id": 5
+      "id": 5,
+      "isCompleted": false
     }
   ],
   "messages": [
@@ -99,6 +99,26 @@
       "id": 2,
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
+    },
+    {
+      "userId": 1,
+      "message": "knqwio",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "message": "knqwio",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "message": "fw",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "message": "fw",
+      "id": 6
     }
   ],
   "friends": [

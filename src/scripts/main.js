@@ -11,8 +11,8 @@ import { initiateDashboardEventListener } from "./dashboardEvents/DashboardLoad.
 import { MessageList } from "./messages/MessageList.js";
 import { getTasks } from "./tasks/TaskProvider.js";
 import { TaskForm } from "./tasks/TaskForm.js";
-import { TaskListForm } from "./tasks/TaskFormList.js";
-import { TaskList } from "./tasks/TaskList.js";
+import { TaskListForm, renderTaskForm } from "./tasks/TaskFormList.js";
+import { TaskList, reRenderTask } from "./tasks/TaskList.js";
 import { TaskDialog } from "./tasks/taskDialog.js";
 
 if (!sessionStorage.hasOwnProperty("activeUser")) {
@@ -36,11 +36,18 @@ if (!sessionStorage.hasOwnProperty("activeUser")) {
 } else {
   getUsers()
     .then(getMessages)
-    .then(() => MessageEventListener())
     .then(getFriends)
+    .then(getTasks)
+    .then(() => MessageEventListener())
     // .then(getUsers)
     .then(() => {
       logInEvent();
+      TaskForm();
+      TaskListForm();
+      TaskList();
+      TaskDialog();
+      reRenderTask();
+      renderTaskForm();
       FriendsListComponent();
       MessageList();
       addSearchEventListeners();

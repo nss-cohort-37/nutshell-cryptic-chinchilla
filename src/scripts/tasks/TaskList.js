@@ -1,12 +1,11 @@
-import { useTasks, deleteTask, getTasks } from "./TaskProvider.js";
+import { useTasks, deleteTask } from "./TaskProvider.js";
 import { useUsers } from "../users/UsersProvider.js";
 import { TaskComponent } from "./Task.js";
 
-export const TaskList = () => {
-  const eventHub = document.querySelector(".container");
-  const targetElement = document.querySelector(".tasksContainer");
+const eventHub = document.querySelector(".container");
+const targetElement = document.querySelector(".tasksContainer");
 
-  // Edit Task
+export const TaskList = () => {
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("editTask--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--");
@@ -92,33 +91,35 @@ export const TaskList = () => {
     }
   });
 
-  const reRenderTask = () => {
-    const updateTask = useTasks();
-    renderTask(updateTask);
-  };
-
   const clearAllValues = () => {
     document.querySelector("#task-name").value = "";
     document.querySelector("#task-date").value = "";
     document.querySelector("#hidden-value").value = "";
   };
+};
 
-  // render tasks
-  const renderTask = taskCollection => {
-    const users = useUsers();
+// Edit Task
 
-    const foundTask = taskCollection.filter(
-      // Filter task array by active user
-      taskArray =>
-        taskArray.userId === parseInt(sessionStorage.getItem("activeUser"), 10)
-    );
-    targetElement.innerHTML = foundTask
-      .map(taskObject => {
-        // Display user that's associated with task
-        const foundUser = users.filter(user => taskObject.userId === user.id);
-        const HTMLRepresentation = TaskComponent(taskObject, foundUser);
-        return HTMLRepresentation;
-      })
-      .join("");
-  };
+// render tasks
+export const reRenderTask = () => {
+  const updateTask = useTasks();
+  renderTask(updateTask);
+};
+
+const renderTask = taskCollection => {
+  const users = useUsers();
+
+  const foundTask = taskCollection.filter(
+    // Filter task array by active user
+    taskArray =>
+      taskArray.userId === parseInt(sessionStorage.getItem("activeUser"), 10)
+  );
+  targetElement.innerHTML = foundTask
+    .map(taskObject => {
+      // Display user that's associated with task
+      const foundUser = users.filter(user => taskObject.userId === user.id);
+      const HTMLRepresentation = TaskComponent(taskObject, foundUser);
+      return HTMLRepresentation;
+    })
+    .join("");
 };
