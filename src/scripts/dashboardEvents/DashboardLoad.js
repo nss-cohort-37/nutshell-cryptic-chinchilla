@@ -5,6 +5,7 @@ import { NewsList } from "../news/NewsList.js"
 import { NavbarEventListener } from "../navbar/navbarList.js";
 import { addSearchEventListeners } from "../friends/FriendSearchList.js";
 
+
 const eventHub = document.querySelector(".container");
 
 

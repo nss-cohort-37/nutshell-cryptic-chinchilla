@@ -3,7 +3,7 @@ import { saveUser, useUsers } from "../users/UsersProvider.js";
 const eventHub = document.querySelector(".container");
 
 export const logInForm = () => {
-  sessionStorage.clear()
+  sessionStorage.clear();
   return `
   <h1>Welcome!</h1>
   <h3>Please Log In or Register!</h3>
@@ -22,7 +22,6 @@ export const logInForm = () => {
     </div>
   `;
 };
-
 export const logInEvent = () => {
   eventHub.addEventListener("click", event => {
     if (event.target.id === "button--register") {
@@ -48,20 +47,25 @@ export const logInEvent = () => {
           <button id="button--saveUser">Register</button>
       `;
     }
-
     if (event.target.id === "button--logIn") {
       const users = useUsers();
       const userName = document.querySelector(".logInUser").value;
+      const userNamePW = document.querySelector(".logInPass").value;
       const foundUser = users.find(user => user.userName === userName);
+      const foundUserPassWord = users.find(
+        user => user.password === parseInt(userNamePW)
+      );
       if (foundUser === undefined) {
-        alert("Please register a new Account");
+        alert("Please register a new Account!");
+      }
+      if (foundUserPassWord === undefined) {
+        alert("Incorrect Password!");
       } else {
         sessionStorage.setItem("activeUser", foundUser.id);
-        const contentTarget = document.querySelector(".logInForm")
-        contentTarget.innerHTML=""
+        const contentTarget = document.querySelector(".logInForm");
+        contentTarget.innerHTML = "";
       }
     }
-
     if (event.target.id === "button--saveUser") {
       let userNameValue = document.querySelector(".registerUser").value;
       let emailValue = document.querySelector(".registerEmail").value;
@@ -81,8 +85,8 @@ export const logInEvent = () => {
           const users = useUsers();
           const foundUser = users.find(user => user.userName === userNameValue)
           sessionStorage.setItem("activeUser", foundUser.id);
-          const contentTarget = document.querySelector(".logInForm")
-          contentTarget.innerHTML=""
+          const contentTarget = document.querySelector(".logInForm");
+          contentTarget.innerHTML = "";
         });
       }
     }

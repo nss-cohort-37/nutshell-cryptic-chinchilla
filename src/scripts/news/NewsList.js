@@ -83,7 +83,6 @@ export const NewsList = () => {
             render(updatedCombinedArray)
             renderForm()
             renderButton()
-            debugger
             NewsEditRender(updatedCombinedArray)
             NewsDeleteRender(updatedCombinedArray)
             const dialogTarget = document.querySelector(".newsDialog")
@@ -93,7 +92,6 @@ export const NewsList = () => {
 
     render(combinedArray)
     renderForm()
-    debugger
     NewsEditRender(combinedArray)
     NewsDeleteRender(combinedArray)
     renderButton()
@@ -177,7 +175,6 @@ eventHub.addEventListener("click", clickEvent => {
             .then(() => {
                 const updatedNews = useNews()
                 render(updatedNews)
-                debugger
                 NewsEditRender(updatedNews)
                 NewsDeleteRender(updatedNews)
                 renderForm()
@@ -194,7 +191,6 @@ eventHub.addEventListener("click", event => {
         .then(() => {
             const updatedNews = useNews()
             render(updatedNews)
-            debugger
             NewsEditRender(updatedNews)
             NewsDeleteRender(updatedNews)
             renderForm()
