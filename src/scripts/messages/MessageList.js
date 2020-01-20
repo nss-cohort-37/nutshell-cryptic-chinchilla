@@ -92,7 +92,6 @@ eventHub.addEventListener("click", clickEvent => {
             userId: messageUserId,
             message: messageText
         }
-        debugger
         saveMessage(newMessage)
         .then(() => {
             const updatedMessages = useMessages()
