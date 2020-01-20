@@ -29,6 +29,9 @@ eventHub.addEventListener("click", clickEvent => {
         friendRel.userId === foundUser.id &&
         friendInitiateId === friendRel.friendInitiateId
     );
+    if (friendInitiateId !== foundUser.id) {
+
+    
     if (foundExistingFriend === undefined) {
       const newFriend = new CustomEvent("newFriend", {
         detail: {
@@ -41,6 +44,9 @@ eventHub.addEventListener("click", clickEvent => {
       
     } else {
       alert("User is already a friend");
+    }
+    } else {
+      alert("You can't add yourself, dummy")
     }
   }
 });
