@@ -28,11 +28,35 @@
   "news": [
     {
       "id": 1,
-      "userId": 2,
+      "userId": 1,
       "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
       "title": "Wormholes Allow Information to Escape Black Holes",
       "synopsis": "Check out this recent discovery about workholes",
       "date": "01-01-2020"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "url": "https://www.forbes.com/sites/jimdobson/2019/03/16/flat-earth-supporters-now-plan-an-antarctica-expedition-to-the-edge-of-the-world/#a89c94159165",
+      "title": "Flat Earth Supporters Now Plan An Antarctica Expedition To The Edge Of The World ",
+      "synopsis": "Earth Truthers trek to the Ice Wall, climb it, and fall out of the universe",
+      "date": "01-10-2020"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "url": "https://www.dallasobserver.com/arts/the-earth-is-flat-nasa-and-the-pope-are-liars-things-learned-at-the-flat-earth-convention-11808074",
+      "title": "Discworld Is Real! Dive into Flat Earth Culture at their Global, Sorry, International Conference",
+      "synopsis": "Great sumamry of the latest in Earth Truth",
+      "date": "01-20-2020"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "url": "https://www.space.com/flat-earther-mad-mike-hughes-august-2019-launch.html",
+      "title": "'Mad' Flat-Earther to Launch Himself 5,000 Feet Up on a Homemade Steam Rocket Sunday",
+      "synopsis": "Sphere Lie Smasher launches to the edge of the universe - AKA the atmosphere",
+      "date": "01-15-2020"
     }
   ],
   "events": [
