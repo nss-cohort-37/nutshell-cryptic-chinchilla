@@ -15,10 +15,11 @@ eventHub.addEventListener("click", clickEvent => {
     clickEvent.target.id === "button--saveUser" ||
     clickEvent.target.id === "button--logIn"
   ) {
+    if (sessionStorage.getItem("activeUser") !== null) {
     FriendsListComponent()
     MessageList()
     EventList()
     NewsList()
     addSearchEventListeners();
     NavbarEventListener()
-  }})}
+}}})}

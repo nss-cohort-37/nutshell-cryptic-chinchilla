@@ -39,15 +39,15 @@ export const MessageList = () => {
       foundMessage.message;
   });
 
-  //saves edit message
+  if (sessionStorage.getItem("activeUser") !== null) {
+      render(messages);
+      renderForm();
+    
+      editMessageListener();
+      messageEditRender(messages);
+      editMessageDialog();
 
-  //SAVE MESSAGE
-  render(messages);
-  renderForm();
-
-  editMessageListener();
-  messageEditRender(messages);
-  editMessageDialog();
+  }
 };
 
 const render = messages => {
