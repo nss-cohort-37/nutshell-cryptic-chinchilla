@@ -17,25 +17,6 @@ eventHub.addEventListener("newFriend", event => {
   })
 })
 
-<<<<<<< HEAD
-export const FriendsListComponent = () => {
-  
-      const allFriends = useFriends();
-      const activeUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
-      const foundFriendsArray = allFriends.filter(
-        friendRel => friendRel.friendInitiateId === activeUserId
-      );
-
-      render(foundFriendsArray);
-
-}
-      //custom event that says a new friend should be added to friends table
-
-     
-
-
-      eventHub.addEventListener("friendDeleted", () => {
-=======
 eventHub.addEventListener("friendNameClicked", event => {
   const userName = event.detail.friendUserName
   const updatedFriends = useFriends();
@@ -62,7 +43,6 @@ eventHub.addEventListener("friendNameClicked", event => {
         active: true
       }
       SaveFriends(newFriendObject).then(() => {
->>>>>>> master
         const updatedFriends = useFriends();
         const updatedFoundFriendsArray = updatedFriends.filter(
           friendRel => friendRel.friendInitiateId === activeUserId

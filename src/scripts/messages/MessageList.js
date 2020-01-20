@@ -101,8 +101,6 @@ eventHub.addEventListener("click", clickEvent => {
         })
     }
 })
-<<<<<<< HEAD
-=======
 
 
 eventHub.addEventListener("click", event => {
@@ -119,4 +117,3 @@ eventHub.addEventListener("click", event => {
         }
     }
 })
->>>>>>> master
