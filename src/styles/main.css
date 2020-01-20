@@ -21,3 +21,8 @@
   color: whitesmoke;
   justify-content: left
 }
+
+.picSize {
+  width: 100px;
+  height: 100px
+}
