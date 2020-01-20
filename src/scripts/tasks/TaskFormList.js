@@ -20,19 +20,32 @@ export const TaskListForm = () => {
     document.querySelector("#hidden-value").value = foundTask.id;
   });
 
-  // let taskWasCompleted = "";
+  let taskWasCompleted = "";
 
-  // eventHub.addEventListener("hideTask", clickEvent => {
-  //   const hideTaskId = clickEvent.detail.taskId;
-  //   let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
-  //   console.log(hiddenTask);
-
-  //   if (hiddenTask.checked === true) {
-  //     taskWasCompleted = true;
-  //     console.log(taskWasCompleted);
-
-  //   }
-  // });
+  // Hide task
+  eventHub.addEventListener("hideTask", clickEvent => {
+    const hideTaskId = clickEvent.detail.taskId;
+    const allTasks = useTasks();
+    let foundTask = allTasks.find(task => task.id === parseInt(hideTaskId, 10));
+    console.log(hideTaskId);
+    let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
+    if (hiddenTask.checked === true) {
+      const hideTask = {
+        userId: foundTask.userId,
+        name: foundTask.name,
+        completionDate: foundTask.completionDate,
+        id: foundTask.id,
+        isCompleted: true
+      };
+      editTask(hideTask).then(() => {
+        if (hideTask.isCompleted !== true) {
+          const customMessage = new CustomEvent("updateWithoutHide");
+          eventHub.dispatchEvent();
+        }
+      });
+      document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";
+    }
+  });
 
   // Save new task or edited task
   eventHub.addEventListener("task-saved", clickEvent => {

@@ -1,11 +1,11 @@
 import { useTasks, deleteTask } from "./TaskProvider.js";
-import { useUsers } from "../users/UsersProvider.js";
 import { TaskComponent } from "./Task.js";
 
 const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".tasksContainer");
 
 export const TaskList = () => {
+  // Edit Task
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("editTask--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--");
@@ -40,16 +40,6 @@ export const TaskList = () => {
     }
   });
 
-  // Hide task
-  eventHub.addEventListener("hideTask", clickEvent => {
-    const hideTaskId = clickEvent.detail.taskId;
-    let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
-    if (hiddenTask.checked === true) {
-      taskCompleted = true;
-      document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";
-    }
-  });
-
   // Delete task
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteTask--")) {
@@ -65,6 +55,7 @@ export const TaskList = () => {
     }
   });
 
+  // Hide task clicked and custom event created
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("hideTask--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--");
@@ -98,8 +89,6 @@ export const TaskList = () => {
   };
 };
 
-// Edit Task
-
 // render tasks
 export const reRenderTask = () => {
   const updateTask = useTasks();
@@ -107,8 +96,6 @@ export const reRenderTask = () => {
 };
 
 const renderTask = taskCollection => {
-  const users = useUsers();
-
   const foundTask = taskCollection.filter(
     // Filter task array by active user
     taskArray =>
@@ -117,8 +104,7 @@ const renderTask = taskCollection => {
   targetElement.innerHTML = foundTask
     .map(taskObject => {
       // Display user that's associated with task
-      const foundUser = users.filter(user => taskObject.userId === user.id);
-      const HTMLRepresentation = TaskComponent(taskObject, foundUser);
+      const HTMLRepresentation = TaskComponent(taskObject);
       return HTMLRepresentation;
     })
     .join("");
