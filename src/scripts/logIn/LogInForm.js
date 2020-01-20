@@ -52,7 +52,6 @@ export const logInEvent = () => {
       if (foundUser === undefined) {
         alert("Please register a new Account");
       } else {
-        debugger
         sessionStorage.setItem("activeUser", foundUser.id);
         const contentTarget = document.querySelector(".logInForm")
         contentTarget.innerHTML=""
