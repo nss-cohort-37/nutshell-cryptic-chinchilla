@@ -76,12 +76,12 @@
   "messages": [
     {
       "id": 1,
-      "message": "test2",
+      "message": "new",
       "userId": 1
     },
     {
       "id": 3,
-      "message": "workingblah",
+      "message": "test",
       "userId": 1
     },
     {
@@ -185,9 +185,69 @@
       "id": 23
     },
     {
+      "id": 24,
+      "message": "test",
+      "userId": 1
+    },
+    {
       "userId": 1,
       "message": "POst",
-      "id": 24
+      "id": 25
+    },
+    {
+      "userId": 2,
+      "message": "Ps",
+      "id": 26
+    },
+    {
+      "userId": 2,
+      "message": "Ps",
+      "id": 27
+    },
+    {
+      "id": 28,
+      "message": "ed",
+      "userId": 2
+    },
+    {
+      "id": 29,
+      "message": "test",
+      "userId": 1
+    },
+    {
+      "userId": 2,
+      "message": "test",
+      "id": 30
+    },
+    {
+      "userId": 1,
+      "message": "test",
+      "id": 31
+    },
+    {
+      "userId": 1,
+      "message": "yo",
+      "id": 32
+    },
+    {
+      "userId": 3,
+      "message": "yo",
+      "id": 33
+    },
+    {
+      "userId": 3,
+      "message": "yo",
+      "id": 34
+    },
+    {
+      "userId": 3,
+      "message": "test",
+      "id": 35
+    },
+    {
+      "userId": 3,
+      "message": "test",
+      "id": 36
     }
   ],
   "friends": [

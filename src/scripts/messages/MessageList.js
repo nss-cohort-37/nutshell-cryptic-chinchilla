@@ -70,7 +70,7 @@ export const MessageList = () => {
     render(messages)
     renderForm()
     eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.classList.contains("saveMessageBtn")) {
+        if (clickEvent.target.id === "saveMessage" ) {
             console.log("heard save button")
             let messageUserId = parseInt(sessionStorage.getItem("activeUser"), 10)
             let messageText = document.getElementById("messageForm").value
@@ -79,7 +79,7 @@ export const MessageList = () => {
                 userId: messageUserId,
                 message: messageText
             }
-            
+            debugger
             saveMessage(newMessage)
             .then(() => {
                 const updatedMessages = useMessages()
