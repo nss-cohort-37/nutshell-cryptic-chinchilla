@@ -76,17 +76,17 @@
   "messages": [
     {
       "id": 1,
-      "message": "I am the ABYSS",
+      "message": "test1",
       "userId": 1
     },
     {
       "id": 3,
-      "message": "I HATE MYSELF I REALLY DO",
+      "message": "working",
       "userId": 1
     },
     {
       "id": 4,
-      "message": "YOYO",
+      "message": "the future",
       "userId": 2
     },
     {
@@ -113,6 +113,71 @@
       "id": 9,
       "message": "no",
       "userId": 2
+    },
+    {
+      "userId": 2,
+      "message": "test1",
+      "id": 10
+    },
+    {
+      "id": 11,
+      "message": "test",
+      "userId": 1
+    },
+    {
+      "id": 12,
+      "message": "testtest New",
+      "userId": 1
+    },
+    {
+      "userId": 1,
+      "message": "post1",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "message": "test",
+      "id": 14
+    },
+    {
+      "id": 15,
+      "message": "yo",
+      "userId": 1
+    },
+    {
+      "userId": 1,
+      "message": "test",
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "message": "yo",
+      "id": 17
+    },
+    {
+      "userId": 2,
+      "message": "plase",
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "message": "plase",
+      "id": 19
+    },
+    {
+      "userId": 2,
+      "message": "please",
+      "id": 20
+    },
+    {
+      "userId": 2,
+      "message": "please",
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "message": "working",
+      "id": 22
     }
   ],
   "friends": [

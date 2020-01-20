@@ -78,10 +78,7 @@ export const logInEvent = () => {
         };
         saveUser(newUser).then(() => {
           const users = useUsers();
-          const foundUser = users.find(user => user.userName === userNameValue);
-          // if (sessionStorage.hasOwnProperty("activeUser")) {
-          //   sessionStorage.removeItem("activeUser")
-          // }
+          const foundUser = users.find(user => user.userName === userNameValue)
           sessionStorage.setItem("activeUser", foundUser.id);
           const contentTarget = document.querySelector(".logInForm")
           contentTarget.innerHTML=""

@@ -2,15 +2,12 @@ import { useMessages, saveMessage, editMessage } from "./MessagesProvider.js"
 import { MessageComponent } from "./Messages.js"
 import { MessageForm, editMessageListener, editMessageDialog } from "./MessageForm.js"
 import { messageEditRender } from "./MessageEditRender.js"
-
 const contentTarget = document.querySelector(".messagesContainer")
 const formTarget = document.querySelector(".messagesForm")
 const eventHub = document.querySelector('.container')
 
 export const MessageList = () => {
     const messages = useMessages()
-    const userId = sessionStorage.getItem("activeUser")
-
     eventHub.addEventListener("messageSent", messageEvent => {
         const sentStatus = messageEvent.detail.wasMessageSent
         if (sentStatus === "yes") {
@@ -23,7 +20,6 @@ export const MessageList = () => {
             }).join("")
         }
     })
-
     const render = (messages) => {
         contentTarget.innerHTML = messages.map(message => {
             // Get HTML representation of product
@@ -70,11 +66,13 @@ export const MessageList = () => {
         })
     }
 })
-
 //SAVE MESSAGE
-eventHub.addEventListener("click", clickEvent => {
+    render(messages)
+    renderForm()
+    eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.classList.contains("saveMessageBtn")) {
-            let messageUserId = parseInt(userId, 10)
+            console.log("heard save button")
+            let messageUserId = parseInt(sessionStorage.getItem("activeUser"), 10)
             let messageText = document.getElementById("messageForm").value
             
             let newMessage = {
@@ -92,10 +90,8 @@ eventHub.addEventListener("click", clickEvent => {
             })
         }
     })
-
-    render(messages)
-    renderForm()
     editMessageListener()
     messageEditRender(messages)
     editMessageDialog()
+
 }
