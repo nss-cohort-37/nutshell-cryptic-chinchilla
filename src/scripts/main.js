@@ -9,16 +9,36 @@ import { MessageEventListener } from "./messages/MessageListener.js"
 import { EventsEventListener } from "./events/EventsListener.js"
 import { NewsListener } from "./news/NewsListener.js"
 import { NavbarEventListener } from "./navbar/navbarList.js";
+import { FriendsListComponent} from "./friends/FriendsList.js";
+import { getFriends } from "./friends/FriendsProvider.js";
+import { addSearchEventListeners } from "./friends/FriendSearchList.js";
+import { initiateDashboardEventListener } from "./dashboardEvents/DashboardLoad.js";
+import { MessageList } from "./messages/MessageList.js";
 
+
+if(!(sessionStorage.hasOwnProperty("activeUser"))){
 getUsers()
-    .then(() => logInList())
-    .then(() => logInEvent())
-    .then(() => getMessages())
-    .then(() => MessageEventListener())
-    .then(() => getEvents())
-    .then(() => getFriends())
-    .then(() => EventsEventListener())
-    .then(() => getNews())
-    .then(() => NewsListener())
-
-NavbarEventListener()
+  .then(() =>{
+  logInList()})
+  .then(() => logInEvent())
+  .then(() => getMessages())
+  .then(() => MessageEventListener())
+  .then(getFriends)
+  .then(getUsers)
+  .then(() => {
+    initiateDashboardEventListener()
+  })}
+  
+  else{
+    getUsers().then(getMessages)
+  .then(() => MessageEventListener())
+  .then(getFriends)
+  // .then(getUsers)
+  .then(() => {
+    logInEvent()
+    FriendsListComponent()
+    MessageList()
+    addSearchEventListeners()
+    NavbarEventListener()
+    initiateDashboardEventListener()
+  })}
