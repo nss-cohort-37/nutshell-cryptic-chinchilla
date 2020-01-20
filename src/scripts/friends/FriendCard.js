@@ -19,7 +19,6 @@ eventHub.addEventListener("click", clickEvent => {
 
    deleteFriends(friendId).then(() => {
      const message = new CustomEvent ("friendDeleted")
-     console.log("friend deleted")
      eventHub.dispatchEvent(message)
    })
  }

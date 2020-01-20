@@ -19,7 +19,6 @@ export const FriendsListComponent = () => {
   
       const allFriends = useFriends();
       const activeUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
-      console.log("activeUserId");
       const foundFriendsArray = allFriends.filter(
         friendRel => friendRel.friendInitiateId === activeUserId
       );
@@ -33,7 +32,6 @@ export const FriendsListComponent = () => {
 
 
       eventHub.addEventListener("friendDeleted", () => {
-        console.log("deleted friend event heard");
         const updatedFriends = useFriends();
         const activeUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
         const updatedFoundFriendsArray = updatedFriends.filter(

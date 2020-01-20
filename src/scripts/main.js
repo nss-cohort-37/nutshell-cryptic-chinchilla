@@ -1,6 +1,4 @@
-import { getUsers } from "./users/UsersProvider.js";
 import { getEvents } from "./events/EventProvider.js"
-import { getMessages } from "./messages/MessagesProvider.js"
 import { getNews } from "./news/NewsProvider.js"
 import { logInList } from "./logIn/LogInList.js";
 import { logInEvent } from "./logIn/LogInForm.js";
@@ -16,27 +14,29 @@ import { MessageList } from "./messages/MessageList.js";
 
 
 if(!(sessionStorage.hasOwnProperty("activeUser"))){
-getUsers()
-  .then(() =>{
-  logInList()})
-  .then(() => logInEvent())
-  .then(() => getMessages())
-  .then(() => MessageEventListener())
-  .then(getFriends)
-  .then(getUsers)
-  .then(() => {
-    initiateDashboardEventListener()
-     })}
+  getUsers()
+    .then(() => logInList())
+    .then(() => logInEvent())
+    .then(() => getMessages())
+    .then(() => getEvents())
+    .then(() => MessageEventListener())
+    .then(() => getFriends())
+    .then(() => getUsers())
+    .then(() => initiateDashboardEventListener())
+}
 
-  else{
-    getUsers().then(getMessages)
-  .then(() => MessageEventListener())
-  .then(getFriends)
-  .then(() => {
-    logInEvent()
-    FriendsListComponent()
-    MessageList()
-    addSearchEventListeners()
-    NavbarEventListener()
-    initiateDashboardEventListener()
-  })}
+else{
+    getUsers()
+      .then(() => getMessages())
+      .then(() => getEvents())
+      .then(() => MessageEventListener())
+      .then(() => getFriends())
+      .then(() => {
+        logInEvent()
+        FriendsListComponent()
+        MessageList()
+        addSearchEventListeners()
+        NavbarEventListener()
+        initiateDashboardEventListener()
+      })
+}

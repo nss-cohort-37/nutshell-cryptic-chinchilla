@@ -4,7 +4,7 @@ export const NewsEditRender = (news) => {
       const contentTarget =  document.querySelector(`.editButtonContainer--${article.id}`)
       if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
         contentTarget.innerHTML = `
-        <button id="editEvent--${news.id}">Edit Article</button>
+        <button id="editNews--${news.id}">Edit Article</button>
         `
       }
     })

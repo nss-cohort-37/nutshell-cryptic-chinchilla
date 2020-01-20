@@ -68,16 +68,9 @@
     {
       "userId": 1,
       "name": "Debunk the lies",
-      "date": "2100-12-31T00:00",
+      "date": "2100-12-31",
       "location": "My basement",
       "id": 4
-    },
-    {
-      "userId": 1,
-      "name": "test",
-      "date": "2022-12-12T00:12",
-      "location": "test",
-      "id": 5
     }
   ],
   "tasks": [

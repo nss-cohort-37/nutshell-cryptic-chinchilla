@@ -33,7 +33,6 @@ export const editMessageDialog = () => {
   eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("editMessage")) {
       const [prefix, id] = event.target.id.split("--")
-      console.log(id)
       const theDialog =document.querySelector(`#details--${id}`)
       theDialog.showModal()
     }
