@@ -77,6 +77,37 @@ export const EventList = () => {
         }
     })
 
+    eventHub.addEventListener("editEventButtonClicked", event => {
+        const eventToEdit = event.detail.eventId
+        const allEvents = useEvents()
+        const foundEvent = allEvents.find(
+            (currentEvent) => {
+              return currentEvent.id === parseInt(eventToEdit, 10)
+            }
+          )
+          document.querySelector("#entry-id").value = foundMessage.id
+          document.querySelector(`#messageText--${messageToEdit}`).value = foundMessage.message      
+    })
+
+        //saves edit message
+    eventHub.addEventListener("click", clickEvent => {
+        if (clickEvent.target.id.startsWith("saveEdit")) {
+          const [prefix, id] = clickEvent.target.id.split("--")
+          const editedMessage = {
+              id: parseInt(document.querySelector("#entry-id").value, 10),
+              message: document.querySelector(`#messageText--${id}`).value,
+              userId: parseInt(sessionStorage.getItem('activeUser'), 10)
+            }
+          editMessage(editedMessage)
+          .then(() => {
+              const updatedMessages = useMessages()
+            render(updatedMessages)
+            messageEditRender(updatedMessages)
+            renderForm()
+        })
+    }
+})
+
     render(combinedArray)
     renderForm()
     EventEditRender(combinedArray)
