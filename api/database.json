@@ -28,7 +28,7 @@
   "news": [
     {
       "id": 1,
-      "userId": 2,
+      "userId": 1,
       "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
       "title": "Wormholes Allow Information to Escape Black Holes",
       "synopsis": "Check out this recent discovery about workholes",
@@ -36,11 +36,19 @@
     },
     {
       "id": 2,
-      "userId": 1,
-      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-      "title": "Flat Earth",
-      "synopsis": "The Earth is flat.",
-      "date": "01-02-2020"
+      "userId": 2,
+      "url": "https://www.forbes.com/sites/jimdobson/2019/03/16/flat-earth-supporters-now-plan-an-antarctica-expedition-to-the-edge-of-the-world/#a89c94159165",
+      "title": "Flat Earth Supporters Now Plan An Antarctica Expedition To The Edge Of The World ",
+      "synopsis": "Earth Truthers trek to the Ice Wall, climb it, and fall out of the universe",
+      "date": "01-10-2020"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "url": "https://www.dallasobserver.com/arts/the-earth-is-flat-nasa-and-the-pope-are-liars-things-learned-at-the-flat-earth-convention-11808074",
+      "title": "Discworld Is Real! Dive into Flat Earth Culture at their Global, Sorry, International Conference",
+      "synopsis": "Great sumamry of the latest in Earth Truth",
+      "date": "01-20-2020"
     }
   ],
   "events": [
@@ -57,6 +65,20 @@
       "name": "NASA Lies",
       "date": "02-02-2021",
       "location": "Ice Wall"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "name": "Point a Laser Pointer Across the Earth",
+      "date": "02-02-2021",
+      "location": "Center of the Universe"
+    },
+    {
+      "userId": 1,
+      "name": "Debunk the lies",
+      "date": "2100-12-31",
+      "location": "My basement",
+      "id": 4
     }
   ],
   "tasks": [
@@ -87,13 +109,20 @@
       "completionDate": "2020-01-07",
       "id": 8,
       "isCompleted": false
+    },
+    {
+      "userId": 1,
+      "name": "test345",
+      "completionDate": "2020-01-30",
+      "id": 9,
+      "isCompleted": true
     }
   ],
   "messages": [
     {
       "id": 1,
-      "userId": 1,
-      "message": "What's up?"
+      "message": "What's up? (test)",
+      "userId": 1
     },
     {
       "id": 2,
@@ -119,6 +148,11 @@
       "userId": 1,
       "message": "fw",
       "id": 6
+    },
+    {
+      "userId": 1,
+      "message": "test message",
+      "id": 7
     }
   ],
   "friends": [
@@ -135,10 +169,10 @@
       "id": 3
     },
     {
-      "friendInitiateId": 1,
       "userId": 3,
+      "friendInitiateId": 1,
       "active": true,
-      "id": 5
+      "id": 4
     }
   ]
 }

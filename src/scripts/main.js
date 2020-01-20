@@ -1,3 +1,5 @@
+import { getEvents } from "./events/EventProvider.js"
+import { getNews } from "./news/NewsProvider.js"
 import { logInList } from "./logIn/LogInList.js";
 import { logInEvent } from "./logIn/LogInForm.js";
 import { getUsers } from "./users/UsersProvider.js";
@@ -10,47 +12,50 @@ import { addSearchEventListeners } from "./friends/FriendSearchList.js";
 import { initiateDashboardEventListener } from "./dashboardEvents/DashboardLoad.js";
 import { MessageList } from "./messages/MessageList.js";
 import { getTasks } from "./tasks/TaskProvider.js";
+import { reRenderTask, TaskList } from "./tasks/TaskList.js"
+import { renderTaskForm, TaskListForm } from "./tasks/TaskFormList.js"
 import { TaskForm } from "./tasks/TaskForm.js";
-import { TaskListForm, renderTaskForm } from "./tasks/TaskFormList.js";
-import { TaskList, reRenderTask } from "./tasks/TaskList.js";
-import { TaskDialog } from "./tasks/taskDialog.js";
+import { TaskDialog } from "./tasks/taskDialog.js"
 
-if (!sessionStorage.hasOwnProperty("activeUser")) {
+
+if(!(sessionStorage.hasOwnProperty("activeUser"))){
   getUsers()
-    .then(() => {
-      logInList();
-    })
+    .then(() => logInList())
     .then(() => logInEvent())
     .then(() => getMessages())
+    .then(() => getEvents())
+    .then(() => getNews())
     .then(() => MessageEventListener())
-    .then(getTasks)
-    .then(TaskForm)
-    .then(TaskListForm)
-    .then(TaskList)
-    .then(TaskDialog)
-    .then(getFriends)
-    .then(getUsers)
-    .then(() => {
-      initiateDashboardEventListener();
-    });
-} else {
-  getUsers()
-    .then(getMessages)
-    .then(() => MessageEventListener())
-    .then(getFriends)
-    .then(getTasks)
-    .then(() => {
-      logInEvent();
-      TaskForm();
-      TaskListForm();
-      TaskList();
-      TaskDialog();
-      reRenderTask();
-      renderTaskForm();
-      FriendsListComponent();
-      MessageList();
-      addSearchEventListeners();
-      NavbarEventListener();
-      initiateDashboardEventListener();
-    });
+    .then(() => getFriends())
+    .then(() => getUsers())
+    .then(() => getTasks())
+    .then(() => TaskForm())
+    .then(() => TaskListForm())
+    .then(() => TaskList())
+    .then(() => TaskDialog())
+    .then(() => initiateDashboardEventListener())
+}
+
+else{
+    getUsers()
+      .then(() => getMessages())
+      .then(() => getEvents())
+      .then(() => getNews())
+      .then(() => getTasks())
+      .then(() => MessageEventListener())
+      .then(() => getFriends())
+      .then(() => {
+        logInEvent()
+        FriendsListComponent()
+        MessageList()
+        addSearchEventListeners()
+        TaskForm()
+        TaskListForm()
+        TaskList()
+        TaskDialog()
+        reRenderTask()
+        renderTaskForm()
+        NavbarEventListener()
+        initiateDashboardEventListener()
+      })
 }

@@ -26,3 +26,14 @@
   width: 100px;
   height: 100px
 }
+
+.eventsContainer {
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.eventCard {
+  border: 1px solid black;
+  margin: 2px;
+}

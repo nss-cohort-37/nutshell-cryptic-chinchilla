@@ -3,12 +3,10 @@ let users = []
 export const useUsers = () => users.slice()
 
 export const getUsers = () => {
-    return fetch("http://localhost:3000/users")
+    return fetch("http://localhost:3000/users?_embed=friends")
     .then(res => res.json())
     .then(parsedUsers => users = parsedUsers)
 }
-
-
 
 export const saveUser = user => {    
     return fetch('http://localhost:3000/users', {

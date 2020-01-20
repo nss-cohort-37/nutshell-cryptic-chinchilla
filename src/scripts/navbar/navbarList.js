@@ -12,7 +12,12 @@ export const NavbarEventListener = () => {
       document.querySelector(".friendsCards").innerHTML = "";
       document.querySelector(".friendSearchContainer").innerHTML = "";
       document.querySelector(".newsContainer").innerHTML = "";
-      document.querySelector(".eventsContainer").innerHTML = "";
+      document.querySelector(".eventsRenderArea").innerHTML = "";
+      document.querySelector(".eventsFormArea").innerHTML = "";
+      document.querySelector(".addEventsButton").innerHTML = "";
+      document.querySelector(".newsRenderArea").innerHTML = "";
+      document.querySelector(".newsFormArea").innerHTML = "";
+      document.querySelector(".addNewsButton").innerHTML = "";
       document.querySelector(".tasksContainer").innerHTML = "";
       document.querySelector(".messagesContainer").innerHTML = "";
       document.querySelector(".messagesForm").innerHTML = "";

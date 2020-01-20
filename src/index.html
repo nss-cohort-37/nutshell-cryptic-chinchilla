@@ -16,35 +16,32 @@
 
   <body>
     <main class="container">
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <a
-            class="btn btn-primary navbar-btn navbar-left"
-            href="messages.html"
-            role="button"
-            >Messages</a
-          >
-          <button
-            class="button--logOut btn btn-secondary navbar-right btn-light"
-            id="logOut"
-          >
-            Log Out
-          </button>
-        </div>
-      </nav>
-      <section class="renderArea">
-        <section class="logInForm"></section>
-        <aside class="friendsContainer">
-          <section class="friendSearchContainer"></section>
-          <section class="friendsCards"></section>
-        </aside>
-        <section class="newsContainer"></section>
-        <section class="eventsContainer"></section>
-        <section class="taskForm"></section>
-        <aside class="tasksContainer"></aside>
-        <section class="messagesContainer"></section>
-        <section class="messagesForm"></section>
-      </section>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <a class="btn btn-primary navbar-btn navbar-left" href="messages.html" role="button">Messages</a>
+                <button class="button--logOut btn btn-secondary navbar-right btn-light" id="logOut">Log Out</button>
+            </div>
+        </nav>
+        <section class="renderArea">
+            <section class="logInForm"></section>
+            <aside class="friendsContainer">
+                <section class="friendSearchContainer"></section>
+                <section class="friendsCards"></section>
+            </aside>
+            <section class="newsContainer"></section>
+                <section class="addNewsButton"></section>
+                <section class="newsRenderArea"></section>
+                <section class="newsFormArea"></section>
+            <section class="eventsContainer">
+                <section class="addEventsButton"></section>
+                <section class="eventsRenderArea"></section>
+                <section class="eventsFormArea"></section>
+            </section>
+            <section class="taskForm"></section>
+            <aside class="tasksContainer"></aside>
+            <section class="messagesContainer"></section>
+            <section class="messagesForm"></section>
+        </section>
     </main>
     <script src="./scripts/main.js" type="module"></script>
     <script
