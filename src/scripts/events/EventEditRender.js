@@ -8,3 +8,29 @@ export const EventEditRender = (events) => {
       }
     })
   }
+
+  export const editEventListener = () => {
+    const eventHub = document.querySelector(".container")
+    eventHub.addEventListener("click", event => {
+      if (event.target.id.startsWith("editEvent--")) {
+        const [prefix, id] = event.target.id.split("--")
+        const editEvent = new CustomEvent("editEventButtonClicked", {
+          detail: {
+            eventId: id
+          }
+        })
+        eventHub.dispatchEvent(editEvent)
+      }
+    })
+  }
+  
+  export const editEventDialog = () => {
+    const eventHub = document.querySelector(".container")
+    eventHub.addEventListener("click", event => {
+      if (event.target.id.startsWith("editEvent")) {
+        const [prefix, id] = event.target.id.split("--")
+        const theDialog = document.querySelector(`#details--${id}`)
+        theDialog.showModal()
+      }
+    })
+  }
