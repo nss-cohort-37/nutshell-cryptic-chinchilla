@@ -76,17 +76,17 @@
   "messages": [
     {
       "id": 1,
-      "message": "test1",
+      "message": "test2",
       "userId": 1
     },
     {
       "id": 3,
-      "message": "working",
+      "message": "workingblah",
       "userId": 1
     },
     {
       "id": 4,
-      "message": "the future",
+      "message": "test",
       "userId": 2
     },
     {
@@ -175,9 +175,19 @@
       "id": 21
     },
     {
+      "id": 22,
+      "message": "test",
+      "userId": 1
+    },
+    {
       "userId": 1,
-      "message": "working",
-      "id": 22
+      "message": "new message",
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "message": "POst",
+      "id": 24
     }
   ],
   "friends": [
