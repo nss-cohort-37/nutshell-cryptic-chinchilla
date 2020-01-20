@@ -7,7 +7,6 @@ import { NavbarEventListener } from "./navbar/navbarList.js";
 import { FriendsListComponent} from "./friends/FriendsList.js";
 import { getFriends } from "./friends/FriendsProvider.js";
 import { addSearchEventListeners } from "./friends/FriendSearchList.js";
-import { initiateFriendSearchComponent } from "./friends/FriendSearch.js";
 import { initiateDashboardEventListener } from "./dashboardEvents/DashboardLoad.js";
 import { MessageList } from "./messages/MessageList.js";
 
@@ -33,7 +32,6 @@ getUsers()
   .then(() => {
     logInEvent()
     FriendsListComponent()
-    initiateFriendSearchComponent()
     MessageList()
     addSearchEventListeners()
     NavbarEventListener()

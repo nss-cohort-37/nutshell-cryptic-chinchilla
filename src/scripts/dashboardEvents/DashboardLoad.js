@@ -1,5 +1,4 @@
 import { FriendsListComponent } from "../friends/FriendsList.js";
-import { initiateFriendSearchComponent } from "../friends/FriendSearch.js";
 import { MessageList } from "../messages/MessageList.js";
 import { NavbarEventListener } from "../navbar/navbarList.js";
 import { addSearchEventListeners } from "../friends/FriendSearchList.js";
@@ -14,7 +13,6 @@ eventHub.addEventListener("click", clickEvent => {
     clickEvent.target.id === "button--logIn"
   ) {
     FriendsListComponent()
-    initiateFriendSearchComponent()
     MessageList()
     addSearchEventListeners();
     NavbarEventListener()
