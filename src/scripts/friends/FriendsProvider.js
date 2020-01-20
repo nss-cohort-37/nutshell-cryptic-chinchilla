@@ -2,9 +2,11 @@ let friends = []
 
 export const useFriends = () => friends.slice()
   
-export const getfriends = () => fetch("http://localhost:3000/friends")
+export const getFriends = () => {
+  return fetch("http://localhost:3000/friends?_expand=user")
     .then(res => res.json())
     .then(parsedFriends => friends = parsedFriends)
+}
 
     //ADD 
 export const SaveFriends = friend => {
@@ -15,7 +17,7 @@ export const SaveFriends = friend => {
       },
       body: JSON.stringify(friend)
   })
-  .then(getfriends)
+  .then(getFriends)
 }
 
     //Delete
@@ -24,4 +26,5 @@ export const deleteFriends = friendId => {
   return fetch(`http://localhost:3000/friends/${friendId}`, {
       method: "DELETE"
   })
-      .then(getfriends)
+      .then(getFriends)
+}

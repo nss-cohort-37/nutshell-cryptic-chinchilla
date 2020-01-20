@@ -103,16 +103,22 @@
   ],
   "friends": [
     {
-      "id": 1,
-      "friendInitiateId": 1,
-      "userId": 2,
-      "active": true
-    },
-    {
-      "id": 2,
       "friendInitiateId": 2,
       "userId": 3,
-      "active": true
+      "active": true,
+      "id": 2
+    },
+    {
+      "friendInitiateId": 1,
+      "userId": 2,
+      "active": true,
+      "id": 3
+    },
+    {
+      "friendInitiateId": 1,
+      "userId": 3,
+      "active": true,
+      "id": 5
     }
   ]
 }

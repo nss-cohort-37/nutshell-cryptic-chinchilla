@@ -5,6 +5,5 @@ const eventHub = document.querySelector(".container");
 
 export const logInList = () => {
   const contentTarget = document.querySelector(".logInForm");
-  const users = useUsers();
   contentTarget.innerHTML = `${logInForm()}`;
 };
