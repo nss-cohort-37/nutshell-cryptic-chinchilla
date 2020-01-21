@@ -4,11 +4,22 @@
   margin: 10%;
 }
 
+.logInFormContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .logInUserContainer{
   margin: 5px;
 }
 .logInPassContainer{
   margin: 5px;
+}
+
+.logInUser{
+  align-items: center;
+  max-width: 500px;
 }
 
 .logInButtons{
@@ -25,3 +36,9 @@
   margin: 5px;
 }
 
+
+.registerContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

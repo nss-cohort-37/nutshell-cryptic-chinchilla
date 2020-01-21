@@ -12,7 +12,6 @@ export const NavbarEventListener = () => {
       sessionStorage.clear();
       document.querySelector(".friendsCards").innerHTML = "";
       document.querySelector(".friendSearchContainer").innerHTML = "";
-      document.querySelector(".newsContainer").innerHTML = "";
       document.querySelector(".eventsRenderArea").innerHTML = "";
       document.querySelector(".eventsFormArea").innerHTML = "";
       document.querySelector(".addEventsButton").innerHTML = "";
@@ -24,7 +23,6 @@ export const NavbarEventListener = () => {
       document.querySelector(".messagesForm").innerHTML = "";
       document.querySelector(".taskForm").innerHTML = "";
       document.querySelector(".navbar").classList.add("hidden")
-
       logInList();
     }
   });

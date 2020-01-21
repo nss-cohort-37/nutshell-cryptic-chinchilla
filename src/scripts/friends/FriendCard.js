@@ -5,10 +5,10 @@ const eventHub = document.querySelector(".container")
 
 export const FriendCard = friend => {
   return `
-    <section class="friendCard">
-      <div class="friendCardInfo">${friend.user.userName}</div>
-      <img class="picSize" src="./assets/hey-arnold.jpg">
-      <button id="removeFriend--${friend.id}" class="removeFriendBtn">Remove Friend</button>
+    <section class="friendCard card" style="width: 10rem;">
+    <img class="picSize card-img-top" src="./assets/hey-arnold.jpg">
+      <h5 class="friendCardInfo card-title">${friend.user.userName}</h5>
+      <button id="removeFriend--${friend.id}" class="removeFriendBtn btn-danger">Remove Friend</button>
     </section>
   `;
 };
