@@ -7,8 +7,8 @@ const eventHub = document.querySelector(".container");
 
   export const FriendSearchComponent = () => {
     return `<label for="friendSearch">Add a Friend: </label>
-  <input type="search" placeholder="Search Username" id="friendSearch">
-  <button id="saveFriend" class="btn btn-secondary">Save</button>`;
+  <input class=" friendSearchField form-control" type="search" placeholder="Search Username" id="friendSearch">
+  <button id="saveFriend" class="btn btn-primary">Save</button>`;
   }
 
  

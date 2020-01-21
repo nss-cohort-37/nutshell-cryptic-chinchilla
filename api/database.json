@@ -107,32 +107,11 @@
       "id": 6
     },
     {
-      "id": 7,
       "userId": 1,
-      "name": "Tomorrow at noon",
-      "date": "Wed Jan 22 2020 12:00:00 GMT-0600 (Central Standard Time)",
-      "location": "the moon"
-    },
-    {
-      "userId": 1,
-      "name": "Go to the moon (just kidding)",
-      "date": "Tue Jan 21 2020 22:00:00 GMT-0600 (Central Standard Time)",
-      "location": "not the moon",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "name": "abc123",
-      "date": "Mon Jan 20 2020 17:00:00 GMT-0600 (Central Standard Time)",
-      "location": "abc123",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "name": "old",
-      "date": "Wed Jan 01 2020 23:11:00 GMT-0600 (Central Standard Time)",
-      "location": "asdfa",
-      "id": 10
+      "name": "",
+      "date": "Invalid Date",
+      "location": "",
+      "id": 7
     }
   ],
   "tasks": [
@@ -184,6 +163,20 @@
       "completionDate": "2020-02-21",
       "id": 11,
       "isCompleted": false
+    },
+    {
+      "userId": 1,
+      "name": "asdfa",
+      "completionDate": "",
+      "isCompleted": false,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "asdf",
+      "completionDate": "",
+      "isCompleted": false,
+      "id": 13
     }
   ],
   "messages": [
@@ -216,6 +209,11 @@
       "id": 10,
       "message": "message",
       "userId": 1
+    },
+    {
+      "userId": 1,
+      "message": "still works",
+      "id": 11
     }
   ],
   "friends": [
