@@ -20,8 +20,6 @@ import { TaskDialog } from "./tasks/taskDialog.js"
 
 if(!(sessionStorage.hasOwnProperty("activeUser"))){
   getUsers()
-    .then(() => logInList())
-    .then(() => logInEvent())
     .then(() => getMessages())
     .then(() => getEvents())
     .then(() => getNews())
@@ -30,6 +28,8 @@ if(!(sessionStorage.hasOwnProperty("activeUser"))){
     .then(() => getUsers())
     .then(() => getTasks())
     .then(() => {
+      logInList()
+      logInEvent()
     initiateDashboardEventListener()})
 }
 

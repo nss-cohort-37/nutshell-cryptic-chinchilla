@@ -32,7 +32,7 @@ export const refreshDashboard = () => {
 export const initiateDashboardEventListener = () => {
 eventHub.addEventListener("click", clickEvent => {
   if (
-    clickEvent.target.id === "button--saveUser" ||
+    // clickEvent.target.id === "button--saveUser" ||
     clickEvent.target.id === "button--logIn"
   ) {
     if (sessionStorage.getItem("activeUser") !== null) {
