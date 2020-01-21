@@ -84,6 +84,14 @@ export const NewsList = () => {
                 return new Date(b.date) - new Date(a.date);
             })
             render(updatedCombinedArray)
+            updatedCombinedArray.map(article => {
+                if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                    let articleId = article.id
+                    let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+                    let articleSection = articleDialog.closest(".newsCard")
+                    articleSection.classList.add("friendPost")
+                }
+            })
             renderForm()
             renderButton()
             NewsEditRender(updatedCombinedArray)
@@ -96,6 +104,14 @@ export const NewsList = () => {
         return new Date(b.date) - new Date(a.date);
     })
     render(combinedArray)
+    combinedArray.map(article => {
+        if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+            let articleId = article.id
+            let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+            let articleSection = articleDialog.closest(".newsCard")
+            articleSection.classList.add("friendPost")
+        }
+    })
     renderForm()
     NewsEditRender(combinedArray)
     NewsDeleteRender(combinedArray)
@@ -183,6 +199,14 @@ eventHub.addEventListener("click", clickEvent => {
                     return new Date(b.date) - new Date(a.date);
                 })
                 render(updatedNews)
+                updatedNews.map(article => {
+                    if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                        let articleId = article.id
+                        let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+                        let articleSection = articleDialog.closest(".newsCard")
+                        articleSection.classList.add("friendPost")
+                    }
+                })
                 NewsEditRender(updatedNews)
                 NewsDeleteRender(updatedNews)
                 renderForm()
@@ -202,6 +226,14 @@ eventHub.addEventListener("click", event => {
                 return new Date(b.date) - new Date(a.date);
             })
             render(updatedNews)
+            updatedNews.map(article => {
+                if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                    let articleId = article.id
+                    let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+                    let articleSection = articleDialog.closest(".newsCard")
+                    articleSection.classList.add("friendPost")
+                }
+            })
             NewsEditRender(updatedNews)
             NewsDeleteRender(updatedNews)
             renderForm()

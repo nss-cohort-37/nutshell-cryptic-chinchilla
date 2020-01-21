@@ -48,3 +48,8 @@
 .firstEvent {
   background-color: goldenrod;
 }
+
+.friendPost {
+  font-style: italic;
+  background-color: cornsilk;
+}
