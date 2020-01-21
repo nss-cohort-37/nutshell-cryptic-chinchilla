@@ -80,6 +80,9 @@ export const NewsList = () => {
             })
         
             const updatedCombinedArray = updatedUsersNews.concat(updatedFriendsNews)
+            updatedCombinedArray.sort(function(a,b){
+                return new Date(b.date) - new Date(a.date);
+            })
             render(updatedCombinedArray)
             renderForm()
             renderButton()
@@ -89,7 +92,9 @@ export const NewsList = () => {
             dialogTarget.close()
         }
     })
-
+    combinedArray.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+    })
     render(combinedArray)
     renderForm()
     NewsEditRender(combinedArray)
@@ -97,7 +102,7 @@ export const NewsList = () => {
     renderButton()
 }
 
-// Listens for click of Add Event button
+// Listens for click of Add Article button
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "addNewsButton") {
     const dialogTarget = document.querySelector(".newsDialog")
@@ -105,15 +110,15 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-// Listens for click of Save Event button
+// Listens for click of Save Article button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "closeNewsDialog") {
         const newArticle = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-            url: document.getElementById(`newsURL--${news.id}`).value,
-            title: document.getElementById(`newsTitle--${news.id}`).value,
-            synopsis: document.getElementById(`newsSynopsis--${news.id}`).value,
-            date: document.getElementById(`newsDate--${news.id}`).value
+            url: document.getElementById("newsURLText").value,
+            title: document.getElementById("newsTitleText").value,
+            synopsis: document.getElementById("newsSynopsisText").value,
+            date: document.getElementById("newsDateText").value
         }
 
         const message = new CustomEvent("newsSaved", {
@@ -129,7 +134,7 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-//Listens for click of Edit Event button
+//Listens for click of Edit Article button
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("editNews--")) {
     const [prefix, id] = event.target.id.split("--")
@@ -142,7 +147,7 @@ eventHub.addEventListener("click", event => {
     }
 })
 
-//Listens for click of Edit Event button
+//Listens for click of Edit Article button
 eventHub.addEventListener("editNewsButtonClicked", event => {
     const newsToEdit = event.detail.newsId
     const allNews = useNews()
@@ -167,13 +172,16 @@ eventHub.addEventListener("click", clickEvent => {
           id: parseInt(newsId, 10),
           userId: parseInt(sessionStorage.getItem("activeUser"), 10),
           title: document.querySelector(`#newsTitle--${newsId}`).value,
-          synopsis: document.querySelector(`#newsTitle--${newsId}`).value,
+          synopsis: document.querySelector(`#newsSynopsis--${newsId}`).value,
           url: document.querySelector(`#newsURL--${newsId}`).value,
           date: document.querySelector(`#newsDate--${newsId}`).textContent.split("Date: ")[1]
         }
         editNews(editedNews)
             .then(() => {
                 const updatedNews = useNews()
+                updatedNews.sort(function(a,b){
+                    return new Date(b.date) - new Date(a.date);
+                })
                 render(updatedNews)
                 NewsEditRender(updatedNews)
                 NewsDeleteRender(updatedNews)
@@ -182,7 +190,7 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-//Listens for click of Delete Event button
+//Listens for click of Delete Article button
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("deleteNews--")) {
     let [prefix, newsId] = event.target.id.split("--")
@@ -190,10 +198,28 @@ eventHub.addEventListener("click", event => {
     deleteNews(newsId)
         .then(() => {
             const updatedNews = useNews()
+            updatedNews.sort(function(a,b){
+                return new Date(b.date) - new Date(a.date);
+            })
             render(updatedNews)
             NewsEditRender(updatedNews)
             NewsDeleteRender(updatedNews)
             renderForm()
         })
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if(event.target.id.startsWith("xOutNewsDialog")) {
+        const dialogTarget = document.querySelector(".newsDialog")
+        dialogTarget.close()
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if(event.target.id.startsWith("xOutNewsEditDialog")) {
+        let [prefix, newsId] = event.target.id.split("--")
+        const dialogTarget = document.querySelector(`#newsDetails--${newsId}`)
+        dialogTarget.close()
     }
 })

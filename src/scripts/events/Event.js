@@ -7,6 +7,7 @@ export const EventComponent = event => {
       <div class="editButtonContainer--${event.id}"></div>
       <div class="deleteButtonContainer--${event.id}"></div>
       <dialog  id="eventDetails--${event.id}" class="editEventDialog">
+        <button id="xOutEventEditDialog--${event.id}">[X]</button>
         <label for="eventName--${event.id}">Event name:</label>
         <input type="text" id="eventName--${event.id}" value="${event.name}"></input>
         <label for="eventLocation--${event.id}">Event location:</label>

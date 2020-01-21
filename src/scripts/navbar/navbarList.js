@@ -1,5 +1,4 @@
 import { logInList } from "../logIn/LogInList.js";
-import { saveMessage } from "../messages/MessagesProvider.js";
 
 const eventHub = document.querySelector(".container");
 const messagesEventHub = document.querySelector(".appContainer");

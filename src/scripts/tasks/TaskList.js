@@ -103,3 +103,11 @@ const renderTask = taskCollection => {
     })
     .join("");
 };
+
+eventHub.addEventListener("click", event => {
+  if(event.target.id.startsWith("xOutTaskEditDialog")) {
+      let [prefix, taskId] = event.target.id.split("--")
+      const dialogTarget = document.querySelector(`#taskDialog--${taskId}`)
+      dialogTarget.close()
+  }
+})
