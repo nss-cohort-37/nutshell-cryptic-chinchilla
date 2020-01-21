@@ -3,11 +3,14 @@ export const NewsComponent = news => {
     <section class="newsCard">
       <div class="newsCardInfo" id="newsTitleForm">Title: ${news.title}</div>
       <div class="newsCardInfo" id="newsSynopsisForm">Synopsis: ${news.synopsis}</div>
-      <div class="newsCardInfo" id="newsURLForm">Link: ${news.url}</div>
+      <div class="newsCardInfo" id="newsURLForm">
+        <a href="${news.url}">${news.url}</a>
+      </div>
       <div class="newsCardInfo" id="newsDateForm">Date: ${news.date}</div>
       <div class="editNewsButtonContainer--${news.id}"></div>
       <div class="deleteNewsButtonContainer--${news.id}"></div>
       <dialog  id="newsDetails--${news.id}" class="editNewsDialog">
+        <button id="xOutNewsEditDialog--${news.id}">[X]</button>
         <label for="newsTitle--${news.id}">Article name:</label>
         <input type="text" id="newsTitle--${news.id}" value="${news.title}"></input>
         <label for="newsSynopsis--${news.id}">Article synopsis:</label>

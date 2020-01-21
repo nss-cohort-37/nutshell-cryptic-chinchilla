@@ -1,6 +1,7 @@
 export const NewsForm = () => {
     return `
     <dialog class="newsDialog">
+        <button id="xOutNewsDialog">[X]</button>
         <div class="newsTitle">
             <label for="newsTitleText">Article title: </label>
             <input type="text" id="newsTitleText"></input>

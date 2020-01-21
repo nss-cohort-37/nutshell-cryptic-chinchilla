@@ -41,3 +41,10 @@
   margin: 2px;
 }
 
+.firstEvent div {
+  font-weight: bold;
+}
+
+.firstEvent {
+  background-color: goldenrod;
+}
