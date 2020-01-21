@@ -35,6 +35,7 @@ eventHub.addEventListener("click", clickEvent => {
     // clickEvent.target.id === "button--saveUser" ||
     clickEvent.target.id === "button--logIn"
   ) {
+    debugger
     if (sessionStorage.getItem("activeUser") !== null) {
     FriendsListComponent()
     MessageList()

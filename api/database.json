@@ -126,7 +126,7 @@
       "name": "Cetuj",
       "completionDate": "2020-01-07",
       "id": 8,
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "userId": 1,
@@ -147,7 +147,6 @@
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
     },
-   
     {
       "userId": 1,
       "message": "test message",
