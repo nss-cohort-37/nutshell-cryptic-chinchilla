@@ -1,18 +1,16 @@
 import { TaskForm } from "./TaskForm.js";
-import { useTasks, editTask, saveTask, getTasks } from "./TaskProvider.js";
+import { useTasks, editTask, saveTask } from "./TaskProvider.js";
 
 const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".taskForm");
 
 export const TaskListForm = () => {
-  let taskId = "";
-
   eventHub.addEventListener("edit-btn-has-been-click", clickEvent => {
-    taskId = clickEvent.detail.taskId;
+    const taskId = clickEvent.detail.taskId;
 
-    // Find task and placed values in inputs
-    const useTask = useTasks();
-    const foundTask = useTask.find(task => task.id === parseInt(taskId), 10);
+    // Find task to be edited and place values in inputs
+    const allTask = useTasks();
+    const foundTask = allTask.find(task => task.id === parseInt(taskId), 10);
 
     document.querySelector(`#task-name--${taskId}`).value = foundTask.name;
     document.querySelector(`#task-date--${taskId}`).value =
@@ -20,39 +18,12 @@ export const TaskListForm = () => {
     document.querySelector("#hidden-value").value = foundTask.id;
   });
 
-  let taskWasCompleted = "";
-
-  // Hide task
-  eventHub.addEventListener("hideTask", clickEvent => {
-    const hideTaskId = clickEvent.detail.taskId;
-    const allTasks = useTasks();
-    let foundTask = allTasks.find(task => task.id === parseInt(hideTaskId, 10));
-    console.log(hideTaskId);
-    let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
-    if (hiddenTask.checked === true) {
-      const hideTask = {
-        userId: foundTask.userId,
-        name: foundTask.name,
-        completionDate: foundTask.completionDate,
-        id: foundTask.id,
-        isCompleted: true
-      };
-      editTask(hideTask).then(() => {
-        if (hideTask.isCompleted !== true) {
-          const customMessage = new CustomEvent("updateWithoutHide");
-          eventHub.dispatchEvent(customMessage);
-        }
-      });
-      document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";
-    }
-  });
-
   // Save new task or edited task
   eventHub.addEventListener("task-saved", clickEvent => {
     const savedTaskName = clickEvent.detail.taskName;
     const savedTaskDate = clickEvent.detail.taskCompletionDate;
     const taskHiddenValue = clickEvent.detail.taskHiddenValue;
-    let taskWasCompleted = clickEvent.detail.isCompleted;
+    const taskWasCompleted = clickEvent.detail.isCompleted;
 
     const hiddenValue = document.querySelector("#hidden-value").value;
     if (hiddenValue !== "") {
@@ -65,7 +36,7 @@ export const TaskListForm = () => {
         isCompleted: taskWasCompleted
       };
 
-      // Edit task PUT method
+      // Edit task PUT method and Custom Event to update Task
       editTask(editedTask).then(() => {
         customEventToUpdateTask();
       });
@@ -77,10 +48,35 @@ export const TaskListForm = () => {
         isCompleted: taskWasCompleted
       };
 
-      // Save task POST method
+      // Save task POST method and Custom Event to update Task
       saveTask(newTask).then(() => {
         customEventToUpdateTask();
       });
+    }
+  });
+
+  // Hide task when checkbox is clicked but, does not delete from database
+  eventHub.addEventListener("hideTask", clickEvent => {
+    const hideTaskId = clickEvent.detail.taskId;
+    const allTasks = useTasks();
+    const foundTask = allTasks.find(
+      task => task.id === parseInt(hideTaskId, 10)
+    );
+    const hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
+    if (hiddenTask.checked === true) {
+      const hideTask = {
+        userId: foundTask.userId,
+        name: foundTask.name,
+        completionDate: foundTask.completionDate,
+        id: foundTask.id,
+        isCompleted: true
+      };
+      editTask(hideTask).then(() => {
+        if (hideTask.isCompleted !== true) {
+          customEventToUpdateTask();
+        }
+      });
+      document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";
     }
   });
 
@@ -89,18 +85,18 @@ export const TaskListForm = () => {
     const customEvent = new CustomEvent("update");
     eventHub.dispatchEvent(customEvent);
   };
-
-  // Render task form
 };
+
+// Render task form
 export const renderTaskForm = () => {
   targetElement.innerHTML = TaskForm();
 };
 
-// Only display task once logged in
+// Only display task form once logged in
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "button--logIn") {
     if (sessionStorage.getItem("activeUser") !== null) {
-    renderTaskForm();
+      renderTaskForm();
+    }
   }
-}
 });
