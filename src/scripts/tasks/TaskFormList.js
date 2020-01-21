@@ -99,6 +99,8 @@ export const renderTaskForm = () => {
 // Only display task once logged in
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "button--logIn") {
+    if (sessionStorage.getItem("activeUser") !== null) {
     renderTaskForm();
   }
+}
 });

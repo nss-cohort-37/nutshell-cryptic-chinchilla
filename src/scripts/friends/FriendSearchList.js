@@ -11,8 +11,10 @@ export const addSearchEventListeners = () => {
  
 
   const renderSearch = () => {
+    if (sessionStorage.getItem("activeUser") !== null) {
     contentElement.innerHTML = `${FriendSearchComponent()}`;
   };
   renderSearch()
+} 
 };
   
