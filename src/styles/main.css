@@ -27,6 +27,9 @@
   height: 100px
 }
 
+.hidden {
+  display: none
+}
 .eventsContainer {
   border: 1px solid black;
   margin-top: 5px;

@@ -49,16 +49,25 @@
       "title": "Discworld Is Real! Dive into Flat Earth Culture at their Global, Sorry, International Conference",
       "synopsis": "Great sumamry of the latest in Earth Truth",
       "date": "01-20-2020"
+    },
+    {
+      "userId": 1,
+      "url": "https://www.livescience.com/what-if-flat-earth.html",
+      "title": "What If the Earth Was Flat?",
+      "synopsis": "It is",
+      "date": "2019-11-23",
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "url": "google.com",
+      "title": "123",
+      "synopsis": "123",
+      "date": "2020-02-02",
+      "id": 5
     }
   ],
   "events": [
-    {
-      "userId": 1,
-      "name": "Tomorrow at noon",
-      "date": "Tue Jan 21 2020 12:00:00 GMT-0600 (Central Standard Time)",
-      "location": "space",
-      "id": 4
-    },
     {
       "userId": 1,
       "name": "NASA Lies",
@@ -72,6 +81,20 @@
       "date": "Mon Feb 03 2020 12:00:00 GMT-0600 (Central Standard Time)",
       "location": "Across the Universe",
       "id": 6
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "name": "Tomorrow at noon",
+      "date": "Wed Jan 22 2020 12:00:00 GMT-0600 (Central Standard Time)",
+      "location": "the moon"
+    },
+    {
+      "userId": 1,
+      "name": "Go to the moon (just kidding)",
+      "date": "Tue Jan 21 2020 22:00:00 GMT-0600 (Central Standard Time)",
+      "location": "not the moon",
+      "id": 8
     }
   ],
   "tasks": [
@@ -109,6 +132,20 @@
       "completionDate": "2020-01-30",
       "id": 9,
       "isCompleted": true
+    },
+    {
+      "userId": 1,
+      "name": "Do work",
+      "completionDate": "2020-02-02",
+      "id": 10,
+      "isCompleted": true
+    },
+    {
+      "userId": 1,
+      "name": "Do more work harder",
+      "completionDate": "2020-02-21",
+      "id": 11,
+      "isCompleted": false
     }
   ],
   "messages": [
@@ -121,31 +158,32 @@
       "id": 2,
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
-    },
-    {
-      "userId": 1,
-      "message": "knqwio",
-      "id": 3
     }
   ],
   "friends": [
-    {
-      "friendInitiateId": 2,
-      "userId": 3,
-      "active": true,
-      "id": 2
-    },
-    {
-      "friendInitiateId": 1,
-      "userId": 2,
-      "active": true,
-      "id": 3
-    },
     {
       "userId": 3,
       "friendInitiateId": 1,
       "active": true,
       "id": 4
+    },
+    {
+      "friendInitiateId": 2,
+      "userId": 1,
+      "active": true,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "friendInitiateId": 2,
+      "active": true,
+      "id": 6
+    },
+    {
+      "friendInitiateId": 1,
+      "userId": 2,
+      "active": true,
+      "id": 7
     }
   ]
 }

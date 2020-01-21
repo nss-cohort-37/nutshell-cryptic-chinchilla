@@ -6,15 +6,9 @@ import {FriendSearchComponent} from "./FriendSearch.js"
 const contentElement = document.querySelector(".friendSearchContainer");
 const eventHub = document.querySelector(".container");
 
-export const addSearchEventListeners = () => {
 
- 
 
-  const renderSearch = () => {
+ export const renderSearch = () => {
     if (sessionStorage.getItem("activeUser") !== null) {
     contentElement.innerHTML = `${FriendSearchComponent()}`;
-  };
-  renderSearch()
-} 
-};
-  
+  }}

@@ -108,13 +108,15 @@ export const EventList = () => {
         firstEvent.classList.remove(".firstEvent")
     }
     render(combinedArray)
-    let firstEventId = combinedArray[0].id
-    let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
-    let firstEventSection = firstEventDialog.closest(".eventCard")
-    firstEventSection.classList.add("firstEvent")
+    if (combinedArray.length > 0) {
+        let firstEventId = combinedArray[0].id
+        let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
+        let firstEventSection = firstEventDialog.closest(".eventCard")
+        firstEventSection.classList.add("firstEvent")
+        EventEditRender(combinedArray)
+        EventDeleteRender(combinedArray)
+    }
     renderForm()
-    EventEditRender(combinedArray)
-    EventDeleteRender(combinedArray)
     renderButton()
 }
 
@@ -130,7 +132,6 @@ eventHub.addEventListener("click", clickEvent => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "closeEventDialog") {
         let formattedDate = new Date(document.getElementById("eventDateTime").value).toString()
-        debugger
 
         const newEvent = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
@@ -184,8 +185,9 @@ eventHub.addEventListener("editEventButtonClicked", event => {
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveEventEdit")) {
-        let formattedDate = new Date(document.querySelector(`#eventDate--${eventId}`).textContent.split("Date: ")[1]).toString
         const [prefix, eventId] = clickEvent.target.id.split("--")
+        debugger
+        let formattedDate = new Date(document.querySelector(`#eventDate--${eventId}`).textContent.split("Date: ")[1]).toString()
         const editedEvent = {
             id: parseInt(eventId, 10),
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),

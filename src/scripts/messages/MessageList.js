@@ -8,28 +8,29 @@ const eventHub = document.querySelector(".container");
 
 export const MessageList = () => {
   const messages = useMessages();
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "saveMessage") {
-      let messageUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
-      let messageText = document.getElementById("messageForm").value;
-  
-      let newMessage = {
-        userId: messageUserId,
-        message: messageText
-      };
-      saveMessage(newMessage).then(() => {
-        const updatedMessages = useMessages();
-        render(updatedMessages);
-        messageEditRender(updatedMessages);
-        renderForm();
-      });
-    }
-  });
 
   render(messages);
   renderForm();
   messageEditRender(messages)
 }
+
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id === "saveMessage") {
+    let messageUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
+    let messageText = document.getElementById("messageForm").value;
+
+    let newMessage = {
+      userId: messageUserId,
+      message: messageText
+    };
+    saveMessage(newMessage).then(() => {
+      const updatedMessages = useMessages();
+      render(updatedMessages);
+      messageEditRender(updatedMessages);
+      renderForm();
+    });
+  }
+});
 
 eventHub.addEventListener("click", event => {
   if (event.target.id.startsWith("editMessage")) {

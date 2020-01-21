@@ -167,12 +167,13 @@ eventHub.addEventListener("editNewsButtonClicked", event => {
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveNewsEdit")) {
+        debugger
       const [prefix, newsId] = clickEvent.target.id.split("--")
       const editedNews = {
           id: parseInt(newsId, 10),
           userId: parseInt(sessionStorage.getItem("activeUser"), 10),
           title: document.querySelector(`#newsTitle--${newsId}`).value,
-          synopsis: document.querySelector(`#newsTitle--${newsId}`).value,
+          synopsis: document.querySelector(`#newsSynopsis--${newsId}`).value,
           url: document.querySelector(`#newsURL--${newsId}`).value,
           date: document.querySelector(`#newsDate--${newsId}`).textContent.split("Date: ")[1]
         }
