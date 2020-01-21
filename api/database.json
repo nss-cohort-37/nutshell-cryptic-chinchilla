@@ -23,6 +23,36 @@
       "userName": "Onterio",
       "email": "onterio@me.com",
       "password": "123"
+    },
+    {
+      "userName": "fkfjeio",
+      "email": "fkeapj",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "userName": "fieowjio",
+      "email": "fnioeanio",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "userName": "abc",
+      "email": "abc",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "userName": "abc",
+      "email": "abc",
+      "password": "123",
+      "id": 8
+    },
+    {
+      "userName": "james3",
+      "email": "james3",
+      "password": "james11",
+      "id": 9
     }
   ],
   "news": [
@@ -103,6 +133,20 @@
       "completionDate": "2020-02-21",
       "id": 11,
       "isCompleted": false
+    },
+    {
+      "userId": 1,
+      "name": "tesa",
+      "completionDate": "",
+      "isCompleted": false,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "taest",
+      "completionDate": "",
+      "isCompleted": false,
+      "id": 13
     }
   ],
   "messages": [
@@ -131,16 +175,16 @@
       "id": 6
     },
     {
-      "friendInitiateId": 1,
       "userId": 2,
+      "friendInitiateId": 1,
       "active": true,
-      "id": 7
+      "id": 9
     },
     {
-      "userId": 3,
       "friendInitiateId": 1,
+      "userId": 3,
       "active": true,
-      "id": 8
+      "id": 10
     }
   ]
 }

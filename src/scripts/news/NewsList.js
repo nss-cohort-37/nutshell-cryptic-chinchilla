@@ -26,7 +26,7 @@ const renderForm = () => {
 const renderButton = () => {
     const buttonTarget = document.querySelector(".addNewsButton")
     buttonTarget.innerHTML = `
-    <button id="addNewsButton">Add article</button>
+    <button id="addNewsButton" class="btn btn-primary">Add article</button>
     `
 }
 

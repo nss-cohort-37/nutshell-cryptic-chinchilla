@@ -1,7 +1,7 @@
 export const EventsForm = () => {
     return `
     <dialog class="eventDialog">
-        <button id="xOutEventDialog">[X]</button>
+        <button id="xOutEventDialog">&times</button>
         <div class="eventTitle">
             <label for="eventTitleText">Event title: </label>
             <input type="text" id="eventTitleText"></input>
@@ -14,7 +14,7 @@ export const EventsForm = () => {
             <label for="eventLocationText">Event location: </label>
             <input type="text" id="eventLocationText"></input>
         </div>
-        <button id="closeEventDialog">Save event</button>
+        <button id="closeEventDialog" class="btn btn-primary">Save event</button>
     </dialog>
     `
 }

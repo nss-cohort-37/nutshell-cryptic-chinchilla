@@ -7,8 +7,8 @@ export const logInForm = () => {
   sessionStorage.clear();
   return `
   <div class="form-group logInFormContainer">
-  <h1>Welcome!</h1>
-  <h3>Please Log In or Register!</h3>
+  <h1>Welcome Flat Earthers!</h1>
+  <h3>Please Log In or Register</h3>
   <div class="logInUserContainer ">
     <label for="logInUser">User Name:</label>
     <input type="text" class="logInUser form-control" name="logInUser">  

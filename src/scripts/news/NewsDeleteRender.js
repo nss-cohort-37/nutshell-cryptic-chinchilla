@@ -4,7 +4,7 @@ export const NewsDeleteRender = (news) => {
       if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
         contentTarget.innerHTML = ""
         contentTarget.innerHTML = `
-        <button id="deleteNews--${article.id}">Delete Article</button>
+        <button id="deleteNews--${article.id}" class="btn btn-danger">Delete Article</button>
         `
       }
     })

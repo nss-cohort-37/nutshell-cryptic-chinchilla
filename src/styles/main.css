@@ -2,10 +2,19 @@
 @import './messages.css';
 
 
+body{
+  background-image: url("../assets/earth.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+
+
 
 .renderArea{
   display: flex;
-  
+  background-color: rgba(0, 0, 0, 0.151);
 }
 .friendsContainer{
   flex-basis: 25%;
@@ -19,6 +28,7 @@
 .friendCard{
   margin-top: 20px;
   text-align: center;
+  color: black;
 }
 
 .mainContentSection{
@@ -75,7 +85,7 @@ ul{
 
 .picSize {
   width: 160px;
-  height: 100px
+  height: 150px
 }
 
 .hidden {
@@ -89,6 +99,7 @@ ul{
   
 }
 
+
 .eventCard {
   border: 1px solid black;
   margin: 2px;
@@ -99,7 +110,7 @@ ul{
 }
 
 .firstEvent {
-  background-color: goldenrod;
+  background-color: rgba(218, 165, 32, 0.726);
 }
 
 .newsContainer{
@@ -107,6 +118,7 @@ ul{
   overflow-y: auto;
   margin-bottom: 30px;
 }
+
 
 .messagesContainer{
   padding: 5px;
