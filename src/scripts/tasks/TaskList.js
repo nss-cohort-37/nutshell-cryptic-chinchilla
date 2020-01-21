@@ -55,7 +55,7 @@ export const TaskList = () => {
     }
   });
 
-  eventHub.addEventListener("updateWithoutHide", clickEvent => {
+  eventHub.addEventListener("updateWithoutHiddenTask", clickEvent => {
     const allTasks = useTasks();
     const showTask = allTasks.filter(task => task.isCompleted === false);
     renderTask(showTask);

@@ -26,9 +26,10 @@ export const TaskListForm = () => {
   eventHub.addEventListener("hideTask", clickEvent => {
     const hideTaskId = clickEvent.detail.taskId;
     const allTasks = useTasks();
-    let foundTask = allTasks.find(task => task.id === parseInt(hideTaskId, 10));
-    console.log(hideTaskId);
-    let hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
+    const foundTask = allTasks.find(
+      task => task.id === parseInt(hideTaskId, 10)
+    );
+    const hiddenTask = document.querySelector(`#hideTask--${hideTaskId}`);
     if (hiddenTask.checked === true) {
       const hideTask = {
         userId: foundTask.userId,
@@ -38,10 +39,8 @@ export const TaskListForm = () => {
         isCompleted: true
       };
       editTask(hideTask).then(() => {
-        if (hideTask.isCompleted !== true) {
-          const customMessage = new CustomEvent("updateWithoutHide");
-          eventHub.dispatchEvent(customMessage);
-        }
+        const customMessage = new CustomEvent("updateWithoutHiddenTask");
+        eventHub.dispatchEvent(customMessage);
       });
       document.querySelector(`#taskCard--${hideTaskId}`).style.display = "none";
     }
@@ -100,7 +99,7 @@ export const renderTaskForm = () => {
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "button--logIn") {
     if (sessionStorage.getItem("activeUser") !== null) {
-    renderTaskForm();
+      renderTaskForm();
+    }
   }
-}
 });
