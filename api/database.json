@@ -4,49 +4,25 @@
       "id": 1,
       "userName": "Steve",
       "email": "steve@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 2,
       "userName": "Mo",
       "email": "mo@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 3,
       "userName": "Leah",
       "email": "leah@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 4,
       "userName": "Onterio",
       "email": "onterio@me.com",
-      "password": 123
-    },
-    {
-      "userName": "fkfjeio",
-      "email": "fkeapj",
-      "password": "123",
-      "id": 5
-    },
-    {
-      "userName": "fieowjio",
-      "email": "fnioeanio",
-      "password": "123",
-      "id": 6
-    },
-    {
-      "userName": "abc",
-      "email": "abc",
-      "password": "123",
-      "id": 7
-    },
-    {
-      "userName": "abc",
-      "email": "abc",
-      "password": "123",
-      "id": 8
+      "password": "123"
     }
   ],
   "news": [
@@ -56,7 +32,7 @@
       "title": "Wormholes Allow Information to Escape Black Holes",
       "synopsis": "Wormholes Allow Information to Escape Black Holes",
       "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-      "date": "01-01-2020"
+      "date": "1/17/2020"
     },
     {
       "id": 2,
@@ -64,7 +40,7 @@
       "url": "https://www.forbes.com/sites/jimdobson/2019/03/16/flat-earth-supporters-now-plan-an-antarctica-expedition-to-the-edge-of-the-world/#a89c94159165",
       "title": "Flat Earth Supporters Now Plan An Antarctica Expedition To The Edge Of The World ",
       "synopsis": "Earth Truthers trek to the Ice Wall, climb it, and fall out of the universe",
-      "date": "01-10-2020"
+      "date": "1/18/2020"
     },
     {
       "id": 3,
@@ -72,23 +48,15 @@
       "url": "https://www.dallasobserver.com/arts/the-earth-is-flat-nasa-and-the-pope-are-liars-things-learned-at-the-flat-earth-convention-11808074",
       "title": "Discworld Is Real! Dive into Flat Earth Culture at their Global, Sorry, International Conference",
       "synopsis": "Great sumamry of the latest in Earth Truth",
-      "date": "01-20-2020"
+      "date": "1/19/2020"
     },
     {
       "userId": 1,
       "url": "https://www.livescience.com/what-if-flat-earth.html",
       "title": "What If the Earth Was Flat?",
       "synopsis": "It is",
-      "date": "2019-11-23",
+      "date": "1/20/2020",
       "id": 4
-    },
-    {
-      "userId": 5,
-      "url": "google.com",
-      "title": "123",
-      "synopsis": "123",
-      "date": "2020-02-02",
-      "id": 5
     }
   ],
   "events": [
@@ -105,13 +73,6 @@
       "date": "Mon Feb 03 2020 12:00:00 GMT-0600 (Central Standard Time)",
       "location": "Across the Universe",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "name": "",
-      "date": "Invalid Date",
-      "location": "",
-      "id": 7
     }
   ],
   "tasks": [
@@ -130,27 +91,6 @@
       "isCompleted": false
     },
     {
-      "userId": 4,
-      "name": "Testing",
-      "completionDate": "2020-01-17",
-      "id": 3,
-      "isCompleted": false
-    },
-    {
-      "userId": 1,
-      "name": "Steve",
-      "completionDate": "2020-01-07",
-      "id": 8,
-      "isCompleted": true
-    },
-    {
-      "userId": 1,
-      "name": "test345",
-      "completionDate": "2020-01-30",
-      "id": 9,
-      "isCompleted": true
-    },
-    {
       "userId": 1,
       "name": "Do work",
       "completionDate": "2020-02-02",
@@ -163,20 +103,6 @@
       "completionDate": "2020-02-21",
       "id": 11,
       "isCompleted": false
-    },
-    {
-      "userId": 1,
-      "name": "asdfa",
-      "completionDate": "",
-      "isCompleted": false,
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "name": "asdf",
-      "completionDate": "",
-      "isCompleted": false,
-      "id": 13
     }
   ],
   "messages": [
@@ -189,31 +115,6 @@
       "id": 2,
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
-    },
-    {
-      "userId": 1,
-      "message": "test message",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "message": "Testing works",
-      "userId": 2
-    },
-    {
-      "userId": 1,
-      "message": "abc",
-      "id": 9
-    },
-    {
-      "id": 10,
-      "message": "message",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "message": "still works",
-      "id": 11
     }
   ],
   "friends": [
