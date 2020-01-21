@@ -167,7 +167,6 @@ eventHub.addEventListener("editNewsButtonClicked", event => {
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveNewsEdit")) {
-        debugger
       const [prefix, newsId] = clickEvent.target.id.split("--")
       const editedNews = {
           id: parseInt(newsId, 10),

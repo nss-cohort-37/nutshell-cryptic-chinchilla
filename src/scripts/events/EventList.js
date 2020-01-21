@@ -186,7 +186,6 @@ eventHub.addEventListener("editEventButtonClicked", event => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveEventEdit")) {
         const [prefix, eventId] = clickEvent.target.id.split("--")
-        debugger
         let formattedDate = new Date(document.querySelector(`#eventDate--${eventId}`).textContent.split("Date: ")[1]).toString()
         const editedEvent = {
             id: parseInt(eventId, 10),

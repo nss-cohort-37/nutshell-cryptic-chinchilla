@@ -5,15 +5,8 @@ import { logInEvent } from "./logIn/LogInForm.js";
 import { getUsers } from "./users/UsersProvider.js";
 import { getMessages } from "./messages/MessagesProvider.js";
 import { getFriends } from "./friends/FriendsProvider.js";
-import { renderSearch } from "./friends/FriendSearchList.js";
-import {
-  initiateDashboardEventListener,
-  refreshDashboard
-} from "./dashboardEvents/DashboardLoad.js";
-import { MessageList } from "./messages/MessageList.js";
+import { refreshDashboard } from "./dashboardEvents/DashboardLoad.js";
 import { getTasks } from "./tasks/TaskProvider.js";
-import { TaskForm } from "./tasks/TaskForm.js";
-import { TaskDialog } from "./tasks/taskDialog.js";
 
 if (!sessionStorage.hasOwnProperty("activeUser")) {
   getUsers()
@@ -33,7 +26,6 @@ if (!sessionStorage.hasOwnProperty("activeUser")) {
     .then(() => getEvents())
     .then(() => getNews())
     .then(() => getTasks())
-    .then(() => MessageEventListener())
     .then(() => getFriends())
     .then(() => {
       logInEvent();

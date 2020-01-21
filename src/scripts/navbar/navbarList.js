@@ -9,7 +9,6 @@ const contentElement = document.querySelector(".navbar");
 export const NavbarEventListener = () => {
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "logOut") {
-      debugger
       sessionStorage.clear();
       document.querySelector(".friendsCards").innerHTML = "";
       document.querySelector(".friendSearchContainer").innerHTML = "";
