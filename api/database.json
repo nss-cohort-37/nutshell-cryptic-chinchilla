@@ -4,25 +4,25 @@
       "id": 1,
       "userName": "Steve",
       "email": "steve@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 2,
       "userName": "Mo",
       "email": "mo@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 3,
       "userName": "Leah",
       "email": "leah@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 4,
       "userName": "Onterio",
       "email": "onterio@me.com",
-      "password": 123
+      "password": "123"
     }
   ],
   "news": [
