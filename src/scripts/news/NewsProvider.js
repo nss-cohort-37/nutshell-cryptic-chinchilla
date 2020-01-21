@@ -5,15 +5,7 @@ export const useNews = () => news.slice();
 export const getNews = () => {
   return fetch("http://localhost:3000/news")
     .then(res => res.json())
-    .then(parsedNews => {
-      news = parsedNews
-        .slice()
-        .sort(
-          (currentNews, nextNews) =>
-            Date.parse(currentNews.date) -
-            Date.parse(nextNews.date)
-        );
-    });
+    .then(parsedNews => news = parsedNews);
 };
 
 export const saveNews = news => {

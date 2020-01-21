@@ -80,6 +80,9 @@ export const NewsList = () => {
             })
         
             const updatedCombinedArray = updatedUsersNews.concat(updatedFriendsNews)
+            updatedCombinedArray.sort(function(a,b){
+                return new Date(b.date) - new Date(a.date);
+            })
             render(updatedCombinedArray)
             renderForm()
             renderButton()
@@ -89,7 +92,9 @@ export const NewsList = () => {
             dialogTarget.close()
         }
     })
-
+    combinedArray.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+    })
     render(combinedArray)
     renderForm()
     NewsEditRender(combinedArray)
@@ -174,6 +179,9 @@ eventHub.addEventListener("click", clickEvent => {
         editNews(editedNews)
             .then(() => {
                 const updatedNews = useNews()
+                updatedNews.sort(function(a,b){
+                    return new Date(b.date) - new Date(a.date);
+                })
                 render(updatedNews)
                 NewsEditRender(updatedNews)
                 NewsDeleteRender(updatedNews)
@@ -190,6 +198,9 @@ eventHub.addEventListener("click", event => {
     deleteNews(newsId)
         .then(() => {
             const updatedNews = useNews()
+            updatedNews.sort(function(a,b){
+                return new Date(b.date) - new Date(a.date);
+            })
             render(updatedNews)
             NewsEditRender(updatedNews)
             NewsDeleteRender(updatedNews)

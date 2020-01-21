@@ -80,6 +80,9 @@ export const EventList = () => {
             })
         
             const updatedCombinedArray = updatedUsersEvents.concat(updatedFriendsEvents)
+            updatedCombinedArray.sort(function(a,b){
+                return new Date(a.date) - new Date(b.date);
+            })
             render(updatedCombinedArray)
             renderForm()
             renderButton()
@@ -89,7 +92,9 @@ export const EventList = () => {
             dialogTarget.close()
         }
     })
-
+    combinedArray.sort(function(a,b){
+        return new Date(a.date) - new Date(b.date);
+    })
     render(combinedArray)
     renderForm()
     EventEditRender(combinedArray)
@@ -108,10 +113,13 @@ eventHub.addEventListener("click", clickEvent => {
 // Listens for click of Save Event button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "closeEventDialog") {
+        let formattedDate = new Date(document.getElementById("eventDateTime").value).toString()
+        debugger
+
         const newEvent = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
             name: document.getElementById("eventTitleText").value,
-            date: document.getElementById("eventDateTime").value,
+            date: formattedDate,
             location: document.getElementById("eventLocationText").value
         }
 
@@ -160,17 +168,21 @@ eventHub.addEventListener("editEventButtonClicked", event => {
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveEventEdit")) {
-      const [prefix, eventId] = clickEvent.target.id.split("--")
-      const editedEvent = {
-          id: parseInt(eventId, 10),
-          userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-          name: document.querySelector(`#eventName--${eventId}`).value,
-          date: document.querySelector(`#eventDate--${eventId}`).textContent.split("Date: ")[1],
-          location: document.querySelector(`#eventLocation--${eventId}`).value
+        let formattedDate = new Date(document.querySelector(`#eventDate--${eventId}`).textContent.split("Date: ")[1]).toString
+        const [prefix, eventId] = clickEvent.target.id.split("--")
+        const editedEvent = {
+            id: parseInt(eventId, 10),
+            userId: parseInt(sessionStorage.getItem("activeUser"), 10),
+            name: document.querySelector(`#eventName--${eventId}`).value,
+            date: formattedDate,
+            location: document.querySelector(`#eventLocation--${eventId}`).value
         }
         editEvent(editedEvent)
             .then(() => {
                 const updatedEvents = useEvents()
+                updatedEvents.sort(function(a,b){
+                    return new Date(a.date) - new Date(b.date);
+                })
                 render(updatedEvents)
                 EventEditRender(updatedEvents)
                 EventDeleteRender(updatedEvents)
@@ -187,6 +199,9 @@ eventHub.addEventListener("click", event => {
     deleteEvent(eventId)
         .then(() => {
             const updatedEvents = useEvents()
+            updatedEvents.sort(function(a,b){
+                return new Date(a.date) - new Date(b.date);
+            })
             render(updatedEvents)
             EventEditRender(updatedEvents)
             EventDeleteRender(updatedEvents)

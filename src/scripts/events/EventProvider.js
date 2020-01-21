@@ -5,15 +5,7 @@ export const useEvents = () => events.slice();
 export const getEvents = () => {
   return fetch("http://localhost:3000/events")
     .then(res => res.json())
-    .then(resp => {
-      events = resp
-        .slice()
-        .sort(
-          (currentEvent, nextEvent) =>
-            Date.parse(currentEvent.date) - Date.parse(nextEvent.date)
-        );
-      return events;
-    });
+    .then(parsedEvents => events = parsedEvents);
 };
 
 export const saveEvent = event => {
