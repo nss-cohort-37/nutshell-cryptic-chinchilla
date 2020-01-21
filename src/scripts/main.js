@@ -8,8 +8,8 @@ import { MessageEventListener } from "./messages/MessageListener.js";
 import { NavbarEventListener } from "./navbar/navbarList.js";
 import { FriendsListComponent } from "./friends/FriendsList.js";
 import { getFriends } from "./friends/FriendsProvider.js";
-import { addSearchEventListeners } from "./friends/FriendSearchList.js";
-import { initiateDashboardEventListener } from "./dashboardEvents/DashboardLoad.js";
+import { renderSearch } from "./friends/FriendSearchList.js";
+import { initiateDashboardEventListener, refreshDashboard } from "./dashboardEvents/DashboardLoad.js";
 import { MessageList } from "./messages/MessageList.js";
 import { getTasks } from "./tasks/TaskProvider.js";
 import { reRenderTask, TaskList } from "./tasks/TaskList.js"
@@ -29,11 +29,8 @@ if(!(sessionStorage.hasOwnProperty("activeUser"))){
     .then(() => getFriends())
     .then(() => getUsers())
     .then(() => getTasks())
-    .then(() => TaskForm())
-    .then(() => TaskListForm())
-    .then(() => TaskList())
-    .then(() => TaskDialog())
-    .then(() => initiateDashboardEventListener())
+    .then(() => {
+    initiateDashboardEventListener()})
 }
 
 else{
@@ -46,16 +43,6 @@ else{
       .then(() => getFriends())
       .then(() => {
         logInEvent()
-        FriendsListComponent()
-        MessageList()
-        addSearchEventListeners()
-        TaskForm()
-        TaskListForm()
-        TaskList()
-        TaskDialog()
-        reRenderTask()
-        renderTaskForm()
-        NavbarEventListener()
-        initiateDashboardEventListener()
+        refreshDashboard()
       })
 }

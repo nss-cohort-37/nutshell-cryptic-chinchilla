@@ -153,15 +153,14 @@
       "userId": 1,
       "message": "test message",
       "id": 7
+    },
+    {
+      "id": 8,
+      "message": "Testing works",
+      "userId": 2
     }
   ],
   "friends": [
-    {
-      "friendInitiateId": 2,
-      "userId": 3,
-      "active": true,
-      "id": 2
-    },
     {
       "friendInitiateId": 1,
       "userId": 2,
@@ -173,6 +172,18 @@
       "friendInitiateId": 1,
       "active": true,
       "id": 4
+    },
+    {
+      "friendInitiateId": 2,
+      "userId": 1,
+      "active": true,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "friendInitiateId": 2,
+      "active": true,
+      "id": 6
     }
   ]
 }
