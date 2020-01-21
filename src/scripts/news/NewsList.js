@@ -129,12 +129,15 @@ eventHub.addEventListener("click", clickEvent => {
 // Listens for click of Save Article button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "closeNewsDialog") {
+        let newDate = new Date()
+        newDate = (newDate.getMonth() + 1) + '/' + newDate.getDate() + '/' +  newDate.getFullYear()
+        // newDate = newDate.getTime().toLocaleString("en-US", {timeZone: "America/Chicago"})
         const newArticle = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
             url: document.getElementById("newsURLText").value,
             title: document.getElementById("newsTitleText").value,
             synopsis: document.getElementById("newsSynopsisText").value,
-            date: document.getElementById("newsDateText").value
+            date: newDate
         }
 
         const message = new CustomEvent("newsSaved", {
@@ -183,14 +186,16 @@ eventHub.addEventListener("editNewsButtonClicked", event => {
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveNewsEdit")) {
-      const [prefix, newsId] = clickEvent.target.id.split("--")
+        const [prefix, newsId] = clickEvent.target.id.split("--")
+        let newDate = new Date()
+        newDate = newDate.getTime().toLocaleString("en-US", {timeZone: "America/Chicago"})
       const editedNews = {
           id: parseInt(newsId, 10),
           userId: parseInt(sessionStorage.getItem("activeUser"), 10),
           title: document.querySelector(`#newsTitle--${newsId}`).value,
           synopsis: document.querySelector(`#newsSynopsis--${newsId}`).value,
           url: document.querySelector(`#newsURL--${newsId}`).value,
-          date: document.querySelector(`#newsDate--${newsId}`).textContent.split("Date: ")[1]
+          date: newDate
         }
         editNews(editedNews)
             .then(() => {
