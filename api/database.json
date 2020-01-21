@@ -119,6 +119,13 @@
       "date": "Tue Jan 21 2020 22:00:00 GMT-0600 (Central Standard Time)",
       "location": "not the moon",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "name": "abc123",
+      "date": "Mon Jan 20 2020 17:00:00 GMT-0600 (Central Standard Time)",
+      "location": "abc123",
+      "id": 9
     }
   ],
   "tasks": [
@@ -197,15 +204,14 @@
       "userId": 1,
       "message": "abc",
       "id": 9
+    },
+    {
+      "id": 10,
+      "message": "message",
+      "userId": 1
     }
   ],
   "friends": [
-    {
-      "userId": 3,
-      "friendInitiateId": 1,
-      "active": true,
-      "id": 4
-    },
     {
       "friendInitiateId": 2,
       "userId": 1,
@@ -223,6 +229,12 @@
       "userId": 2,
       "active": true,
       "id": 7
+    },
+    {
+      "userId": 3,
+      "friendInitiateId": 1,
+      "active": true,
+      "id": 8
     }
   ]
 }

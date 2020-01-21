@@ -254,7 +254,7 @@ eventHub.addEventListener("click", event => {
 eventHub.addEventListener("click", event => {
     if(event.target.id.startsWith("xOutEventEditDialog")) {
         let [prefix, eventId] = event.target.id.split("--")
-        const dialogTarget = document.querySelector(`.xOutEventEditDialog--${eventId}`)
+        const dialogTarget = document.querySelector(`#eventDetails--${eventId}`)
         dialogTarget.close()
     }
 })

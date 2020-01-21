@@ -220,7 +220,7 @@ eventHub.addEventListener("click", event => {
 eventHub.addEventListener("click", event => {
     if(event.target.id.startsWith("xOutNewsEditDialog")) {
         let [prefix, newsId] = event.target.id.split("--")
-        const dialogTarget = document.querySelector(`.xOutNewsEditDialog--${newsId}`)
+        const dialogTarget = document.querySelector(`#newsDetails--${newsId}`)
         dialogTarget.close()
     }
 })
