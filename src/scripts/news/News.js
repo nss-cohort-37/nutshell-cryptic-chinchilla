@@ -17,7 +17,6 @@ export const NewsComponent = news => {
         <input type="text" id="newsSynopsis--${news.id}" value="${news.synopsis}"></input>
         <label for="newsURL--${news.id}">
         <input type="text" id="newsURL--${news.id}" value="${news.url}"></input>
-        <p id="newsDate--${news.id}">Date: ${news.date}</p>
         <button id="saveNewsEdit--${news.id}" class="button--close btn btn-primary">Save Edit</button>
       </dialog>
     </section>

@@ -84,6 +84,14 @@ export const NewsList = () => {
                 return new Date(b.date) - new Date(a.date);
             })
             render(updatedCombinedArray)
+            updatedCombinedArray.map(article => {
+                if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                    let articleId = article.id
+                    let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+                    let articleSection = articleDialog.closest(".newsCard")
+                    articleSection.classList.add("friendPost")
+                }
+            })
             renderForm()
             renderButton()
             NewsEditRender(updatedCombinedArray)
@@ -96,6 +104,14 @@ export const NewsList = () => {
         return new Date(b.date) - new Date(a.date);
     })
     render(combinedArray)
+    combinedArray.map(article => {
+        if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+            let articleId = article.id
+            let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+            let articleSection = articleDialog.closest(".newsCard")
+            articleSection.classList.add("friendPost")
+        }
+    })
     renderForm()
     NewsEditRender(combinedArray)
     NewsDeleteRender(combinedArray)
@@ -113,12 +129,15 @@ eventHub.addEventListener("click", clickEvent => {
 // Listens for click of Save Article button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "closeNewsDialog") {
+        let newDate = new Date()
+        newDate = (newDate.getMonth() + 1) + '/' + newDate.getDate() + '/' +  newDate.getFullYear()
+        // newDate = newDate.getTime().toLocaleString("en-US", {timeZone: "America/Chicago"})
         const newArticle = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
             url: document.getElementById("newsURLText").value,
             title: document.getElementById("newsTitleText").value,
             synopsis: document.getElementById("newsSynopsisText").value,
-            date: document.getElementById("newsDateText").value
+            date: newDate
         }
 
         const message = new CustomEvent("newsSaved", {
@@ -167,14 +186,16 @@ eventHub.addEventListener("editNewsButtonClicked", event => {
 // Listens for click of Save Edit button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("saveNewsEdit")) {
-      const [prefix, newsId] = clickEvent.target.id.split("--")
+        const [prefix, newsId] = clickEvent.target.id.split("--")
+        let newDate = new Date()
+        newDate = newDate.getTime().toLocaleString("en-US", {timeZone: "America/Chicago"})
       const editedNews = {
           id: parseInt(newsId, 10),
           userId: parseInt(sessionStorage.getItem("activeUser"), 10),
           title: document.querySelector(`#newsTitle--${newsId}`).value,
           synopsis: document.querySelector(`#newsSynopsis--${newsId}`).value,
           url: document.querySelector(`#newsURL--${newsId}`).value,
-          date: document.querySelector(`#newsDate--${newsId}`).textContent.split("Date: ")[1]
+          date: newDate
         }
         editNews(editedNews)
             .then(() => {
@@ -183,6 +204,14 @@ eventHub.addEventListener("click", clickEvent => {
                     return new Date(b.date) - new Date(a.date);
                 })
                 render(updatedNews)
+                updatedNews.map(article => {
+                    if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                        let articleId = article.id
+                        let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+                        let articleSection = articleDialog.closest(".newsCard")
+                        articleSection.classList.add("friendPost")
+                    }
+                })
                 NewsEditRender(updatedNews)
                 NewsDeleteRender(updatedNews)
                 renderForm()
@@ -202,6 +231,14 @@ eventHub.addEventListener("click", event => {
                 return new Date(b.date) - new Date(a.date);
             })
             render(updatedNews)
+            updatedNews.map(article => {
+                if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                    let articleId = article.id
+                    let articleDialog = document.querySelector(`#newsDetails--${articleId}`)
+                    let articleSection = articleDialog.closest(".newsCard")
+                    articleSection.classList.add("friendPost")
+                }
+            })
             NewsEditRender(updatedNews)
             NewsDeleteRender(updatedNews)
             renderForm()

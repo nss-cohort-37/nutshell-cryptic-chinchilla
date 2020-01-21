@@ -92,6 +92,16 @@ export const EventList = () => {
             let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
             let firstEventSection = firstEventDialog.closest(".eventCard")
             firstEventSection.classList.add("firstEvent")
+            updatedCombinedArray.map(event => {
+                if (event.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                    let eventId = event.id
+                    let eventDialog = document.querySelector(`#eventDetails--${eventId}`)
+                    let eventSection = eventDialog.closest(".eventCard")
+                    if (eventSection.classList.contains("firstEvent") === false) {
+                        eventSection.classList.add("friendPost")
+                    }
+                }
+            })
             renderForm()
             renderButton()
             EventEditRender(updatedCombinedArray)
@@ -113,6 +123,16 @@ export const EventList = () => {
         let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
         let firstEventSection = firstEventDialog.closest(".eventCard")
         firstEventSection.classList.add("firstEvent")
+        combinedArray.map(event => {
+            if (event.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                let eventId = event.id
+                let eventDialog = document.querySelector(`#eventDetails--${eventId}`)
+                let eventSection = eventDialog.closest(".eventCard")
+                if (eventSection.classList.contains("firstEvent") === false) {
+                    eventSection.classList.add("friendPost")
+                }
+            }
+        })
         EventEditRender(combinedArray)
         EventDeleteRender(combinedArray)
     }
@@ -205,6 +225,16 @@ eventHub.addEventListener("click", clickEvent => {
                     firstEvent.classList.remove(".firstEvent")
                 }
                 render(updatedEvents)
+                updatedEvents.map(event => {
+                    if (event.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                        let eventId = event.id
+                        let eventDialog = document.querySelector(`#eventDetails--${eventId}`)
+                        let eventSection = eventDialog.closest(".eventCard")
+                        if (eventSection.classList.contains("firstEvent") === false) {
+                            eventSection.classList.add("friendPost")
+                        }
+                    }
+                })
                 let firstEventId = updatedEvents[0].id
                 let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
                 let firstEventSection = firstEventDialog.closest(".eventCard")
@@ -232,6 +262,16 @@ eventHub.addEventListener("click", event => {
                 firstEvent.classList.remove(".firstEvent")
             }
             render(updatedEvents)
+            updatedEvents.map(event => {
+                if (event.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
+                    let eventId = event.id
+                    let eventDialog = document.querySelector(`#eventDetails--${eventId}`)
+                    let eventSection = eventDialog.closest(".eventCard")
+                    if (eventSection.classList.contains("firstEvent") === false) {
+                        eventSection.classList.add("friendPost")
+                    }
+                }
+            })
             let firstEventId = updatedEvents[0].id
             let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
             let firstEventSection = firstEventDialog.closest(".eventCard")

@@ -14,10 +14,6 @@ export const NewsForm = () => {
             <label for="newsURLText">Article URL: </label>
             <input type="text" id="newsURLText"></input>
         </div>
-        <div class="newsDate">
-            <label for="newsDateText">Article date: </label>
-            <input type="date" id="newsDateText"></input>
-        </div>
         <button id="closeNewsDialog" class="btn btn-primary">Save Article</button>
     </dialog>
     `
