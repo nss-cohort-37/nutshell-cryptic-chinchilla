@@ -4,6 +4,7 @@ import { EventList } from "../events/EventList.js"
 import { NewsList } from "../news/NewsList.js"
 import { NavbarEventListener } from "../navbar/navbarList.js";
 import { addSearchEventListeners } from "../friends/FriendSearchList.js";
+import { renderTaskForm } from "../tasks/TaskFormList.js"
 
 
 const eventHub = document.querySelector(".container");
@@ -20,6 +21,7 @@ eventHub.addEventListener("click", clickEvent => {
     MessageList()
     EventList()
     NewsList()
+    renderTaskForm()
     addSearchEventListeners();
     NavbarEventListener()
 }}})}
