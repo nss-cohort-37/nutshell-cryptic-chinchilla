@@ -4,7 +4,7 @@ export const EventDeleteRender = (events) => {
       if (event.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
         contentTarget.innerHTML = ""
         contentTarget.innerHTML = `
-        <button id="deleteEvent--${event.id}">Delete Event</button>
+        <button class="btn btn-danger" id="deleteEvent--${event.id}">Delete Event</button>
         `
       }
     })

@@ -4,7 +4,7 @@ export const NewsEditRender = (news) => {
       if (article.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
         contentTarget.innerHTML = ""
         contentTarget.innerHTML = `
-        <button id="editNews--${article.id}">Edit Article</button>
+        <button id="editNews--${article.id}" class="btn btn-secondary">Edit Article</button>
         `
       }
     })

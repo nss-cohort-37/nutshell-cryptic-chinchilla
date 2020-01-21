@@ -5,10 +5,10 @@ export const MessageComponent = (message) => {
             <div class="messageContent">${message.message}</div>
             <div class="editMessageButtonContainer--${message.id}"></div>
             <dialog  id="details--${message.id}" class="editDialog">
-                <button id="xOutMessageEditDialog--${message.id}">[X]</button>
+                <button id="xOutMessageEditDialog--${message.id}">&times</button>
                 <input type="hidden" class="hiddenId" id="entry-id"/>
                 <input type="text" id="messageText--${message.id}" value="${message.message}"></input>
-                <button id="saveEdit--${message.id}" class="button--close">Save Edit</button>
+                <button id="saveEdit--${message.id}" class="button--close btn btn-primary">Save Edit</button>
             </dialog>
         </section>
     `

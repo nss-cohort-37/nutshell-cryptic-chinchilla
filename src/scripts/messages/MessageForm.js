@@ -7,7 +7,7 @@ export const MessageForm = () => {
             Message: <br><textarea id="messageForm" type="text" cols="75" placeholder="Please enter message....."></textarea>
           </div>
         </form>
-        <button id="saveMessage" class="saveMessageBtn">Save Message</button>
+        <button id="saveMessage" class="saveMessageBtn btn btn-primary">Save Message</button>
       </fieldset>
     </section>
   `;

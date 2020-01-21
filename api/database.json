@@ -4,25 +4,25 @@
       "id": 1,
       "userName": "Steve",
       "email": "steve@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 2,
       "userName": "Mo",
       "email": "mo@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 3,
       "userName": "Leah",
       "email": "leah@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "id": 4,
       "userName": "Onterio",
       "email": "onterio@me.com",
-      "password": 123
+      "password": "123"
     },
     {
       "userName": "fkfjeio",
@@ -47,6 +47,12 @@
       "email": "abc",
       "password": "123",
       "id": 8
+    },
+    {
+      "userName": "james3",
+      "email": "james3",
+      "password": "james11",
+      "id": 9
     }
   ],
   "news": [
@@ -230,16 +236,16 @@
       "id": 6
     },
     {
-      "friendInitiateId": 1,
       "userId": 2,
+      "friendInitiateId": 1,
       "active": true,
-      "id": 7
+      "id": 9
     },
     {
-      "userId": 3,
       "friendInitiateId": 1,
+      "userId": 3,
       "active": true,
-      "id": 8
+      "id": 10
     }
   ]
 }

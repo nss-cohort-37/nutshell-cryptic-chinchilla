@@ -4,7 +4,7 @@ export const messageEditRender = (messages) => {
     if (message.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
       contentTarget.innerHTML = ""
       contentTarget.innerHTML = `
-      <button id="editMessage--${message.id}">Edit Message</button>
+      <button id="editMessage--${message.id}" class="btn btn-secondary">Edit Message</button>
       `
     }
   })

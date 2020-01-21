@@ -18,7 +18,7 @@ export const TaskComponent = tasks => {
       <button id="editTask--${tasks.id}" class="editTask btn btn-secondary">Edit Task
       </button>
       <dialog id="taskDialog--${tasks.id}">
-        <button id="xOutTaskEditDialog--${tasks.id}">[X]</button>
+        <button id="xOutTaskEditDialog--${tasks.id}">&times</button>
         <input id="hidden-value" type="hidden">
         <div class="taskFormInfo">
           Task: <input id="task-name--${tasks.id}" class="task-name" type="text" placeholder="Please enter task.....">

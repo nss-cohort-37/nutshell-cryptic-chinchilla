@@ -6,7 +6,7 @@ const eventHub = document.querySelector(".container")
 export const FriendCard = friend => {
   return `
     <section class="friendCard card" style="width: 10rem;">
-    <img class="picSize card-img-top" src="./assets/hey-arnold.jpg">
+    <img class="picSize card-img-top" src="./assets/aliens.png">
       <h5 class="friendCardInfo card-title">${friend.user.userName}</h5>
       <button id="removeFriend--${friend.id}" class="removeFriendBtn btn-danger">Remove Friend</button>
     </section>

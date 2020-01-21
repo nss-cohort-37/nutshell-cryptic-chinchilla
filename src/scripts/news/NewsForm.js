@@ -1,7 +1,7 @@
 export const NewsForm = () => {
     return `
     <dialog class="newsDialog">
-        <button id="xOutNewsDialog">[X]</button>
+        <button id="xOutNewsDialog">&times</button>
         <div class="newsTitle">
             <label for="newsTitleText">Article title: </label>
             <input type="text" id="newsTitleText"></input>
@@ -18,7 +18,7 @@ export const NewsForm = () => {
             <label for="newsDateText">Article date: </label>
             <input type="date" id="newsDateText"></input>
         </div>
-        <button id="closeNewsDialog">Save Article</button>
+        <button id="closeNewsDialog" class="btn btn-primary">Save Article</button>
     </dialog>
     `
 }

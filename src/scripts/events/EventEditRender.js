@@ -4,7 +4,7 @@ export const EventEditRender = (events) => {
       if (event.userId === parseInt(sessionStorage.getItem("activeUser"), 10)) {
         contentTarget.innerHTML = ""
         contentTarget.innerHTML = `
-        <button id="editEvent--${event.id}">Edit Event</button>
+        <button id="editEvent--${event.id}" class="btn btn-secondary">Edit Event</button>
         `
       }
     })
