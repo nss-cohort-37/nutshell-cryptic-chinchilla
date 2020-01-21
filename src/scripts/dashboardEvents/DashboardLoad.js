@@ -5,7 +5,7 @@ import { NewsList } from "../news/NewsList.js";
 import { NavbarEventListener } from "../navbar/navbarList.js";
 import { renderSearch } from "../friends/FriendSearchList.js";
 import { TaskForm } from "../tasks/TaskForm.js";
-import { TaskListForm, renderTaskForm } from "../tasks/TaskFormList.js";
+import { renderTaskForm } from "../tasks/TaskFormList.js";
 import { TaskList, reRenderTask } from "../tasks/TaskList.js";
 import { TaskDialog } from "../tasks/taskDialog.js";
 
@@ -16,7 +16,7 @@ export const refreshDashboard = () => {
   MessageList();
   renderSearch();
   TaskForm();
-  TaskListForm();
+  // TaskListForm();
   TaskList();
   TaskDialog();
   reRenderTask();
@@ -36,7 +36,7 @@ export const initiateDashboardEventListener = () => {
   NavbarEventListener();
   renderTaskForm();
   reRenderTask();
-  TaskListForm();
+  // TaskListForm();
   TaskList();
   TaskDialog();
   document.querySelector(".navbar").classList.remove("hidden");
