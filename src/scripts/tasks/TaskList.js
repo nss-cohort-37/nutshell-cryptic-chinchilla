@@ -38,7 +38,7 @@ export const TaskList = () => {
     }
   });
 
-  // Delete task clicked and tasked deleted. Custom Event dispatched to update task with only task that aren't hidden
+  // Delete tasks clicked, tasks deleted, and tasked updated
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteTask--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--");
@@ -49,7 +49,7 @@ export const TaskList = () => {
     }
   });
 
-  // Hide task clicked and custom event created
+  // Hide tasks clicked and custom event created
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("hideTask--")) {
       const [prefix, taskId] = clickEvent.target.id.split("--");
@@ -62,7 +62,7 @@ export const TaskList = () => {
     }
   });
 
-  // Update task array and render all task that are not hidden. Clear values once new task is created, edited, or hidden
+  // Update tasks array, render all tasks that are not hidden, and clear values once new tasks are created, edited, or hidden
   eventHub.addEventListener("update", clickEvent => {
     reRenderTask();
     clearAllValues();
@@ -82,7 +82,7 @@ export const TaskList = () => {
   };
 };
 
-// render all task that are not hidden
+// render all tasks that are not hidden
 export const reRenderTask = () => {
   const allTasks = useTasks();
   const showTask = allTasks.filter(task => task.isCompleted === false);
@@ -91,7 +91,7 @@ export const reRenderTask = () => {
 
 const renderTask = taskCollection => {
   const foundTask = taskCollection.filter(
-    // Filter task array by active user
+    // Filter tasks array by active user
     taskArrayOfObjects =>
       taskArrayOfObjects.userId ===
       parseInt(sessionStorage.getItem("activeUser"), 10)

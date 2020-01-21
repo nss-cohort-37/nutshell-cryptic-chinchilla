@@ -8,7 +8,7 @@ export const TaskListForm = () => {
   eventHub.addEventListener("edit-btn-has-been-click", clickEvent => {
     const taskId = clickEvent.detail.taskId;
 
-    // Find task to be edoted and place values in inputs
+    // Find task to be edited and place values in inputs
     const allTask = useTasks();
     const foundTask = allTask.find(task => task.id === parseInt(taskId), 10);
 
@@ -92,7 +92,7 @@ export const renderTaskForm = () => {
   targetElement.innerHTML = TaskForm();
 };
 
-// Only display task once logged in
+// Only display task form once logged in
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "button--logIn") {
     if (sessionStorage.getItem("activeUser") !== null) {
