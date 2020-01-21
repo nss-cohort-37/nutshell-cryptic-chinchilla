@@ -53,7 +53,6 @@ export const logInEvent = () => {
       `;
     }
     if (event.target.id === "button--logIn") {
-      debugger
       const users = useUsers();
       const userName = document.querySelector(".logInUser").value;
       const userNamePW = document.querySelector(".logInPass").value;
