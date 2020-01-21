@@ -18,7 +18,10 @@ eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id === "saveFriend") {
     const friendUserName = document.querySelector("#friendSearch").value;
     const allUsers = useUsers();
-    const foundUser = allUsers.find(user => user.userName === friendUserName);
+    const foundUser = allUsers.find(user => user.userName === friendUserName)
+    if(foundUser === undefined){
+      alert("User not found")
+    }else{
     const friendInitiateId = parseInt(
       sessionStorage.getItem("activeUser"),
       10
@@ -47,6 +50,6 @@ eventHub.addEventListener("click", clickEvent => {
     }
     } else {
       alert("You can't add yourself, dummy")
-    }
+    }}
   }
 });

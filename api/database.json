@@ -185,6 +185,12 @@
       "userId": 3,
       "active": true,
       "id": 10
+    },
+    {
+      "friendInitiateId": 2,
+      "userId": 4,
+      "active": true,
+      "id": 11
     }
   ]
 }
