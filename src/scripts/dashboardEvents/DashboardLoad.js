@@ -16,7 +16,6 @@ export const refreshDashboard = () => {
   MessageList();
   renderSearch();
   TaskForm();
-  // TaskListForm();
   TaskList();
   TaskDialog();
   reRenderTask();
@@ -36,7 +35,6 @@ export const initiateDashboardEventListener = () => {
   NavbarEventListener();
   renderTaskForm();
   reRenderTask();
-  // TaskListForm();
   TaskList();
   TaskDialog();
   document.querySelector(".navbar").classList.remove("hidden");

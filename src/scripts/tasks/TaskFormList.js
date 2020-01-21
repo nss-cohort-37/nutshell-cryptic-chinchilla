@@ -4,9 +4,6 @@ import { useTasks, editTask, saveTask } from "./TaskProvider.js";
 const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".taskForm");
 
-// export const TaskListForm = () => {
-
-// };
 eventHub.addEventListener("edit-btn-has-been-click", clickEvent => {
   const taskId = clickEvent.detail.taskId;
 

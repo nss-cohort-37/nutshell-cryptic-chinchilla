@@ -15,8 +15,6 @@ import {
 } from "./dashboardEvents/DashboardLoad.js";
 import { MessageList } from "./messages/MessageList.js";
 import { getTasks } from "./tasks/TaskProvider.js";
-// import { reRenderTask, TaskList } from "./tasks/TaskList.js"
-// import { renderTaskForm, TaskListForm } from "./tasks/TaskFormList.js";
 import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskDialog } from "./tasks/taskDialog.js";
 
