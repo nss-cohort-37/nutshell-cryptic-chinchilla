@@ -1,6 +1,57 @@
 @import './logIn.css';
 @import './messages.css';
 
+
+
+.renderArea{
+  display: flex;
+  
+}
+.friendsContainer{
+  flex-basis: 25%;
+  margin-right: 35px;
+}
+
+.friendSearchField{
+  margin-bottom: 5px;
+}
+
+.friendCard{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.mainContentSection{
+  flex-basis: 50%;
+}
+ul{
+  margin: 0;
+}
+
+.taskContentContainer{
+  flex-basis: 25%;
+  margin-left: 50px;
+}
+
+.tasksContainer{
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.taskFormCard{
+  margin-bottom: 30px;
+}
+
+.taskCard{
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.taskForm{
+  margin-bottom: 10px;
+}
+
 .navbar-inverse{
   background-color: #484343;
   border-color: #080808
@@ -23,7 +74,7 @@
 }
 
 .picSize {
-  width: 100px;
+  width: 160px;
   height: 100px
 }
 
@@ -31,9 +82,11 @@
   display: none
 }
 .eventsContainer {
-  border: 1px solid black;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  max-height: 350px;
+  overflow-y: auto;
+  
 }
 
 .eventCard {
@@ -47,4 +100,21 @@
 
 .firstEvent {
   background-color: goldenrod;
+}
+
+.newsContainer{
+  max-height: 350px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.messagesContainer{
+  padding: 5px;
+  margin-top: 25px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.lineBreak{
+  border-bottom: 2px solid black;
 }
