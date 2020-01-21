@@ -83,7 +83,15 @@ export const EventList = () => {
             updatedCombinedArray.sort(function(a,b){
                 return new Date(a.date) - new Date(b.date);
             })
+            let firstEvent = document.querySelector(".firstEvent")
+            if (firstEvent != null) {
+                firstEvent.classList.remove(".firstEvent")
+            }
             render(updatedCombinedArray)
+            let firstEventId = updatedCombinedArray[0].id
+            let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
+            let firstEventSection = firstEventDialog.closest(".eventCard")
+            firstEventSection.classList.add("firstEvent")
             renderForm()
             renderButton()
             EventEditRender(updatedCombinedArray)
@@ -95,7 +103,15 @@ export const EventList = () => {
     combinedArray.sort(function(a,b){
         return new Date(a.date) - new Date(b.date);
     })
+    let firstEvent = document.querySelector(".firstEvent")
+    if (firstEvent != null) {
+        firstEvent.classList.remove(".firstEvent")
+    }
     render(combinedArray)
+    let firstEventId = combinedArray[0].id
+    let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
+    let firstEventSection = firstEventDialog.closest(".eventCard")
+    firstEventSection.classList.add("firstEvent")
     renderForm()
     EventEditRender(combinedArray)
     EventDeleteRender(combinedArray)
@@ -183,7 +199,15 @@ eventHub.addEventListener("click", clickEvent => {
                 updatedEvents.sort(function(a,b){
                     return new Date(a.date) - new Date(b.date);
                 })
+                let firstEvent = document.querySelector(".firstEvent")
+                if (firstEvent != null) {
+                    firstEvent.classList.remove(".firstEvent")
+                }
                 render(updatedEvents)
+                let firstEventId = updatedEvents[0].id
+                let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
+                let firstEventSection = firstEventDialog.closest(".eventCard")
+                firstEventSection.classList.add("firstEvent")
                 EventEditRender(updatedEvents)
                 EventDeleteRender(updatedEvents)
                 renderForm()
@@ -202,7 +226,15 @@ eventHub.addEventListener("click", event => {
             updatedEvents.sort(function(a,b){
                 return new Date(a.date) - new Date(b.date);
             })
+            let firstEvent = document.querySelector(".firstEvent")
+            if (firstEvent != null) {
+                firstEvent.classList.remove(".firstEvent")
+            }
             render(updatedEvents)
+            let firstEventId = updatedEvents[0].id
+            let firstEventDialog = document.querySelector(`#eventDetails--${firstEventId}`)
+            let firstEventSection = firstEventDialog.closest(".eventCard")
+            firstEventSection.classList.add("firstEvent")
             EventEditRender(updatedEvents)
             EventDeleteRender(updatedEvents)
             renderForm()
