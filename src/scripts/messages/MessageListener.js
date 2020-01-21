@@ -9,7 +9,6 @@ export const MessageEventListener = () => {
       clickEvent.target.id === "button--saveUser"
     ) {
       MessageList()
-      document.querySelector(".navbar").classList.remove("hidden")
       
     }
   });

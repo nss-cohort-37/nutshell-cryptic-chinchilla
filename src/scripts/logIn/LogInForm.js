@@ -1,5 +1,5 @@
 import { saveUser, useUsers } from "../users/UsersProvider.js";
-import { refreshDashboard } from "../dashboardEvents/DashboardLoad.js";
+import { refreshDashboard, initiateDashboardEventListener } from "../dashboardEvents/DashboardLoad.js";
 
 const eventHub = document.querySelector(".container");
 
@@ -64,7 +64,8 @@ export const logInEvent = () => {
       } else {
         sessionStorage.setItem("activeUser", foundUser.id);
         const contentTarget = document.querySelector(".logInForm");
-        contentTarget.innerHTML = "";
+        contentTarget.innerHTML = ""
+        initiateDashboardEventListener()
       }
     }
     if (event.target.id === "button--saveUser") {

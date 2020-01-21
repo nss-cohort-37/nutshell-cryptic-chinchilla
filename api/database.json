@@ -41,6 +41,12 @@
       "email": "abc",
       "password": "123",
       "id": 7
+    },
+    {
+      "userName": "abc",
+      "email": "abc",
+      "password": "123",
+      "id": 8
     }
   ],
   "news": [
@@ -147,7 +153,6 @@
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
     },
-   
     {
       "userId": 1,
       "message": "test message",

@@ -30,12 +30,7 @@ export const refreshDashboard = () => {
 }
 
 export const initiateDashboardEventListener = () => {
-eventHub.addEventListener("click", clickEvent => {
-  if (
-    // clickEvent.target.id === "button--saveUser" ||
-    clickEvent.target.id === "button--logIn"
-  ) {
-    if (sessionStorage.getItem("activeUser") !== null) {
+
     FriendsListComponent()
     MessageList()
     EventList()
@@ -47,4 +42,6 @@ eventHub.addEventListener("click", clickEvent => {
     TaskListForm()
     TaskList()
     TaskDialog()
-}}})}
+    document.querySelector(".navbar").classList.remove("hidden")
+
+}
