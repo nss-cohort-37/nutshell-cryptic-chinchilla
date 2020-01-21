@@ -6,10 +6,10 @@ const eventHub = document.querySelector(".container");
 export const logInForm = () => {
   sessionStorage.clear();
   return `
-  <div class="form-group">
+  <div class="form-group logInFormContainer">
   <h1>Welcome!</h1>
   <h3>Please Log In or Register!</h3>
-  <div class="logInUserContainer">
+  <div class="logInUserContainer ">
     <label for="logInUser">User Name:</label>
     <input type="text" class="logInUser form-control" name="logInUser">  
   </div>
@@ -31,6 +31,7 @@ export const logInEvent = () => {
       const contentTarget = document.querySelector(".logInForm");
       contentTarget.innerHTML = `
         <h3>Please Register</h3>
+        <div class="registerContainer">
         <div class="registerUserContainer">
           <label for="registerUser">User Name:</label>
           <input type="text" class="registerUser form-control" name="registerUser">  
@@ -48,6 +49,7 @@ export const logInEvent = () => {
         </div>
         <br>
           <button id="button--saveUser" class="btn btn-primary">Register</button>
+          </div>
       `;
     }
     if (event.target.id === "button--logIn") {
