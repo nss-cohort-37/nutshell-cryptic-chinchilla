@@ -1,6 +1,24 @@
 @import './logIn.css';
 @import './messages.css';
 
+
+
+.renderArea{
+  display: flex;
+  
+}
+.friendsContainer{
+  flex-basis: 25%;
+}
+
+.mainContentSection{
+  flex-basis: 50%;
+}
+
+.taskContentContainer{
+  flex-basis: 25%;
+}
+
 .navbar-inverse{
   background-color: #484343;
   border-color: #080808
@@ -31,7 +49,6 @@
   display: none
 }
 .eventsContainer {
-  border: 1px solid black;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -48,3 +65,5 @@
 .firstEvent {
   background-color: goldenrod;
 }
+
+
