@@ -13,6 +13,7 @@ import { TaskDialog } from "../tasks/taskDialog.js";
 const eventHub = document.querySelector(".container");
 
 export const refreshDashboard = () => {
+  debugger
   NavbarEventListener()
   FriendsListComponent()
   MessageList()
@@ -29,22 +30,18 @@ export const refreshDashboard = () => {
 }
 
 export const initiateDashboardEventListener = () => {
-eventHub.addEventListener("click", clickEvent => {
-  if (
-    // clickEvent.target.id === "button--saveUser" ||
-    clickEvent.target.id === "button--logIn"
-  ) {
-    if (sessionStorage.getItem("activeUser") !== null) {
-    NavbarEventListener()
+  debugger
     FriendsListComponent()
     MessageList()
     EventList()
     NewsList()
     renderSearch()
+    NavbarEventListener()
     renderTaskForm()
     reRenderTask()
     TaskListForm()
     TaskList()
     TaskDialog()
     document.querySelector(".navbar").classList.remove("hidden")
-}}})}
+
+}

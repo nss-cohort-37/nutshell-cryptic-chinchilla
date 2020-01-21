@@ -19,8 +19,8 @@ if(!(sessionStorage.hasOwnProperty("activeUser"))){
     .then(() => getTasks())
     .then(() => {
       logInList()
-      logInEvent()
-    initiateDashboardEventListener()})
+      logInEvent()})
+    
 }
 
 else{

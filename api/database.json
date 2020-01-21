@@ -23,6 +23,30 @@
       "userName": "Onterio",
       "email": "onterio@me.com",
       "password": 123
+    },
+    {
+      "userName": "fkfjeio",
+      "email": "fkeapj",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "userName": "fieowjio",
+      "email": "fnioeanio",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "userName": "abc",
+      "email": "abc",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "userName": "abc",
+      "email": "abc",
+      "password": "123",
+      "id": 8
     }
   ],
   "news": [
@@ -158,6 +182,21 @@
       "id": 2,
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
+    },
+    {
+      "userId": 1,
+      "message": "test message",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "message": "Testing works",
+      "userId": 2
+    },
+    {
+      "userId": 1,
+      "message": "abc",
+      "id": 9
     }
   ],
   "friends": [
