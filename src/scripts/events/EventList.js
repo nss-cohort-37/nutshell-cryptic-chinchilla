@@ -90,11 +90,6 @@ export const EventList = () => {
         }
     })
 
-    
-
-        //saves edit message
-
-
     render(combinedArray)
     renderForm()
     EventEditRender(combinedArray)
@@ -197,5 +192,20 @@ eventHub.addEventListener("click", event => {
             EventDeleteRender(updatedEvents)
             renderForm()
         })
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if(event.target.id.startsWith("xOutEventDialog")) {
+        const dialogTarget = document.querySelector(".eventDialog")
+        dialogTarget.close()
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if(event.target.id.startsWith("xOutEventEditDialog")) {
+        let [prefix, eventId] = event.target.id.split("--")
+        const dialogTarget = document.querySelector(`.xOutEventEditDialog--${eventId}`)
+        dialogTarget.close()
     }
 })

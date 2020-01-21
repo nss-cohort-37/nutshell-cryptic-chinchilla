@@ -97,7 +97,7 @@ export const NewsList = () => {
     renderButton()
 }
 
-// Listens for click of Add Event button
+// Listens for click of Add Article button
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "addNewsButton") {
     const dialogTarget = document.querySelector(".newsDialog")
@@ -105,15 +105,15 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-// Listens for click of Save Event button
+// Listens for click of Save Article button
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "closeNewsDialog") {
         const newArticle = {
             userId: parseInt(sessionStorage.getItem("activeUser"), 10),
-            url: document.getElementById(`newsURL--${news.id}`).value,
-            title: document.getElementById(`newsTitle--${news.id}`).value,
-            synopsis: document.getElementById(`newsSynopsis--${news.id}`).value,
-            date: document.getElementById(`newsDate--${news.id}`).value
+            url: document.getElementById("newsURLText").value,
+            title: document.getElementById("newsTitleText").value,
+            synopsis: document.getElementById("newsSynopsisText").value,
+            date: document.getElementById("newsDateText").value
         }
 
         const message = new CustomEvent("newsSaved", {
@@ -129,7 +129,7 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-//Listens for click of Edit Event button
+//Listens for click of Edit Article button
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("editNews--")) {
     const [prefix, id] = event.target.id.split("--")
@@ -142,7 +142,7 @@ eventHub.addEventListener("click", event => {
     }
 })
 
-//Listens for click of Edit Event button
+//Listens for click of Edit Article button
 eventHub.addEventListener("editNewsButtonClicked", event => {
     const newsToEdit = event.detail.newsId
     const allNews = useNews()
@@ -182,7 +182,7 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
-//Listens for click of Delete Event button
+//Listens for click of Delete Article button
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("deleteNews--")) {
     let [prefix, newsId] = event.target.id.split("--")
@@ -195,5 +195,20 @@ eventHub.addEventListener("click", event => {
             NewsDeleteRender(updatedNews)
             renderForm()
         })
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if(event.target.id.startsWith("xOutNewsDialog")) {
+        const dialogTarget = document.querySelector(".newsDialog")
+        dialogTarget.close()
+    }
+})
+
+eventHub.addEventListener("click", event => {
+    if(event.target.id.startsWith("xOutNewsEditDialog")) {
+        let [prefix, newsId] = event.target.id.split("--")
+        const dialogTarget = document.querySelector(`.xOutNewsEditDialog--${newsId}`)
+        dialogTarget.close()
     }
 })

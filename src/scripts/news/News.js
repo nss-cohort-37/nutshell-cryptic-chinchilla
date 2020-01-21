@@ -8,6 +8,7 @@ export const NewsComponent = news => {
       <div class="editNewsButtonContainer--${news.id}"></div>
       <div class="deleteNewsButtonContainer--${news.id}"></div>
       <dialog  id="newsDetails--${news.id}" class="editNewsDialog">
+        <button id="xOutNewsEditDialog--${news.id}">[X]</button>
         <label for="newsTitle--${news.id}">Article name:</label>
         <input type="text" id="newsTitle--${news.id}" value="${news.title}"></input>
         <label for="newsSynopsis--${news.id}">Article synopsis:</label>
