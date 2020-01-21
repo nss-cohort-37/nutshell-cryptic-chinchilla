@@ -14,7 +14,7 @@ body{
 
 .renderArea{
   display: flex;
-  background-color: rgba(0, 0, 0, 0.151);
+  background-color: rgba(0, 0, 0, 0.26);
 }
 .friendsContainer{
   flex-basis: 25%;
@@ -110,7 +110,7 @@ ul{
 }
 
 .firstEvent {
-  background-color: rgba(218, 165, 32, 0.726);
+  background-color: rgba(218, 165, 32, 0.63);
 }
 
 .newsContainer{

@@ -25,34 +25,10 @@
       "password": "123"
     },
     {
-      "userName": "fkfjeio",
-      "email": "fkeapj",
-      "password": "123",
+      "userName": "Audrey",
+      "email": "audrey@audrey.com",
+      "password": "audrey",
       "id": 5
-    },
-    {
-      "userName": "fieowjio",
-      "email": "fnioeanio",
-      "password": "123",
-      "id": 6
-    },
-    {
-      "userName": "abc",
-      "email": "abc",
-      "password": "123",
-      "id": 7
-    },
-    {
-      "userName": "abc",
-      "email": "abc",
-      "password": "123",
-      "id": 8
-    },
-    {
-      "userName": "james3",
-      "email": "james3",
-      "password": "james11",
-      "id": 9
     }
   ],
   "news": [
@@ -81,7 +57,7 @@
       "date": "1/19/2020"
     },
     {
-      "userId": 1,
+      "userId": 4,
       "url": "https://www.livescience.com/what-if-flat-earth.html",
       "title": "What If the Earth Was Flat?",
       "synopsis": "It is",
@@ -98,11 +74,18 @@
       "id": 5
     },
     {
-      "userId": 1,
+      "userId": 2,
       "name": "Point a Laser Pointer Across the Earth",
       "date": "Mon Feb 03 2020 12:00:00 GMT-0600 (Central Standard Time)",
       "location": "Across the Universe",
       "id": 6
+    },
+    {
+      "userId": 4,
+      "name": "\"Behind the Curve\" Viewing Party",
+      "date": "Sun Mar 01 2020 21:15:00 GMT-0600 (Central Standard Time)",
+      "location": "LA",
+      "id": 8
     }
   ],
   "tasks": [
@@ -121,32 +104,11 @@
       "isCompleted": false
     },
     {
-      "userId": 1,
-      "name": "Do work",
-      "completionDate": "2020-02-02",
-      "id": 10,
-      "isCompleted": true
-    },
-    {
-      "userId": 1,
-      "name": "Do more work harder",
-      "completionDate": "2020-02-21",
-      "id": 11,
-      "isCompleted": false
-    },
-    {
-      "userId": 1,
-      "name": "tesa",
-      "completionDate": "",
+      "userId": 4,
+      "name": "Convince the neighbors that the Earth is flat",
+      "completionDate": "2020-01-24",
       "isCompleted": false,
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "name": "taest",
-      "completionDate": "",
-      "isCompleted": false,
-      "id": 13
+      "id": 5
     }
   ],
   "messages": [
@@ -163,18 +125,6 @@
   ],
   "friends": [
     {
-      "friendInitiateId": 2,
-      "userId": 1,
-      "active": true,
-      "id": 5
-    },
-    {
-      "userId": 3,
-      "friendInitiateId": 2,
-      "active": true,
-      "id": 6
-    },
-    {
       "userId": 2,
       "friendInitiateId": 1,
       "active": true,
@@ -187,10 +137,40 @@
       "id": 10
     },
     {
+      "userId": 3,
+      "friendInitiateId": 4,
+      "active": true,
+      "id": 12
+    },
+    {
+      "friendInitiateId": 4,
+      "userId": 1,
+      "active": true,
+      "id": 13
+    },
+    {
       "friendInitiateId": 2,
       "userId": 4,
       "active": true,
-      "id": 11
+      "id": 14
+    },
+    {
+      "friendInitiateId": 2,
+      "userId": 1,
+      "active": true,
+      "id": 15
+    },
+    {
+      "userId": 3,
+      "friendInitiateId": 2,
+      "active": true,
+      "id": 16
+    },
+    {
+      "userId": 3,
+      "friendInitiateId": 5,
+      "active": true,
+      "id": 17
     }
   ]
 }

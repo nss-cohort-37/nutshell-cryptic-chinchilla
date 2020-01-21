@@ -1,6 +1,7 @@
 import { FriendCard } from "./FriendCard.js";
 import { useFriends, SaveFriends } from "./FriendsProvider.js";
 import { useUsers } from "../users/UsersProvider.js";
+import { refreshDashboard } from "../dashboardEvents/DashboardLoad.js";
 
 const eventHub = document.querySelector(".container");
 const contentElement = document.querySelector(".friendsCards");
@@ -13,7 +14,9 @@ eventHub.addEventListener("newFriend", event => {
     const updatedFoundFriendsArray = updatedFriends.filter(
       friendRel => friendRel.friendInitiateId === activeUserId
     );
-    render(updatedFoundFriendsArray);
+    // render(updatedFoundFriendsArray);
+    refreshDashboard()
+
   })
 })
 
@@ -47,7 +50,9 @@ eventHub.addEventListener("friendNameClicked", event => {
         const updatedFoundFriendsArray = updatedFriends.filter(
           friendRel => friendRel.friendInitiateId === activeUserId
         );
-        render(updatedFoundFriendsArray);
+        // render(updatedFoundFriendsArray)
+     
+        refreshDashboard()
       })
     } else {
       alert("User is already a friend");
@@ -81,7 +86,9 @@ eventHub.addEventListener("friendDeleted", () => {
     friendRel => friendRel.friendInitiateId === activeUserId
   );
   contentElement.innerHTML = "";
-  render(updatedFoundFriendsArray);
+  // render(updatedFoundFriendsArray);
+  refreshDashboard()
+
 });
 
 
