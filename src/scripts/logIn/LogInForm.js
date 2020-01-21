@@ -54,7 +54,7 @@ export const logInEvent = () => {
       const userNamePW = document.querySelector(".logInPass").value;
       const foundUser = users.find(user => user.userName === userName);
       const foundUserPassWord = users.find(
-        user => user.password === parseInt(userNamePW)
+        user => user.password === userNamePW
       );
       if (foundUser === undefined) {
         alert("Please register a new Account!");
