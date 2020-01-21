@@ -5,6 +5,8 @@ const eventHub = document.querySelector(".container");
 const messagesEventHub = document.querySelector(".appContainer");
 const contentElement = document.querySelector(".navbar");
 
+
+
 export const NavbarEventListener = () => {
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "logOut") {
@@ -22,6 +24,8 @@ export const NavbarEventListener = () => {
       document.querySelector(".messagesContainer").innerHTML = "";
       document.querySelector(".messagesForm").innerHTML = "";
       document.querySelector(".taskForm").innerHTML = "";
+      document.querySelector(".navbar").classList.add("hidden")
+
       logInList();
     }
   });
