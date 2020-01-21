@@ -11,8 +11,10 @@ body{
 
 
 
+
 .renderArea{
   display: flex;
+  background-color: rgba(0, 0, 0, 0.151);
 }
 .friendsContainer{
   flex-basis: 25%;
@@ -26,6 +28,7 @@ body{
 .friendCard{
   margin-top: 20px;
   text-align: center;
+  color: black;
 }
 
 .mainContentSection{
