@@ -8,7 +8,8 @@ export const MessageEventListener = () => {
       clickEvent.target.id === "button--logIn" ||
       clickEvent.target.id === "button--saveUser"
     ) {
-      MessageList();
+      MessageList()
+      document.querySelector(".navbar").classList.remove("hidden")
       
     }
   });

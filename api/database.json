@@ -23,6 +23,24 @@
       "userName": "Onterio",
       "email": "onterio@me.com",
       "password": 123
+    },
+    {
+      "userName": "fkfjeio",
+      "email": "fkeapj",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "userName": "fieowjio",
+      "email": "fnioeanio",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "userName": "abc",
+      "email": "abc",
+      "password": "123",
+      "id": 7
     }
   ],
   "news": [
@@ -129,39 +147,19 @@
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
     },
-    {
-      "userId": 1,
-      "message": "knqwio",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "message": "knqwio",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "message": "fw",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "message": "fw",
-      "id": 6
-    },
+   
     {
       "userId": 1,
       "message": "test message",
       "id": 7
+    },
+    {
+      "id": 8,
+      "message": "Testing works",
+      "userId": 2
     }
   ],
   "friends": [
-    {
-      "friendInitiateId": 2,
-      "userId": 3,
-      "active": true,
-      "id": 2
-    },
     {
       "friendInitiateId": 1,
       "userId": 2,
@@ -173,6 +171,18 @@
       "friendInitiateId": 1,
       "active": true,
       "id": 4
+    },
+    {
+      "friendInitiateId": 2,
+      "userId": 1,
+      "active": true,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "friendInitiateId": 2,
+      "active": true,
+      "id": 6
     }
   ]
 }
