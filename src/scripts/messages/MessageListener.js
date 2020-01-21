@@ -8,7 +8,7 @@ export const MessageEventListener = () => {
       clickEvent.target.id === "button--logIn" ||
       clickEvent.target.id === "button--saveUser"
     ) {
-      MessageList();
+      MessageList()
       
     }
   });
