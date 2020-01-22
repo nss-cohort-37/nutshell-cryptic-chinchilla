@@ -11,6 +11,16 @@ import { TaskDialog } from "../tasks/taskDialog.js";
 
 const eventHub = document.querySelector(".container");
 
+const removeTitleHiddenClass = () => {
+  document.querySelector(".sectionTitleFriends").classList.remove("hidden");
+  document.querySelector(".sectionTitleNews").classList.remove("hidden");
+  document.querySelector(".sectionTitleEvents").classList.remove("hidden");
+  document.querySelector(".sectionTitleMessages").classList.remove("hidden");
+  document.querySelector(".sectionTitleTasks").classList.remove("hidden");
+
+
+}
+
 export const refreshDashboard = () => {
   FriendsListComponent();
   MessageList();
@@ -24,6 +34,7 @@ export const refreshDashboard = () => {
   EventList();
   NewsList();
   renderNavbarTitle()
+  removeTitleHiddenClass()
   document.querySelector(".navbar").classList.remove("hidden");
 };
 
@@ -39,5 +50,6 @@ export const initiateDashboardEventListener = () => {
   TaskList();
   TaskDialog();
   renderNavbarTitle()
+  removeTitleHiddenClass()
   document.querySelector(".navbar").classList.remove("hidden");
 };

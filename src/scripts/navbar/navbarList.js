@@ -31,6 +31,11 @@ export const NavbarEventListener = () => {
       document.querySelector(".messagesContainer").innerHTML = "";
       document.querySelector(".messagesForm").innerHTML = "";
       document.querySelector(".taskForm").innerHTML = "";
+      document.querySelector(".sectionTitleFriends").classList.add("hidden")
+      document.querySelector(".sectionTitleNews").classList.add("hidden")
+      document.querySelector(".sectionTitleEvents").classList.add("hidden")
+      document.querySelector(".sectionTitleTasks").classList.add("hidden")
+      document.querySelector(".sectionTitleMessages").classList.add("hidden")
       document.querySelector(".navbar").classList.add("hidden")
       logInList();
     }
