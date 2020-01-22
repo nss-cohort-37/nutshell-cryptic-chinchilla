@@ -26,7 +26,7 @@ body{
 }
 
 .friendCard{
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
   color: black;
 }
@@ -45,7 +45,7 @@ ul{
 
 .tasksContainer{
   overflow-y: auto;
-  max-height: 500px;
+  max-height: 700px;
 }
 
 .taskFormCard{
@@ -55,7 +55,6 @@ ul{
 .taskCard{
   margin-bottom: 30px;
   padding-bottom: 10px;
-  border-bottom: 2px solid black;
 }
 
 .taskForm{
@@ -93,7 +92,7 @@ ul{
 }
 .eventsContainer {
   margin-top: 25px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   max-height: 350px;
   overflow-y: auto;
   
@@ -101,8 +100,7 @@ ul{
 
 
 .eventCard {
-  border: 1px solid black;
-  margin: 2px;
+  margin-bottom: 20px;
 }
 
 .firstEvent div {
@@ -110,15 +108,19 @@ ul{
 }
 
 .firstEvent {
-  background-color: rgba(218, 165, 32, 0.63);
+  background-color: rgba(218, 165, 32, 0.514);
 }
 
 .newsContainer{
   max-height: 350px;
   overflow-y: auto;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
+.newsCard {
+  margin-bottom: 20px;
+
+}
 
 .messagesContainer{
   padding: 5px;
@@ -129,4 +131,17 @@ ul{
 
 .lineBreak{
   border-bottom: 2px solid black;
+}
+
+.messageUsername:hover {
+  cursor: pointer;
+  color: chartreuse
+}
+
+.message{
+  margin-bottom: 10pt;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

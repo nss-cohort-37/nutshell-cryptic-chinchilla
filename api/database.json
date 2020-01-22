@@ -86,6 +86,13 @@
       "date": "Sun Mar 01 2020 21:15:00 GMT-0600 (Central Standard Time)",
       "location": "LA",
       "id": 8
+    },
+    {
+      "userId": 3,
+      "name": "Flat Earthers Meet Up",
+      "date": "Fri Jan 31 2020 17:30:00 GMT-0600 (Central Standard Time)",
+      "location": "Nashville",
+      "id": 9
     }
   ],
   "tasks": [
@@ -142,6 +149,16 @@
       "id": 2,
       "userId": 3,
       "message": "Meet me at the Ice Wall tomorrow?"
+    },
+    {
+      "userId": 2,
+      "message": "Glad to see so many people who understand the truth and don't fall for NASA's lies!",
+      "id": 3
+    },
+    {
+      "userId": 4,
+      "message": "Heard someone almost fell off the edge today...but it was actually just a steep hill.",
+      "id": 4
     }
   ],
   "friends": [
@@ -156,18 +173,6 @@
       "userId": 1,
       "active": true,
       "id": 13
-    },
-    {
-      "friendInitiateId": 2,
-      "userId": 4,
-      "active": true,
-      "id": 14
-    },
-    {
-      "friendInitiateId": 2,
-      "userId": 1,
-      "active": true,
-      "id": 15
     },
     {
       "userId": 3,
