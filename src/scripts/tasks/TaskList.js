@@ -5,6 +5,8 @@ const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".tasksContainer");
 
 export const TaskList = () => {
+  const allTasks=useTasks()
+}
   // Edit Task clicked and Custon Event dispatched
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("editTask--")) {
@@ -80,7 +82,7 @@ export const TaskList = () => {
     document.querySelector("#task-date").value = "";
     document.querySelector("#hidden-value").value = "";
   };
-};
+;
 
 // render all tasks that are not hidden
 export const reRenderTask = () => {

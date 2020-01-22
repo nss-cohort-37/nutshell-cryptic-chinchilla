@@ -67,11 +67,11 @@
   ],
   "events": [
     {
+      "id": 5,
       "userId": 1,
-      "name": "NASA Lies",
+      "name": "NASA Always Lies About Everything",
       "date": "Tue Feb 02 2021 12:00:00 GMT-0600 (Central Standard Time)",
-      "location": "Ice Wall",
-      "id": 5
+      "location": "Ice Wall"
     },
     {
       "userId": 2,
@@ -109,6 +109,27 @@
       "completionDate": "2020-01-24",
       "isCompleted": false,
       "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "Debunk NASA",
+      "completionDate": "2020-01-23",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "name": "Present my findings",
+      "completionDate": "2020-01-25",
+      "isCompleted": false,
+      "id": 7
+    },
+    {
+      "userId": 3,
+      "name": "Find the Ice Wall",
+      "completionDate": "2020-01-29",
+      "isCompleted": false,
+      "id": 8
     }
   ],
   "messages": [
@@ -124,18 +145,6 @@
     }
   ],
   "friends": [
-    {
-      "userId": 2,
-      "friendInitiateId": 1,
-      "active": true,
-      "id": 9
-    },
-    {
-      "friendInitiateId": 1,
-      "userId": 3,
-      "active": true,
-      "id": 10
-    },
     {
       "userId": 3,
       "friendInitiateId": 4,
@@ -171,6 +180,18 @@
       "friendInitiateId": 5,
       "active": true,
       "id": 17
+    },
+    {
+      "friendInitiateId": 1,
+      "userId": 2,
+      "active": true,
+      "id": 18
+    },
+    {
+      "friendInitiateId": 3,
+      "userId": 1,
+      "active": true,
+      "id": 19
     }
   ]
 }
