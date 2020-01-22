@@ -130,3 +130,11 @@ ul{
 .lineBreak{
   border-bottom: 2px solid black;
 }
+
+
+.registerEmailContainer{
+  margin-bottom: 19px;
+}
+.registerUserContainer{
+  margin-bottom: 19px;
+}
