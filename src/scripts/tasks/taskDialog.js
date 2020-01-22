@@ -2,7 +2,7 @@ export const TaskDialog = () => {
   const eventHub = document.querySelector(".container");
 
   eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.classList.contains("editTask")) {
+    if (clickEvent.target.id.startsWith("editTask--")) {
       const dialogElement = document.querySelector(
         `#${clickEvent.target.id} + dialog`
       );
