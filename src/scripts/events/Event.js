@@ -4,7 +4,7 @@ export const EventComponent = event => {
       <div class="eventCardInfo">Name: ${event.name}</div>
       <div class="eventCardInfo">Date: ${event.date}</div>
       <div class="eventCardInfo">Location: ${event.location}</div>
-      <div class="editButtonContainer--${event.id}"></div>
+      <div class="editButtonContainer--${event.id}" style="float: left; margin-right: 5px;"></div>
       <div class="deleteButtonContainer--${event.id}"></div>
       <dialog  id="eventDetails--${event.id}" class="editEventDialog">
         <button id="xOutEventEditDialog--${event.id}">&times</button>
