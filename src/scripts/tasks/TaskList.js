@@ -5,8 +5,20 @@ const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".tasksContainer");
 
 export const TaskList = () => {
-  reRenderTask();
+  const allTasks = useTasks();
 };
+// Edit Task clicked and Custon Event dispatched
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("editTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    const editTaskCustomEvent = new CustomEvent("edit-btn-has-been-click", {
+      detail: {
+        taskId: taskId
+      }
+    });
+    eventHub.dispatchEvent(editTaskCustomEvent);
+  }
+});
 
 // Edit Task clicked and Custon Event dispatched
 eventHub.addEventListener("click", clickEvent => {
@@ -71,13 +83,11 @@ eventHub.addEventListener("update", clickEvent => {
   clearAllValues();
 });
 
-// Render all tasks that are not hidden once logged in
-eventHub.addEventListener("click", clickEvent => {
-  if (clickEvent.target.id === "button--logIn") {
-    reRenderTask();
-  }
-});
-
+const clearAllValues = () => {
+  document.querySelector("#task-name").value = "";
+  document.querySelector("#task-date").value = "";
+  document.querySelector("#hidden-value").value = "";
+};
 const clearAllValues = () => {
   document.querySelector("#task-name").value = "";
   document.querySelector("#task-date").value = "";

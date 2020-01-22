@@ -1,8 +1,17 @@
 import { logInList } from "../logIn/LogInList.js";
+import { useUsers } from "../users/UsersProvider.js";
 
 const eventHub = document.querySelector(".container");
 const messagesEventHub = document.querySelector(".appContainer");
-const contentElement = document.querySelector(".navbar");
+
+export const renderNavbarTitle = () => {
+  const contentElement = document.querySelector("#navbarTitle");
+
+  const allUsers = useUsers()
+  const activeUserId = parseInt(sessionStorage.getItem("activeUser"), 10);
+  const activeUser = allUsers.find(user => user.id === activeUserId)
+  contentElement.innerHTML = `${activeUser.userName}, You're so much smarter than literally everyone else`
+}
 
 
 
@@ -22,6 +31,11 @@ export const NavbarEventListener = () => {
       document.querySelector(".messagesContainer").innerHTML = "";
       document.querySelector(".messagesForm").innerHTML = "";
       document.querySelector(".taskForm").innerHTML = "";
+      document.querySelector(".sectionTitleFriends").classList.add("hidden")
+      document.querySelector(".sectionTitleNews").classList.add("hidden")
+      document.querySelector(".sectionTitleEvents").classList.add("hidden")
+      document.querySelector(".sectionTitleTasks").classList.add("hidden")
+      document.querySelector(".sectionTitleMessages").classList.add("hidden")
       document.querySelector(".navbar").classList.add("hidden")
       logInList();
     }
