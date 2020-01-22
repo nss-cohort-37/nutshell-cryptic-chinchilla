@@ -4,86 +4,87 @@ import { TaskComponent } from "./Task.js";
 const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".tasksContainer");
 
-export const TaskList = () => {
-  const allTasks=useTasks()
-}
-  // Edit Task clicked and Custon Event dispatched
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("editTask--")) {
-      const [prefix, taskId] = clickEvent.target.id.split("--");
-      const editTaskCustomEvent = new CustomEvent("edit-btn-has-been-click", {
-        detail: {
-          taskId: taskId
-        }
-      });
-      eventHub.dispatchEvent(editTaskCustomEvent);
-    }
-  });
+// Edit Task clicked and Custon Event dispatched
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("editTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    const editTaskCustomEvent = new CustomEvent("edit-btn-has-been-click", {
+      detail: {
+        taskId: taskId
+      }
+    });
+    eventHub.dispatchEvent(editTaskCustomEvent);
+  }
+});
 
-  // Save Task clicked and Custom Event dispatched
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("saveTask--")) {
-      const taskName = document.querySelector("#task-name").value;
-      const taskCompletionDate = document.querySelector("#task-date").value;
-      const hiddenValue = document.querySelector("#hidden-value").value;
-      const taskCompleted = false;
+// Edit Task clicked and Custon Event dispatched
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("editTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    const editTaskCustomEvent = new CustomEvent("edit-btn-has-been-click", {
+      detail: {
+        taskId: taskId
+      }
+    });
+    eventHub.dispatchEvent(editTaskCustomEvent);
+  }
+});
 
-      const saveNewTaskCustomEvent = new CustomEvent("task-saved", {
-        detail: {
-          taskName: taskName,
-          taskCompletionDate: taskCompletionDate,
-          taskHiddenValue: hiddenValue,
-          isCompleted: taskCompleted
-        }
-      });
-      eventHub.dispatchEvent(saveNewTaskCustomEvent);
-    }
-  });
+// Save Task clicked and Custom Event dispatched
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("saveTask--")) {
+    const taskName = document.querySelector("#task-name").value;
+    const taskCompletionDate = document.querySelector("#task-date").value;
+    const hiddenValue = document.querySelector("#hidden-value").value;
+    const taskCompleted = false;
 
-  // Delete tasks clicked, tasks deleted, and tasked updated
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("deleteTask--")) {
-      const [prefix, taskId] = clickEvent.target.id.split("--");
-      deleteTask(taskId).then(() => {
-        reRenderTask();
-        clearAllValues();
-      });
-    }
-  });
+    const saveNewTaskCustomEvent = new CustomEvent("task-saved", {
+      detail: {
+        taskName: taskName,
+        taskCompletionDate: taskCompletionDate,
+        taskHiddenValue: hiddenValue,
+        isCompleted: taskCompleted
+      }
+    });
+    eventHub.dispatchEvent(saveNewTaskCustomEvent);
+  }
+});
 
-  // Hide tasks clicked and custom event created
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("hideTask--")) {
-      const [prefix, taskId] = clickEvent.target.id.split("--");
-      const hideTask = new CustomEvent("hideTask", {
-        detail: {
-          taskId: taskId
-        }
-      });
-      eventHub.dispatchEvent(hideTask);
-    }
-  });
-
-  // Update tasks array, render all tasks that are not hidden, and clear values once new tasks are created, edited, or hidden
-  eventHub.addEventListener("update", clickEvent => {
-    reRenderTask();
-    clearAllValues();
-  });
-
-  // Render all tasks that are not hidden once logged in
-  eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "button--logIn") {
+// Delete tasks clicked, tasks deleted, and tasked updated
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("deleteTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    deleteTask(taskId).then(() => {
       reRenderTask();
-    }
-  });
+      clearAllValues();
+    });
+  }
+});
 
-  const clearAllValues = () => {
-    document.querySelector("#task-name").value = "";
-    document.querySelector("#task-date").value = "";
-    document.querySelector("#hidden-value").value = "";
-  };
-;
+// Hide tasks clicked and custom event created
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("hideTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    const hideTask = new CustomEvent("hideTask", {
+      detail: {
+        taskId: taskId
+      }
+    });
+    eventHub.dispatchEvent(hideTask);
+  }
+});
 
+// Update tasks array, render all tasks that are not hidden, and clear values once new tasks are created, edited, or hidden
+eventHub.addEventListener("update", clickEvent => {
+  reRenderTask();
+  clearAllValues();
+});
+
+const clearAllValues = () => {
+  document.querySelector("#task-name").value = "";
+  document.querySelector("#task-date").value = "";
+  document.querySelector("#hidden-value").value = "";
+};
 // render all tasks that are not hidden
 export const reRenderTask = () => {
   const allTasks = useTasks();
@@ -105,11 +106,3 @@ const renderTask = taskCollection => {
     })
     .join("");
 };
-
-eventHub.addEventListener("click", event => {
-  if(event.target.id.startsWith("xOutTaskEditDialog")) {
-      let [prefix, taskId] = event.target.id.split("--")
-      const dialogTarget = document.querySelector(`#taskDialog--${taskId}`)
-      dialogTarget.close()
-  }
-})
