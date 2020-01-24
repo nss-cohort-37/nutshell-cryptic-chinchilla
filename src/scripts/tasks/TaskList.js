@@ -4,20 +4,7 @@ import { TaskComponent } from "./Task.js";
 const eventHub = document.querySelector(".container");
 const targetElement = document.querySelector(".tasksContainer");
 
-// Edit Task clicked and Custon Event dispatched
-eventHub.addEventListener("click", clickEvent => {
-  if (clickEvent.target.id.startsWith("editTask--")) {
-    const [prefix, taskId] = clickEvent.target.id.split("--");
-    const editTaskCustomEvent = new CustomEvent("edit-btn-has-been-click", {
-      detail: {
-        taskId: taskId
-      }
-    });
-    eventHub.dispatchEvent(editTaskCustomEvent);
-  }
-});
-
-// Edit Task clicked and Custon Event dispatched
+// Edit Task clicked and Custom Event dispatched
 eventHub.addEventListener("click", clickEvent => {
   if (clickEvent.target.id.startsWith("editTask--")) {
     const [prefix, taskId] = clickEvent.target.id.split("--");
